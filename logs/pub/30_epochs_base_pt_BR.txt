@@ -1,0 +1,2109 @@
+C:\Users\aceite\anaconda3\envs\ner-noticias-mapa\python.exe C:/projetos/ner-noticiais-mapa/main.py
+loading file https://huggingface.co/neuralmind/bert-base-portuguese-cased/resolve/main/vocab.txt from cache at C:\Users\aceite/.cache\huggingface\transformers\aa6d50227b77416b26162efcf0cc9e9a702d13920840322060a2b41a44a8aff4.af25fb1e29ad0175300146695fd80069be69b211c52fa5486fa8aae2754cc814
+loading file https://huggingface.co/neuralmind/bert-base-portuguese-cased/resolve/main/tokenizer.json from cache at None
+loading file https://huggingface.co/neuralmind/bert-base-portuguese-cased/resolve/main/added_tokens.json from cache at C:\Users\aceite/.cache\huggingface\transformers\9188d297517828a862f4e0b0700968574ca7ad38fbc0832c409bf7a9e5576b74.5cc6e825eb228a7a5cfd27cb4d7151e97a79fb962b31aaf1813aa102e746584b
+loading file https://huggingface.co/neuralmind/bert-base-portuguese-cased/resolve/main/special_tokens_map.json from cache at C:\Users\aceite/.cache\huggingface\transformers\eecc45187d085a1169eed91017d358cc0e9cbdd5dc236bcd710059dbf0a2f816.dd8bd9bfd3664b530ea4e645105f557769387b3da9f79bdb55ed556bdd80611d
+loading file https://huggingface.co/neuralmind/bert-base-portuguese-cased/resolve/main/tokenizer_config.json from cache at C:\Users\aceite/.cache\huggingface\transformers\f1a9ba41d40e8c6f5ba4988aa2f7702c3b43768183e4b82483e04f2848841ecf.a6c00251b9344c189e2419373d6033016d0cd3d87ea59f6c86069046ac81956d
+loading configuration file https://huggingface.co/neuralmind/bert-base-portuguese-cased/resolve/main/config.json from cache at C:\Users\aceite/.cache\huggingface\transformers\e716e2151985ba669e7197b64cdde2552acee146494d40ffaf0688a3f152e6ed.18a0b8b86f3ebd4c8a1d8d6199178feae9971ff5420f1d12f0ed8326ffdff716
+Model config BertConfig {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "directionality": "bidi",
+  "gradient_checkpointing": false,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "id2label": {
+    "0": "B-LOC",
+    "1": "B-ORG",
+    "2": "B-PESSOA",
+    "3": "B-PUB",
+    "4": "I-LOC",
+    "5": "I-ORG",
+    "6": "I-PESSOA",
+    "7": "I-PUB",
+    "8": "O"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "label2id": {
+    "B-LOC": 0,
+    "B-ORG": 1,
+    "B-PESSOA": 2,
+    "B-PUB": 3,
+    "I-LOC": 4,
+    "I-ORG": 5,
+    "I-PESSOA": 6,
+    "I-PUB": 7,
+    "O": 8
+  },
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "output_past": true,
+  "pad_token_id": 0,
+  "pooler_fc_size": 768,
+  "pooler_num_attention_heads": 12,
+  "pooler_num_fc_layers": 3,
+  "pooler_size_per_head": 128,
+  "pooler_type": "first_token_transform",
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.5.1",
+  "type_vocab_size": 2,
+  "use_cache": true,
+  "vocab_size": 29794
+}
+
+loading weights file https://huggingface.co/neuralmind/bert-base-portuguese-cased/resolve/main/pytorch_model.bin from cache at C:\Users\aceite/.cache\huggingface\transformers\1e42c907c340c902923496246dae63e33f64955c529720991b7ec5543a98e442.fa492fca6dcee85bef053cc60912a211feb1f7173129e4eb1a5164e817f2f5f2
+Some weights of the model checkpoint at neuralmind/bert-base-portuguese-cased were not used when initializing BertNER: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias', 'bert.pooler.dense.weight', 'bert.pooler.dense.bias']
+- This IS expected if you are initializing BertNER from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertNER from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of BertNER were not initialized from the model checkpoint at neuralmind/bert-base-portuguese-cased and are newly initialized: ['classifier.weight', 'classifier.bias', 'loss_function.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+PyTorch: setting up devices
+The default value for the training argument `--report_to` will change in v5 (from all installed integrations to none). In v5, you will need to use `--report_to all` to get the same behavior as now. You should start updating your code and make this info disappear :-).
+***** Running training *****
+  Num examples = 400
+  Num Epochs = 30
+  Instantaneous batch size per device = 3
+  Total train batch size (w. parallel, distributed & accumulation) = 3
+  Gradient Accumulation steps = 1
+  Total optimization steps = 4020
+  0%|          | 10/4020 [00:02<13:47,  4.85it/s]{'loss': 1.9144, 'learning_rate': 1.0000000000000002e-06, 'epoch': 0.07}
+  0%|          | 20/4020 [00:04<14:01,  4.75it/s]{'loss': 1.7822, 'learning_rate': 2.0000000000000003e-06, 'epoch': 0.15}
+  1%|          | 30/4020 [00:06<13:00,  5.11it/s]{'loss': 1.5777, 'learning_rate': 3e-06, 'epoch': 0.22}
+  1%|          | 40/4020 [00:08<13:04,  5.07it/s]{'loss': 1.2724, 'learning_rate': 4.000000000000001e-06, 'epoch': 0.3}
+  1%|          | 50/4020 [00:10<12:50,  5.15it/s]{'loss': 0.8709, 'learning_rate': 5e-06, 'epoch': 0.37}
+  1%|▏         | 60/4020 [00:12<12:55,  5.11it/s]{'loss': 0.5704, 'learning_rate': 6e-06, 'epoch': 0.45}
+  2%|▏         | 70/4020 [00:14<12:24,  5.30it/s]{'loss': 0.5424, 'learning_rate': 7.000000000000001e-06, 'epoch': 0.52}
+  2%|▏         | 80/4020 [00:16<12:41,  5.18it/s]{'loss': 0.4924, 'learning_rate': 8.000000000000001e-06, 'epoch': 0.6}
+  2%|▏         | 90/4020 [00:18<12:24,  5.28it/s]{'loss': 0.3383, 'learning_rate': 9e-06, 'epoch': 0.67}
+  2%|▏         | 100/4020 [00:20<11:57,  5.46it/s]{'loss': 0.3163, 'learning_rate': 1e-05, 'epoch': 0.75}
+  3%|▎         | 110/4020 [00:22<12:07,  5.37it/s]{'loss': 0.2776, 'learning_rate': 1.1000000000000001e-05, 'epoch': 0.82}
+  3%|▎         | 120/4020 [00:24<12:20,  5.27it/s]{'loss': 0.2412, 'learning_rate': 1.2e-05, 'epoch': 0.9}
+  3%|▎         | 130/4020 [00:25<11:57,  5.43it/s]{'loss': 0.241, 'learning_rate': 1.3000000000000001e-05, 'epoch': 0.97}
+  3%|▎         | 134/4020 [00:26<11:48,  5.48it/s]***** Running Evaluation *****
+  Num examples = 100
+  Batch size = 3
+
+  0%|          | 0/34 [00:00<?, ?it/s]
+ 12%|█▏        | 4/34 [00:00<00:00, 36.88it/s]
+ 24%|██▎       | 8/34 [00:00<00:00, 33.38it/s]
+ 35%|███▌      | 12/34 [00:00<00:00, 30.30it/s]
+ 47%|████▋     | 16/34 [00:00<00:00, 30.31it/s]
+ 59%|█████▉    | 20/34 [00:00<00:00, 30.87it/s]
+ 71%|███████   | 24/34 [00:00<00:00, 30.02it/s]
+ 82%|████████▏ | 28/34 [00:00<00:00, 29.49it/s]
+ 94%|█████████▍| 32/34 [00:01<00:00, 29.13it/s]{'TP': 2472, 'FP': 780, 'FN': 335, 'TN': 26706}
+              precision    recall  f1-score   support
+
+         LOC       0.45      0.23      0.30       279
+         ORG       0.55      0.38      0.45       189
+      PESSOA       0.74      0.92      0.82       323
+         PUB       0.54      0.79      0.64       597
+
+   micro avg       0.59      0.65      0.62      1388
+   macro avg       0.57      0.58      0.55      1388
+weighted avg       0.57      0.65      0.59      1388
+
+C:\Users\aceite\anaconda3\envs\ner-noticias-mapa\lib\site-packages\sklearn\utils\validation.py:70: FutureWarning: Pass labels=['B-LOC', 'B-ORG', 'B-PESSOA', 'B-PUB', 'I-LOC', 'I-ORG', 'I-PESSOA', 'I-PUB', 'O'] as keyword args. From version 1.0 (renaming of 0.25) passing these as positional arguments will result in an error
+  warnings.warn(f"Pass {args_msg} as keyword args. From version "
+              precision    recall  f1-score   support
+
+       B-LOC       0.85      0.41      0.55       277
+       B-ORG       0.91      0.37      0.52       187
+    B-PESSOA       0.81      0.88      0.84       322
+       B-PUB       0.82      0.84      0.83       595
+       I-LOC       1.00      0.05      0.10       154
+       I-ORG       0.89      0.61      0.73       296
+    I-PESSOA       0.76      0.97      0.85       434
+       I-PUB       0.68      0.88      0.77      1016
+           O       0.99      0.99      0.99     27012
+
+    accuracy                           0.96     30293
+   macro avg       0.86      0.67      0.69     30293
+weighted avg       0.97      0.96      0.96     30293
+
+f1 0.6160683760683761 f1_masked 0.6824883135562746
+                                                  
+  3%|▎         | 134/4020 [00:29<11:48,  5.48it/s]
+100%|██████████| 34/34 [00:03<00:00, 29.13it/s]
+                                               Saving model checkpoint to ./results/pub/30_epochs_base_pt_BR\checkpoint-134
+Configuration saved in ./results/pub/30_epochs_base_pt_BR\checkpoint-134\config.json
+{'eval_loss': 0.1533065289258957, 'eval_accuracy_score': 0.9631928168223682, 'eval_precision': 0.5862068965517241, 'eval_recall': 0.649135446685879, 'eval_f1': 0.6160683760683761, 'eval_f1_masked': 0.6824883135562746, 'eval_runtime': 3.0329, 'eval_samples_per_second': 32.972, 'epoch': 1.0}
+Model weights saved in ./results/pub/30_epochs_base_pt_BR\checkpoint-134\pytorch_model.bin
+  3%|▎         | 140/4020 [00:32<26:49,  2.41it/s]{'loss': 0.1588, 'learning_rate': 1.4000000000000001e-05, 'epoch': 1.04}
+  4%|▎         | 150/4020 [00:34<13:10,  4.90it/s]{'loss': 0.1019, 'learning_rate': 1.5e-05, 'epoch': 1.12}
+  4%|▍         | 160/4020 [00:36<12:32,  5.13it/s]{'loss': 0.1581, 'learning_rate': 1.6000000000000003e-05, 'epoch': 1.19}
+  4%|▍         | 170/4020 [00:38<12:05,  5.30it/s]{'loss': 0.0929, 'learning_rate': 1.7000000000000003e-05, 'epoch': 1.27}
+  4%|▍         | 180/4020 [00:39<11:52,  5.39it/s]{'loss': 0.0886, 'learning_rate': 1.8e-05, 'epoch': 1.34}
+  5%|▍         | 190/4020 [00:41<11:55,  5.36it/s]{'loss': 0.0682, 'learning_rate': 1.9e-05, 'epoch': 1.42}
+  5%|▍         | 200/4020 [00:43<11:46,  5.41it/s]{'loss': 0.1066, 'learning_rate': 2e-05, 'epoch': 1.49}
+  5%|▌         | 210/4020 [00:45<12:18,  5.16it/s]{'loss': 0.103, 'learning_rate': 2.1e-05, 'epoch': 1.57}
+  5%|▌         | 220/4020 [00:47<12:08,  5.21it/s]{'loss': 0.0768, 'learning_rate': 2.2000000000000003e-05, 'epoch': 1.64}
+  6%|▌         | 230/4020 [00:49<12:05,  5.22it/s]{'loss': 0.0935, 'learning_rate': 2.3000000000000003e-05, 'epoch': 1.72}
+  6%|▌         | 240/4020 [00:51<12:07,  5.20it/s]{'loss': 0.0959, 'learning_rate': 2.4e-05, 'epoch': 1.79}
+  6%|▌         | 250/4020 [00:53<11:48,  5.32it/s]{'loss': 0.0584, 'learning_rate': 2.5e-05, 'epoch': 1.87}
+  6%|▋         | 260/4020 [00:55<11:49,  5.30it/s]{'loss': 0.0742, 'learning_rate': 2.6000000000000002e-05, 'epoch': 1.94}
+  7%|▋         | 268/4020 [00:56<11:01,  5.67it/s]***** Running Evaluation *****
+  Num examples = 100
+  Batch size = 3
+
+  0%|          | 0/34 [00:00<?, ?it/s]
+ 12%|█▏        | 4/34 [00:00<00:00, 35.37it/s]
+ 24%|██▎       | 8/34 [00:00<00:00, 31.46it/s]
+ 35%|███▌      | 12/34 [00:00<00:00, 30.01it/s]
+ 47%|████▋     | 16/34 [00:00<00:00, 29.38it/s]
+ 59%|█████▉    | 20/34 [00:00<00:00, 30.24it/s]
+ 71%|███████   | 24/34 [00:00<00:00, 29.62it/s]
+ 79%|███████▉  | 27/34 [00:00<00:00, 29.02it/s]
+ 88%|████████▊ | 30/34 [00:01<00:00, 28.56it/s]
+100%|██████████| 34/34 [00:01<00:00, 29.66it/s]{'TP': 3000, 'FP': 419, 'FN': 151, 'TN': 26723}
+C:\Users\aceite\anaconda3\envs\ner-noticias-mapa\lib\site-packages\sklearn\utils\validation.py:70: FutureWarning: Pass labels=['B-LOC', 'B-ORG', 'B-PESSOA', 'B-PUB', 'I-LOC', 'I-ORG', 'I-PESSOA', 'I-PUB', 'O'] as keyword args. From version 1.0 (renaming of 0.25) passing these as positional arguments will result in an error
+  warnings.warn(f"Pass {args_msg} as keyword args. From version "
+              precision    recall  f1-score   support
+
+         LOC       0.68      0.94      0.79       279
+         ORG       0.78      0.79      0.79       189
+      PESSOA       0.88      0.96      0.92       323
+         PUB       0.81      0.86      0.83       597
+
+   micro avg       0.79      0.89      0.84      1388
+   macro avg       0.79      0.89      0.83      1388
+weighted avg       0.80      0.89      0.84      1388
+
+              precision    recall  f1-score   support
+
+       B-LOC       0.71      0.95      0.81       277
+       B-ORG       0.88      0.84      0.86       187
+    B-PESSOA       0.91      0.98      0.94       322
+       B-PUB       0.91      0.93      0.92       595
+       I-LOC       0.69      0.93      0.79       154
+       I-ORG       0.91      0.83      0.87       296
+    I-PESSOA       0.94      0.99      0.96       434
+       I-PUB       0.91      0.88      0.90      1016
+           O       0.99      0.99      0.99     27012
+
+    accuracy                           0.98     30293
+   macro avg       0.87      0.92      0.89     30293
+weighted avg       0.98      0.98      0.98     30293
+
+f1 0.837746096401901 f1_masked 0.8580310880829016
+{'eval_loss': 0.06714387238025665, 'eval_accuracy_score': 0.9811837718284753, 'eval_precision': 0.79204107830552, 'eval_recall': 0.8890489913544669, 'eval_f1': 0.837746096401901, 'eval_f1_masked': 0.8580310880829016, 'eval_runtime': 3.0702, 'eval_samples_per_second': 32.571, 'epoch': 2.0}
+                                                  
+  7%|▋         | 268/4020 [00:59<11:01,  5.67it/s]
+100%|██████████| 34/34 [00:03<00:00, 29.66it/s]
+                                               Saving model checkpoint to ./results/pub/30_epochs_base_pt_BR\checkpoint-268
+Configuration saved in ./results/pub/30_epochs_base_pt_BR\checkpoint-268\config.json
+Model weights saved in ./results/pub/30_epochs_base_pt_BR\checkpoint-268\pytorch_model.bin
+  7%|▋         | 270/4020 [01:01<1:11:31,  1.14s/it]{'loss': 0.046, 'learning_rate': 2.7000000000000002e-05, 'epoch': 2.01}
+  7%|▋         | 280/4020 [01:03<13:14,  4.71it/s]{'loss': 0.0361, 'learning_rate': 2.8000000000000003e-05, 'epoch': 2.09}
+  7%|▋         | 290/4020 [01:05<11:25,  5.44it/s]{'loss': 0.0348, 'learning_rate': 2.9e-05, 'epoch': 2.16}
+  7%|▋         | 300/4020 [01:07<11:30,  5.38it/s]{'loss': 0.0567, 'learning_rate': 3e-05, 'epoch': 2.24}
+  8%|▊         | 310/4020 [01:08<11:13,  5.51it/s]{'loss': 0.042, 'learning_rate': 3.1e-05, 'epoch': 2.31}
+  8%|▊         | 320/4020 [01:10<11:12,  5.50it/s]{'loss': 0.0739, 'learning_rate': 3.2000000000000005e-05, 'epoch': 2.39}
+  8%|▊         | 330/4020 [01:12<11:07,  5.52it/s]{'loss': 0.147, 'learning_rate': 3.3e-05, 'epoch': 2.46}
+  8%|▊         | 340/4020 [01:14<11:05,  5.53it/s]{'loss': 0.0617, 'learning_rate': 3.4000000000000007e-05, 'epoch': 2.54}
+  9%|▊         | 350/4020 [01:16<11:03,  5.53it/s]{'loss': 0.1049, 'learning_rate': 3.5e-05, 'epoch': 2.61}
+  9%|▉         | 360/4020 [01:18<11:00,  5.54it/s]{'loss': 0.0248, 'learning_rate': 3.6e-05, 'epoch': 2.69}
+  9%|▉         | 370/4020 [01:19<11:05,  5.48it/s]{'loss': 0.0564, 'learning_rate': 3.7e-05, 'epoch': 2.76}
+  9%|▉         | 380/4020 [01:21<11:12,  5.41it/s]{'loss': 0.0673, 'learning_rate': 3.8e-05, 'epoch': 2.84}
+ 10%|▉         | 390/4020 [01:23<11:09,  5.42it/s]{'loss': 0.0618, 'learning_rate': 3.9000000000000006e-05, 'epoch': 2.91}
+ 10%|▉         | 400/4020 [01:25<11:04,  5.45it/s]{'loss': 0.0406, 'learning_rate': 4e-05, 'epoch': 2.99}
+ 10%|█         | 402/4020 [01:25<10:26,  5.78it/s]***** Running Evaluation *****
+  Num examples = 100
+  Batch size = 3
+
+  0%|          | 0/34 [00:00<?, ?it/s]
+ 12%|█▏        | 4/34 [00:00<00:00, 39.38it/s]
+ 24%|██▎       | 8/34 [00:00<00:00, 32.12it/s]
+ 35%|███▌      | 12/34 [00:00<00:00, 30.22it/s]
+ 47%|████▋     | 16/34 [00:00<00:00, 29.49it/s]
+ 59%|█████▉    | 20/34 [00:00<00:00, 29.11it/s]
+ 71%|███████   | 24/34 [00:00<00:00, 28.88it/s]
+ 82%|████████▏ | 28/34 [00:00<00:00, 29.83it/s]
+ 94%|█████████▍| 32/34 [00:01<00:00, 29.38it/s]{'TP': 3045, 'FP': 417, 'FN': 121, 'TN': 26710}
+C:\Users\aceite\anaconda3\envs\ner-noticias-mapa\lib\site-packages\sklearn\utils\validation.py:70: FutureWarning: Pass labels=['B-LOC', 'B-ORG', 'B-PESSOA', 'B-PUB', 'I-LOC', 'I-ORG', 'I-PESSOA', 'I-PUB', 'O'] as keyword args. From version 1.0 (renaming of 0.25) passing these as positional arguments will result in an error
+  warnings.warn(f"Pass {args_msg} as keyword args. From version "
+              precision    recall  f1-score   support
+
+         LOC       0.81      0.92      0.86       279
+         ORG       0.69      0.83      0.76       189
+      PESSOA       0.83      0.97      0.90       323
+         PUB       0.86      0.86      0.86       597
+
+   micro avg       0.82      0.89      0.85      1388
+   macro avg       0.80      0.90      0.84      1388
+weighted avg       0.82      0.89      0.85      1388
+
+              precision    recall  f1-score   support
+
+       B-LOC       0.84      0.93      0.89       277
+       B-ORG       0.77      0.88      0.82       187
+    B-PESSOA       0.86      0.99      0.92       322
+       B-PUB       0.94      0.90      0.92       595
+       I-LOC       0.81      0.94      0.87       154
+       I-ORG       0.82      0.88      0.85       296
+    I-PESSOA       0.87      0.99      0.92       434
+       I-PUB       0.93      0.92      0.92      1016
+           O       1.00      0.99      0.99     27012
+
+    accuracy                           0.98     30293
+   macro avg       0.87      0.93      0.90     30293
+weighted avg       0.98      0.98      0.98     30293
+
+f1 0.8538011695906433 f1_masked 0.8740377886634011
+                                                  
+ 10%|█         | 402/4020 [01:28<10:26,  5.78it/s]
+100%|██████████| 34/34 [00:02<00:00, 29.38it/s]
+                                               Saving model checkpoint to ./results/pub/30_epochs_base_pt_BR\checkpoint-402
+Configuration saved in ./results/pub/30_epochs_base_pt_BR\checkpoint-402\config.json
+{'eval_loss': 0.06367910653352737, 'eval_accuracy_score': 0.98224012148021, 'eval_precision': 0.8169848584595129, 'eval_recall': 0.8940922190201729, 'eval_f1': 0.8538011695906433, 'eval_f1_masked': 0.8740377886634011, 'eval_runtime': 2.994, 'eval_samples_per_second': 33.401, 'epoch': 3.0}
+Model weights saved in ./results/pub/30_epochs_base_pt_BR\checkpoint-402\pytorch_model.bin
+ 10%|█         | 410/4020 [01:31<17:42,  3.40it/s]{'loss': 0.0582, 'learning_rate': 4.1e-05, 'epoch': 3.06}
+ 10%|█         | 420/4020 [01:33<11:03,  5.43it/s]{'loss': 0.0289, 'learning_rate': 4.2e-05, 'epoch': 3.13}
+ 11%|█         | 430/4020 [01:35<10:57,  5.46it/s]{'loss': 0.0192, 'learning_rate': 4.3e-05, 'epoch': 3.21}
+ 11%|█         | 440/4020 [01:37<11:04,  5.38it/s]{'loss': 0.051, 'learning_rate': 4.4000000000000006e-05, 'epoch': 3.28}
+ 11%|█         | 450/4020 [01:38<10:51,  5.48it/s]{'loss': 0.0356, 'learning_rate': 4.5e-05, 'epoch': 3.36}
+ 11%|█▏        | 460/4020 [01:40<10:56,  5.42it/s]{'loss': 0.0447, 'learning_rate': 4.600000000000001e-05, 'epoch': 3.43}
+ 12%|█▏        | 470/4020 [01:42<10:56,  5.41it/s]{'loss': 0.1204, 'learning_rate': 4.7e-05, 'epoch': 3.51}
+ 12%|█▏        | 480/4020 [01:44<10:41,  5.51it/s]{'loss': 0.0321, 'learning_rate': 4.8e-05, 'epoch': 3.58}
+ 12%|█▏        | 490/4020 [01:46<10:42,  5.49it/s]{'loss': 0.0263, 'learning_rate': 4.9e-05, 'epoch': 3.66}
+ 12%|█▏        | 500/4020 [01:47<10:47,  5.44it/s]{'loss': 0.0424, 'learning_rate': 5e-05, 'epoch': 3.73}
+ 13%|█▎        | 510/4020 [01:49<10:29,  5.57it/s]{'loss': 0.0309, 'learning_rate': 4.985795454545455e-05, 'epoch': 3.81}
+ 13%|█▎        | 520/4020 [01:51<10:50,  5.38it/s]{'loss': 0.057, 'learning_rate': 4.971590909090909e-05, 'epoch': 3.88}
+ 13%|█▎        | 530/4020 [01:53<10:42,  5.43it/s]{'loss': 0.1198, 'learning_rate': 4.957386363636364e-05, 'epoch': 3.96}
+ 13%|█▎        | 536/4020 [01:54<10:10,  5.71it/s]***** Running Evaluation *****
+  Num examples = 100
+  Batch size = 3
+
+  0%|          | 0/34 [00:00<?, ?it/s]
+ 12%|█▏        | 4/34 [00:00<00:00, 36.20it/s]
+ 24%|██▎       | 8/34 [00:00<00:00, 31.20it/s]
+ 35%|███▌      | 12/34 [00:00<00:00, 31.56it/s]
+ 47%|████▋     | 16/34 [00:00<00:00, 30.26it/s]
+ 59%|█████▉    | 20/34 [00:00<00:00, 29.58it/s]
+ 68%|██████▊   | 23/34 [00:00<00:00, 28.95it/s]
+ 76%|███████▋  | 26/34 [00:00<00:00, 29.11it/s]
+ 85%|████████▌ | 29/34 [00:00<00:00, 28.60it/s]
+ 97%|█████████▋| 33/34 [00:01<00:00, 28.55it/s]{'TP': 3002, 'FP': 338, 'FN': 169, 'TN': 26784}
+C:\Users\aceite\anaconda3\envs\ner-noticias-mapa\lib\site-packages\sklearn\utils\validation.py:70: FutureWarning: Pass labels=['B-LOC', 'B-ORG', 'B-PESSOA', 'B-PUB', 'I-LOC', 'I-ORG', 'I-PESSOA', 'I-PUB', 'O'] as keyword args. From version 1.0 (renaming of 0.25) passing these as positional arguments will result in an error
+  warnings.warn(f"Pass {args_msg} as keyword args. From version "
+              precision    recall  f1-score   support
+
+         LOC       0.76      0.95      0.84       279
+         ORG       0.77      0.85      0.81       189
+      PESSOA       0.90      0.97      0.93       323
+         PUB       0.87      0.84      0.86       597
+
+   micro avg       0.84      0.89      0.87      1388
+   macro avg       0.83      0.90      0.86      1388
+weighted avg       0.84      0.89      0.87      1388
+
+              precision    recall  f1-score   support
+
+       B-LOC       0.80      0.95      0.87       277
+       B-ORG       0.85      0.90      0.87       187
+    B-PESSOA       0.93      0.99      0.96       322
+       B-PUB       0.93      0.90      0.91       595
+       I-LOC       0.63      0.97      0.77       154
+       I-ORG       0.91      0.86      0.89       296
+    I-PESSOA       0.95      0.98      0.97       434
+       I-PUB       0.95      0.87      0.91      1016
+           O       0.99      0.99      0.99     27012
+
+    accuracy                           0.98     30293
+   macro avg       0.88      0.94      0.90     30293
+weighted avg       0.98      0.98      0.98     30293
+
+f1 0.865203761755486 f1_masked 0.8817733990147785
+                                                  
+ 13%|█▎        | 536/4020 [01:57<10:10,  5.71it/s]
+100%|██████████| 34/34 [00:02<00:00, 28.55it/s]
+                                               Saving model checkpoint to ./results/pub/30_epochs_base_pt_BR\checkpoint-536
+Configuration saved in ./results/pub/30_epochs_base_pt_BR\checkpoint-536\config.json
+{'eval_loss': 0.06559658795595169, 'eval_accuracy_score': 0.983263460205328, 'eval_precision': 0.837491571139582, 'eval_recall': 0.8948126801152738, 'eval_f1': 0.865203761755486, 'eval_f1_masked': 0.8817733990147785, 'eval_runtime': 2.9931, 'eval_samples_per_second': 33.41, 'epoch': 4.0}
+Model weights saved in ./results/pub/30_epochs_base_pt_BR\checkpoint-536\pytorch_model.bin
+ 13%|█▎        | 540/4020 [01:59<37:33,  1.54it/s]{'loss': 0.0294, 'learning_rate': 4.943181818181818e-05, 'epoch': 4.03}
+ 14%|█▎        | 550/4020 [02:01<11:14,  5.14it/s]{'loss': 0.0292, 'learning_rate': 4.9289772727272735e-05, 'epoch': 4.1}
+ 14%|█▍        | 560/4020 [02:03<10:19,  5.58it/s]{'loss': 0.0276, 'learning_rate': 4.914772727272727e-05, 'epoch': 4.18}
+ 14%|█▍        | 570/4020 [02:05<10:27,  5.50it/s]{'loss': 0.0547, 'learning_rate': 4.900568181818182e-05, 'epoch': 4.25}
+ 14%|█▍        | 580/4020 [02:07<10:18,  5.56it/s]{'loss': 0.0127, 'learning_rate': 4.886363636363637e-05, 'epoch': 4.33}
+ 15%|█▍        | 590/4020 [02:08<10:32,  5.42it/s]{'loss': 0.0163, 'learning_rate': 4.8721590909090915e-05, 'epoch': 4.4}
+ 15%|█▍        | 600/4020 [02:10<10:12,  5.58it/s]{'loss': 0.0168, 'learning_rate': 4.857954545454545e-05, 'epoch': 4.48}
+ 15%|█▌        | 610/4020 [02:12<10:23,  5.47it/s]{'loss': 0.0557, 'learning_rate': 4.8437500000000005e-05, 'epoch': 4.55}
+ 15%|█▌        | 620/4020 [02:14<10:15,  5.53it/s]{'loss': 0.0552, 'learning_rate': 4.829545454545455e-05, 'epoch': 4.63}
+ 16%|█▌        | 630/4020 [02:16<10:18,  5.48it/s]{'loss': 0.0262, 'learning_rate': 4.815340909090909e-05, 'epoch': 4.7}
+ 16%|█▌        | 640/4020 [02:17<10:07,  5.56it/s]{'loss': 0.1891, 'learning_rate': 4.801136363636364e-05, 'epoch': 4.78}
+ 16%|█▌        | 650/4020 [02:19<10:10,  5.52it/s]{'loss': 0.0238, 'learning_rate': 4.7869318181818185e-05, 'epoch': 4.85}
+ 16%|█▋        | 660/4020 [02:21<10:17,  5.44it/s]{'loss': 0.0311, 'learning_rate': 4.772727272727273e-05, 'epoch': 4.93}
+ 17%|█▋        | 670/4020 [02:23<09:37,  5.80it/s]***** Running Evaluation *****
+{'loss': 0.0225, 'learning_rate': 4.7585227272727276e-05, 'epoch': 5.0}
+  Num examples = 100
+  Batch size = 3
+
+  0%|          | 0/34 [00:00<?, ?it/s]
+ 12%|█▏        | 4/34 [00:00<00:00, 36.58it/s]
+ 24%|██▎       | 8/34 [00:00<00:00, 31.32it/s]
+ 35%|███▌      | 12/34 [00:00<00:00, 30.62it/s]
+ 47%|████▋     | 16/34 [00:00<00:00, 29.73it/s]
+ 56%|█████▌    | 19/34 [00:00<00:00, 28.92it/s]
+ 68%|██████▊   | 23/34 [00:00<00:00, 29.96it/s]
+ 76%|███████▋  | 26/34 [00:00<00:00, 29.21it/s]
+ 85%|████████▌ | 29/34 [00:00<00:00, 29.27it/s]
+ 94%|█████████▍| 32/34 [00:01<00:00, 28.72it/s]{'TP': 3091, 'FP': 353, 'FN': 118, 'TN': 26731}
+              precision    recall  f1-score   support
+
+         LOC       0.81      0.92      0.86       279
+         ORG       0.75      0.87      0.81       189
+      PESSOA       0.85      0.98      0.91       323
+         PUB       0.87      0.91      0.89       597
+
+   micro avg       0.84      0.92      0.88      1388
+   macro avg       0.82      0.92      0.87      1388
+weighted avg       0.84      0.92      0.88      1388
+
+C:\Users\aceite\anaconda3\envs\ner-noticias-mapa\lib\site-packages\sklearn\utils\validation.py:70: FutureWarning: Pass labels=['B-LOC', 'B-ORG', 'B-PESSOA', 'B-PUB', 'I-LOC', 'I-ORG', 'I-PESSOA', 'I-PUB', 'O'] as keyword args. From version 1.0 (renaming of 0.25) passing these as positional arguments will result in an error
+  warnings.warn(f"Pass {args_msg} as keyword args. From version "
+              precision    recall  f1-score   support
+
+       B-LOC       0.84      0.92      0.88       277
+       B-ORG       0.83      0.94      0.88       187
+    B-PESSOA       0.88      0.98      0.93       322
+       B-PUB       0.92      0.95      0.93       595
+       I-LOC       0.81      0.96      0.88       154
+       I-ORG       0.91      0.91      0.91       296
+    I-PESSOA       0.90      0.99      0.94       434
+       I-PUB       0.94      0.92      0.93      1016
+           O       1.00      0.99      0.99     27012
+
+    accuracy                           0.98     30293
+   macro avg       0.89      0.95      0.92     30293
+weighted avg       0.99      0.98      0.98     30293
+
+f1 0.8779986291980809 f1_masked 0.8895833333333333
+                                                  
+ 17%|█▋        | 670/4020 [02:26<09:37,  5.80it/s]
+100%|██████████| 34/34 [00:02<00:00, 28.72it/s]
+                                               Saving model checkpoint to ./results/pub/30_epochs_base_pt_BR\checkpoint-670
+Configuration saved in ./results/pub/30_epochs_base_pt_BR\checkpoint-670\config.json
+{'eval_loss': 0.06385410577058792, 'eval_accuracy_score': 0.9844518535635295, 'eval_precision': 0.8372549019607843, 'eval_recall': 0.9229106628242075, 'eval_f1': 0.8779986291980809, 'eval_f1_masked': 0.8895833333333333, 'eval_runtime': 3.0212, 'eval_samples_per_second': 33.099, 'epoch': 5.0}
+Model weights saved in ./results/pub/30_epochs_base_pt_BR\checkpoint-670\pytorch_model.bin
+ 17%|█▋        | 680/4020 [02:29<13:12,  4.21it/s]{'loss': 0.0426, 'learning_rate': 4.744318181818182e-05, 'epoch': 5.07}
+ 17%|█▋        | 690/4020 [02:31<10:12,  5.44it/s]{'loss': 0.024, 'learning_rate': 4.7301136363636366e-05, 'epoch': 5.15}
+ 17%|█▋        | 700/4020 [02:33<09:52,  5.60it/s]{'loss': 0.0107, 'learning_rate': 4.715909090909091e-05, 'epoch': 5.22}
+ 18%|█▊        | 710/4020 [02:35<09:59,  5.52it/s]{'loss': 0.0139, 'learning_rate': 4.7017045454545456e-05, 'epoch': 5.3}
+ 18%|█▊        | 720/4020 [02:36<10:01,  5.48it/s]{'loss': 0.0277, 'learning_rate': 4.6875e-05, 'epoch': 5.37}
+ 18%|█▊        | 730/4020 [02:38<09:48,  5.59it/s]{'loss': 0.0151, 'learning_rate': 4.6732954545454546e-05, 'epoch': 5.45}
+ 18%|█▊        | 740/4020 [02:40<09:46,  5.59it/s]{'loss': 0.0174, 'learning_rate': 4.659090909090909e-05, 'epoch': 5.52}
+ 19%|█▊        | 750/4020 [02:42<09:44,  5.60it/s]{'loss': 0.0454, 'learning_rate': 4.6448863636363636e-05, 'epoch': 5.6}
+ 19%|█▉        | 760/4020 [02:44<09:43,  5.59it/s]{'loss': 0.0457, 'learning_rate': 4.630681818181818e-05, 'epoch': 5.67}
+ 19%|█▉        | 770/4020 [02:45<09:48,  5.52it/s]{'loss': 0.0116, 'learning_rate': 4.616477272727273e-05, 'epoch': 5.75}
+ 19%|█▉        | 780/4020 [02:47<09:39,  5.59it/s]{'loss': 0.014, 'learning_rate': 4.602272727272727e-05, 'epoch': 5.82}
+ 20%|█▉        | 790/4020 [02:49<09:39,  5.58it/s]{'loss': 0.0459, 'learning_rate': 4.5880681818181817e-05, 'epoch': 5.9}
+ 20%|█▉        | 800/4020 [02:51<09:56,  5.40it/s]{'loss': 0.0299, 'learning_rate': 4.573863636363637e-05, 'epoch': 5.97}
+ 20%|██        | 804/4020 [02:52<09:31,  5.62it/s]***** Running Evaluation *****
+  Num examples = 100
+  Batch size = 3
+
+  0%|          | 0/34 [00:00<?, ?it/s]
+ 12%|█▏        | 4/34 [00:00<00:00, 36.58it/s]
+ 24%|██▎       | 8/34 [00:00<00:00, 31.32it/s]
+ 35%|███▌      | 12/34 [00:00<00:00, 29.94it/s]
+ 47%|████▋     | 16/34 [00:00<00:00, 30.72it/s]
+ 59%|█████▉    | 20/34 [00:00<00:00, 29.86it/s]
+ 71%|███████   | 24/34 [00:00<00:00, 28.81it/s]
+ 82%|████████▏ | 28/34 [00:00<00:00, 28.69it/s]
+ 94%|█████████▍| 32/34 [00:01<00:00, 29.67it/s]{'TP': 3002, 'FP': 342, 'FN': 185, 'TN': 26764}
+              precision    recall  f1-score   support
+
+         LOC       0.81      0.92      0.86       279
+         ORG       0.78      0.83      0.80       189
+      PESSOA       0.82      0.97      0.89       323
+         PUB       0.87      0.87      0.87       597
+
+   micro avg       0.83      0.90      0.86      1388
+   macro avg       0.82      0.90      0.86      1388
+weighted avg       0.84      0.90      0.86      1388
+
+C:\Users\aceite\anaconda3\envs\ner-noticias-mapa\lib\site-packages\sklearn\utils\validation.py:70: FutureWarning: Pass labels=['B-LOC', 'B-ORG', 'B-PESSOA', 'B-PUB', 'I-LOC', 'I-ORG', 'I-PESSOA', 'I-PUB', 'O'] as keyword args. From version 1.0 (renaming of 0.25) passing these as positional arguments will result in an error
+  warnings.warn(f"Pass {args_msg} as keyword args. From version "
+              precision    recall  f1-score   support
+
+       B-LOC       0.82      0.93      0.87       277
+       B-ORG       0.86      0.88      0.87       187
+    B-PESSOA       0.84      0.98      0.90       322
+       B-PUB       0.93      0.92      0.93       595
+       I-LOC       0.81      0.95      0.87       154
+       I-ORG       0.90      0.86      0.88       296
+    I-PESSOA       0.88      0.98      0.93       434
+       I-PUB       0.96      0.88      0.92      1016
+           O       0.99      0.99      0.99     27012
+
+    accuracy                           0.98     30293
+   macro avg       0.89      0.93      0.91     30293
+weighted avg       0.98      0.98      0.98     30293
+
+f1 0.8638888888888889 f1_masked 0.8679245283018868
+                                                  
+ 20%|██        | 804/4020 [02:55<09:31,  5.62it/s]
+100%|██████████| 34/34 [00:02<00:00, 29.67it/s]
+                                               Saving model checkpoint to ./results/pub/30_epochs_base_pt_BR\checkpoint-804
+Configuration saved in ./results/pub/30_epochs_base_pt_BR\checkpoint-804\config.json
+{'eval_loss': 0.06977084279060364, 'eval_accuracy_score': 0.9826032416729937, 'eval_precision': 0.8337801608579088, 'eval_recall': 0.8962536023054755, 'eval_f1': 0.8638888888888889, 'eval_f1_masked': 0.8679245283018868, 'eval_runtime': 3.0015, 'eval_samples_per_second': 33.317, 'epoch': 6.0}
+Model weights saved in ./results/pub/30_epochs_base_pt_BR\checkpoint-804\pytorch_model.bin
+ 20%|██        | 810/4020 [02:57<21:45,  2.46it/s]{'loss': 0.0152, 'learning_rate': 4.5596590909090913e-05, 'epoch': 6.04}
+ 20%|██        | 820/4020 [02:59<10:00,  5.33it/s]{'loss': 0.0083, 'learning_rate': 4.545454545454546e-05, 'epoch': 6.12}
+ 21%|██        | 830/4020 [03:01<09:29,  5.60it/s]{'loss': 0.0082, 'learning_rate': 4.5312500000000004e-05, 'epoch': 6.19}
+ 21%|██        | 840/4020 [03:03<09:34,  5.54it/s]{'loss': 0.0422, 'learning_rate': 4.517045454545455e-05, 'epoch': 6.27}
+ 21%|██        | 850/4020 [03:04<09:25,  5.60it/s]{'loss': 0.0185, 'learning_rate': 4.5028409090909094e-05, 'epoch': 6.34}
+ 21%|██▏       | 860/4020 [03:06<09:51,  5.34it/s]{'loss': 0.022, 'learning_rate': 4.488636363636364e-05, 'epoch': 6.42}
+ 22%|██▏       | 870/4020 [03:08<09:38,  5.44it/s]{'loss': 0.012, 'learning_rate': 4.4744318181818184e-05, 'epoch': 6.49}
+ 22%|██▏       | 880/4020 [03:10<09:24,  5.56it/s]{'loss': 0.0375, 'learning_rate': 4.460227272727273e-05, 'epoch': 6.57}
+ 22%|██▏       | 890/4020 [03:12<09:25,  5.53it/s]{'loss': 0.008, 'learning_rate': 4.4460227272727274e-05, 'epoch': 6.64}
+ 22%|██▏       | 900/4020 [03:14<09:23,  5.53it/s]{'loss': 0.0196, 'learning_rate': 4.431818181818182e-05, 'epoch': 6.72}
+ 23%|██▎       | 910/4020 [03:15<09:26,  5.49it/s]{'loss': 0.015, 'learning_rate': 4.4176136363636364e-05, 'epoch': 6.79}
+ 23%|██▎       | 920/4020 [03:17<09:18,  5.55it/s]{'loss': 0.013, 'learning_rate': 4.4034090909090916e-05, 'epoch': 6.87}
+ 23%|██▎       | 930/4020 [03:19<09:10,  5.61it/s]{'loss': 0.017, 'learning_rate': 4.3892045454545454e-05, 'epoch': 6.94}
+ 23%|██▎       | 938/4020 [03:20<08:43,  5.89it/s]***** Running Evaluation *****
+  Num examples = 100
+  Batch size = 3
+
+  0%|          | 0/34 [00:00<?, ?it/s]
+ 15%|█▍        | 5/34 [00:00<00:00, 40.02it/s]
+ 29%|██▉       | 10/34 [00:00<00:00, 31.81it/s]
+ 41%|████      | 14/34 [00:00<00:00, 30.27it/s]
+ 53%|█████▎    | 18/34 [00:00<00:00, 29.58it/s]
+ 65%|██████▍   | 22/34 [00:00<00:00, 28.95it/s]
+ 74%|███████▎  | 25/34 [00:00<00:00, 28.47it/s]
+ 85%|████████▌ | 29/34 [00:00<00:00, 28.11it/s]
+ 97%|█████████▋| 33/34 [00:01<00:00, 29.13it/s]{'TP': 3095, 'FP': 375, 'FN': 112, 'TN': 26711}
+C:\Users\aceite\anaconda3\envs\ner-noticias-mapa\lib\site-packages\sklearn\utils\validation.py:70: FutureWarning: Pass labels=['B-LOC', 'B-ORG', 'B-PESSOA', 'B-PUB', 'I-LOC', 'I-ORG', 'I-PESSOA', 'I-PUB', 'O'] as keyword args. From version 1.0 (renaming of 0.25) passing these as positional arguments will result in an error
+  warnings.warn(f"Pass {args_msg} as keyword args. From version "
+              precision    recall  f1-score   support
+
+         LOC       0.81      0.92      0.86       279
+         ORG       0.77      0.85      0.81       189
+      PESSOA       0.85      0.98      0.91       323
+         PUB       0.88      0.91      0.89       597
+
+   micro avg       0.84      0.92      0.88      1388
+   macro avg       0.83      0.91      0.87      1388
+weighted avg       0.84      0.92      0.88      1388
+
+              precision    recall  f1-score   support
+
+       B-LOC       0.83      0.92      0.88       277
+       B-ORG       0.85      0.90      0.88       187
+    B-PESSOA       0.87      0.98      0.92       322
+       B-PUB       0.92      0.94      0.93       595
+       I-LOC       0.83      0.96      0.89       154
+       I-ORG       0.87      0.93      0.90       296
+    I-PESSOA       0.90      0.99      0.94       434
+       I-PUB       0.93      0.93      0.93      1016
+           O       1.00      0.99      0.99     27012
+
+    accuracy                           0.98     30293
+   macro avg       0.89      0.95      0.92     30293
+weighted avg       0.98      0.98      0.98     30293
+
+f1 0.8788401794960304 f1_masked 0.8881922675026124
+{'eval_loss': 0.07169651240110397, 'eval_accuracy_score': 0.9839236787376622, 'eval_precision': 0.8436050364479788, 'eval_recall': 0.9171469740634006, 'eval_f1': 0.8788401794960304, 'eval_f1_masked': 0.8881922675026124, 'eval_runtime': 3.0207, 'eval_samples_per_second': 33.105, 'epoch': 7.0}
+                                                  
+ 23%|██▎       | 938/4020 [03:23<08:43,  5.89it/s]
+100%|██████████| 34/34 [00:02<00:00, 29.13it/s]
+                                               Saving model checkpoint to ./results/pub/30_epochs_base_pt_BR\checkpoint-938
+Configuration saved in ./results/pub/30_epochs_base_pt_BR\checkpoint-938\config.json
+Model weights saved in ./results/pub/30_epochs_base_pt_BR\checkpoint-938\pytorch_model.bin
+ 23%|██▎       | 940/4020 [03:25<57:40,  1.12s/it]{'loss': 0.0073, 'learning_rate': 4.375e-05, 'epoch': 7.01}
+ 24%|██▎       | 950/4020 [03:27<10:50,  4.72it/s]{'loss': 0.0107, 'learning_rate': 4.360795454545455e-05, 'epoch': 7.09}
+ 24%|██▍       | 960/4020 [03:29<09:19,  5.47it/s]{'loss': 0.005, 'learning_rate': 4.346590909090909e-05, 'epoch': 7.16}
+ 24%|██▍       | 970/4020 [03:31<09:11,  5.53it/s]{'loss': 0.0088, 'learning_rate': 4.3323863636363635e-05, 'epoch': 7.24}
+ 24%|██▍       | 980/4020 [03:32<09:11,  5.52it/s]{'loss': 0.0395, 'learning_rate': 4.318181818181819e-05, 'epoch': 7.31}
+ 25%|██▍       | 990/4020 [03:34<09:10,  5.51it/s]{'loss': 0.0154, 'learning_rate': 4.303977272727273e-05, 'epoch': 7.39}
+ 25%|██▍       | 1000/4020 [03:36<09:07,  5.52it/s]{'loss': 0.0072, 'learning_rate': 4.289772727272727e-05, 'epoch': 7.46}
+ 25%|██▌       | 1010/4020 [03:38<09:04,  5.53it/s]{'loss': 0.006, 'learning_rate': 4.275568181818182e-05, 'epoch': 7.54}
+ 25%|██▌       | 1020/4020 [03:40<09:06,  5.49it/s]{'loss': 0.0049, 'learning_rate': 4.261363636363637e-05, 'epoch': 7.61}
+ 26%|██▌       | 1030/4020 [03:42<08:58,  5.55it/s]{'loss': 0.0385, 'learning_rate': 4.247159090909091e-05, 'epoch': 7.69}
+ 26%|██▌       | 1040/4020 [03:43<08:46,  5.66it/s]{'loss': 0.069, 'learning_rate': 4.232954545454546e-05, 'epoch': 7.76}
+ 26%|██▌       | 1050/4020 [03:45<08:54,  5.56it/s]{'loss': 0.0143, 'learning_rate': 4.21875e-05, 'epoch': 7.84}
+ 26%|██▋       | 1060/4020 [03:47<08:56,  5.52it/s]{'loss': 0.0097, 'learning_rate': 4.204545454545455e-05, 'epoch': 7.91}
+ 27%|██▋       | 1070/4020 [03:49<08:50,  5.56it/s]{'loss': 0.0111, 'learning_rate': 4.190340909090909e-05, 'epoch': 7.99}
+ 27%|██▋       | 1072/4020 [03:49<08:20,  5.89it/s]***** Running Evaluation *****
+  Num examples = 100
+  Batch size = 3
+
+  0%|          | 0/34 [00:00<?, ?it/s]
+ 15%|█▍        | 5/34 [00:00<00:00, 35.56it/s]
+ 26%|██▋       | 9/34 [00:00<00:00, 33.57it/s]
+ 38%|███▊      | 13/34 [00:00<00:00, 31.15it/s]
+ 50%|█████     | 17/34 [00:00<00:00, 30.06it/s]
+ 62%|██████▏   | 21/34 [00:00<00:00, 28.86it/s]
+ 74%|███████▎  | 25/34 [00:00<00:00, 29.84it/s]
+ 82%|████████▏ | 28/34 [00:00<00:00, 29.08it/s]
+ 91%|█████████ | 31/34 [00:01<00:00, 28.61it/s]{'TP': 3083, 'FP': 391, 'FN': 123, 'TN': 26696}
+              precision    recall  f1-score   support
+
+         LOC       0.80      0.93      0.86       279
+         ORG       0.79      0.85      0.82       189
+      PESSOA       0.82      0.96      0.88       323
+         PUB       0.88      0.91      0.89       597
+
+   micro avg       0.84      0.91      0.87      1388
+   macro avg       0.82      0.91      0.86      1388
+weighted avg       0.84      0.91      0.87      1388
+
+C:\Users\aceite\anaconda3\envs\ner-noticias-mapa\lib\site-packages\sklearn\utils\validation.py:70: FutureWarning: Pass labels=['B-LOC', 'B-ORG', 'B-PESSOA', 'B-PUB', 'I-LOC', 'I-ORG', 'I-PESSOA', 'I-PUB', 'O'] as keyword args. From version 1.0 (renaming of 0.25) passing these as positional arguments will result in an error
+  warnings.warn(f"Pass {args_msg} as keyword args. From version "
+              precision    recall  f1-score   support
+
+       B-LOC       0.82      0.94      0.87       277
+       B-ORG       0.86      0.90      0.88       187
+    B-PESSOA       0.85      0.98      0.91       322
+       B-PUB       0.92      0.93      0.93       595
+       I-LOC       0.80      0.96      0.88       154
+       I-ORG       0.89      0.92      0.90       296
+    I-PESSOA       0.89      0.97      0.93       434
+       I-PUB       0.92      0.92      0.92      1016
+           O       1.00      0.99      0.99     27012
+
+    accuracy                           0.98     30293
+   macro avg       0.88      0.95      0.91     30293
+weighted avg       0.98      0.98      0.98     30293
+
+f1 0.8737530099759203 f1_masked 0.8801939058171746
+{'eval_loss': 0.08278002589941025, 'eval_accuracy_score': 0.983032383719011, 'eval_precision': 0.8360763660302831, 'eval_recall': 0.9149855907780979, 'eval_f1': 0.8737530099759203, 'eval_f1_masked': 0.8801939058171746, 'eval_runtime': 3.0329, 'eval_samples_per_second': 32.972, 'epoch': 8.0}
+                                                   
+ 27%|██▋       | 1072/4020 [03:52<08:20,  5.89it/s]
+100%|██████████| 34/34 [00:02<00:00, 28.61it/s]
+                                               Saving model checkpoint to ./results/pub/30_epochs_base_pt_BR\checkpoint-1072
+Configuration saved in ./results/pub/30_epochs_base_pt_BR\checkpoint-1072\config.json
+Model weights saved in ./results/pub/30_epochs_base_pt_BR\checkpoint-1072\pytorch_model.bin
+ 27%|██▋       | 1080/4020 [03:55<14:09,  3.46it/s]{'loss': 0.007, 'learning_rate': 4.176136363636364e-05, 'epoch': 8.06}
+ 27%|██▋       | 1090/4020 [03:57<09:03,  5.39it/s]{'loss': 0.0235, 'learning_rate': 4.161931818181818e-05, 'epoch': 8.13}
+ 27%|██▋       | 1100/4020 [03:59<08:51,  5.49it/s]{'loss': 0.0056, 'learning_rate': 4.1477272727272734e-05, 'epoch': 8.21}
+ 28%|██▊       | 1110/4020 [04:00<08:39,  5.60it/s]{'loss': 0.0062, 'learning_rate': 4.133522727272727e-05, 'epoch': 8.28}
+ 28%|██▊       | 1120/4020 [04:02<08:46,  5.51it/s]{'loss': 0.0084, 'learning_rate': 4.119318181818182e-05, 'epoch': 8.36}
+ 28%|██▊       | 1130/4020 [04:04<08:35,  5.61it/s]{'loss': 0.0045, 'learning_rate': 4.105113636363637e-05, 'epoch': 8.43}
+ 28%|██▊       | 1140/4020 [04:06<08:38,  5.55it/s]{'loss': 0.0065, 'learning_rate': 4.0909090909090915e-05, 'epoch': 8.51}
+ 29%|██▊       | 1150/4020 [04:08<08:46,  5.45it/s]{'loss': 0.0176, 'learning_rate': 4.076704545454545e-05, 'epoch': 8.58}
+ 29%|██▉       | 1160/4020 [04:09<08:39,  5.51it/s]{'loss': 0.0202, 'learning_rate': 4.0625000000000005e-05, 'epoch': 8.66}
+ 29%|██▉       | 1170/4020 [04:11<08:29,  5.59it/s]{'loss': 0.0049, 'learning_rate': 4.048295454545455e-05, 'epoch': 8.73}
+ 29%|██▉       | 1180/4020 [04:13<08:29,  5.57it/s]{'loss': 0.0046, 'learning_rate': 4.034090909090909e-05, 'epoch': 8.81}
+ 30%|██▉       | 1190/4020 [04:15<08:33,  5.51it/s]{'loss': 0.0062, 'learning_rate': 4.019886363636364e-05, 'epoch': 8.88}
+ 30%|██▉       | 1200/4020 [04:17<08:32,  5.51it/s]{'loss': 0.0018, 'learning_rate': 4.0056818181818185e-05, 'epoch': 8.96}
+ 30%|███       | 1206/4020 [04:18<08:04,  5.81it/s]***** Running Evaluation *****
+  Num examples = 100
+  Batch size = 3
+
+  0%|          | 0/34 [00:00<?, ?it/s]
+ 12%|█▏        | 4/34 [00:00<00:00, 36.58it/s]
+ 24%|██▎       | 8/34 [00:00<00:00, 31.32it/s]
+ 35%|███▌      | 12/34 [00:00<00:00, 29.94it/s]
+ 47%|████▋     | 16/34 [00:00<00:00, 29.33it/s]
+ 56%|█████▌    | 19/34 [00:00<00:00, 29.33it/s]
+ 68%|██████▊   | 23/34 [00:00<00:00, 29.01it/s]
+ 79%|███████▉  | 27/34 [00:00<00:00, 28.74it/s]
+ 91%|█████████ | 31/34 [00:01<00:00, 28.64it/s]{'TP': 3086, 'FP': 357, 'FN': 132, 'TN': 26718}
+C:\Users\aceite\anaconda3\envs\ner-noticias-mapa\lib\site-packages\sklearn\utils\validation.py:70: FutureWarning: Pass labels=['B-LOC', 'B-ORG', 'B-PESSOA', 'B-PUB', 'I-LOC', 'I-ORG', 'I-PESSOA', 'I-PUB', 'O'] as keyword args. From version 1.0 (renaming of 0.25) passing these as positional arguments will result in an error
+  warnings.warn(f"Pass {args_msg} as keyword args. From version "
+              precision    recall  f1-score   support
+
+         LOC       0.82      0.92      0.87       279
+         ORG       0.79      0.87      0.83       189
+      PESSOA       0.85      0.96      0.90       323
+         PUB       0.88      0.90      0.89       597
+
+   micro avg       0.85      0.91      0.88      1388
+   macro avg       0.83      0.91      0.87      1388
+weighted avg       0.85      0.91      0.88      1388
+
+              precision    recall  f1-score   support
+
+       B-LOC       0.84      0.94      0.89       277
+       B-ORG       0.85      0.91      0.88       187
+    B-PESSOA       0.86      0.98      0.92       322
+       B-PUB       0.92      0.92      0.92       595
+       I-LOC       0.86      0.93      0.89       154
+       I-ORG       0.88      0.94      0.91       296
+    I-PESSOA       0.90      0.97      0.94       434
+       I-PUB       0.93      0.93      0.93      1016
+           O       1.00      0.99      0.99     27012
+
+    accuracy                           0.98     30293
+   macro avg       0.89      0.95      0.92     30293
+weighted avg       0.98      0.98      0.98     30293
+
+f1 0.8794178794178794 f1_masked 0.8866410882455528
+                                                   
+ 30%|███       | 1206/4020 [04:21<08:04,  5.81it/s]
+100%|██████████| 34/34 [00:02<00:00, 28.64it/s]
+                                               Saving model checkpoint to ./results/pub/30_epochs_base_pt_BR\checkpoint-1206
+Configuration saved in ./results/pub/30_epochs_base_pt_BR\checkpoint-1206\config.json
+{'eval_loss': 0.08453524857759476, 'eval_accuracy_score': 0.9838576568844287, 'eval_precision': 0.8471295060080107, 'eval_recall': 0.9142651296829971, 'eval_f1': 0.8794178794178794, 'eval_f1_masked': 0.8866410882455528, 'eval_runtime': 3.0114, 'eval_samples_per_second': 33.207, 'epoch': 9.0}
+Model weights saved in ./results/pub/30_epochs_base_pt_BR\checkpoint-1206\pytorch_model.bin
+ 30%|███       | 1210/4020 [04:23<29:58,  1.56it/s]{'loss': 0.0117, 'learning_rate': 3.991477272727273e-05, 'epoch': 9.03}
+ 30%|███       | 1220/4020 [04:25<09:05,  5.14it/s]{'loss': 0.0048, 'learning_rate': 3.9772727272727275e-05, 'epoch': 9.1}
+ 31%|███       | 1230/4020 [04:27<08:29,  5.48it/s]{'loss': 0.0043, 'learning_rate': 3.963068181818182e-05, 'epoch': 9.18}
+ 31%|███       | 1240/4020 [04:28<08:24,  5.51it/s]{'loss': 0.0053, 'learning_rate': 3.9488636363636366e-05, 'epoch': 9.25}
+ 31%|███       | 1250/4020 [04:30<08:23,  5.50it/s]{'loss': 0.0036, 'learning_rate': 3.934659090909091e-05, 'epoch': 9.33}
+ 31%|███▏      | 1260/4020 [04:32<08:16,  5.56it/s]{'loss': 0.0068, 'learning_rate': 3.9204545454545456e-05, 'epoch': 9.4}
+ 32%|███▏      | 1270/4020 [04:34<08:11,  5.59it/s]{'loss': 0.0073, 'learning_rate': 3.90625e-05, 'epoch': 9.48}
+ 32%|███▏      | 1280/4020 [04:36<08:19,  5.49it/s]{'loss': 0.0056, 'learning_rate': 3.8920454545454546e-05, 'epoch': 9.55}
+ 32%|███▏      | 1290/4020 [04:37<08:17,  5.49it/s]{'loss': 0.0181, 'learning_rate': 3.877840909090909e-05, 'epoch': 9.63}
+ 32%|███▏      | 1300/4020 [04:39<08:06,  5.59it/s]{'loss': 0.0044, 'learning_rate': 3.8636363636363636e-05, 'epoch': 9.7}
+ 33%|███▎      | 1310/4020 [04:41<08:11,  5.51it/s]{'loss': 0.0387, 'learning_rate': 3.849431818181818e-05, 'epoch': 9.78}
+ 33%|███▎      | 1320/4020 [04:43<08:02,  5.59it/s]{'loss': 0.0085, 'learning_rate': 3.835227272727273e-05, 'epoch': 9.85}
+ 33%|███▎      | 1330/4020 [04:45<08:10,  5.48it/s]{'loss': 0.0471, 'learning_rate': 3.821022727272727e-05, 'epoch': 9.93}
+ 33%|███▎      | 1340/4020 [04:46<07:33,  5.91it/s]***** Running Evaluation *****
+{'loss': 0.0026, 'learning_rate': 3.8068181818181816e-05, 'epoch': 10.0}
+  Num examples = 100
+  Batch size = 3
+
+  0%|          | 0/34 [00:00<?, ?it/s]
+ 15%|█▍        | 5/34 [00:00<00:00, 35.57it/s]
+ 26%|██▋       | 9/34 [00:00<00:00, 33.58it/s]
+ 38%|███▊      | 13/34 [00:00<00:00, 31.15it/s]
+ 50%|█████     | 17/34 [00:00<00:00, 29.37it/s]
+ 62%|██████▏   | 21/34 [00:00<00:00, 29.04it/s]
+ 74%|███████▎  | 25/34 [00:00<00:00, 29.89it/s]
+ 85%|████████▌ | 29/34 [00:00<00:00, 29.41it/s]
+ 94%|█████████▍| 32/34 [00:01<00:00, 28.87it/s]{'TP': 3068, 'FP': 375, 'FN': 132, 'TN': 26718}
+C:\Users\aceite\anaconda3\envs\ner-noticias-mapa\lib\site-packages\sklearn\utils\validation.py:70: FutureWarning: Pass labels=['B-LOC', 'B-ORG', 'B-PESSOA', 'B-PUB', 'I-LOC', 'I-ORG', 'I-PESSOA', 'I-PUB', 'O'] as keyword args. From version 1.0 (renaming of 0.25) passing these as positional arguments will result in an error
+  warnings.warn(f"Pass {args_msg} as keyword args. From version "
+              precision    recall  f1-score   support
+
+         LOC       0.81      0.95      0.87       279
+         ORG       0.68      0.88      0.77       189
+      PESSOA       0.85      0.96      0.90       323
+         PUB       0.89      0.88      0.88       597
+
+   micro avg       0.83      0.91      0.87      1388
+   macro avg       0.81      0.92      0.86      1388
+weighted avg       0.84      0.91      0.87      1388
+
+              precision    recall  f1-score   support
+
+       B-LOC       0.82      0.95      0.88       277
+       B-ORG       0.73      0.94      0.82       187
+    B-PESSOA       0.88      0.98      0.93       322
+       B-PUB       0.93      0.92      0.92       595
+       I-LOC       0.82      0.95      0.88       154
+       I-ORG       0.88      0.94      0.91       296
+    I-PESSOA       0.91      0.97      0.94       434
+       I-PUB       0.94      0.91      0.92      1016
+           O       1.00      0.99      0.99     27012
+
+    accuracy                           0.98     30293
+   macro avg       0.88      0.95      0.91     30293
+weighted avg       0.98      0.98      0.98     30293
+
+f1 0.8690884167237836 f1_masked 0.8755601516718372
+                                                   
+ 33%|███▎      | 1340/4020 [04:49<07:33,  5.91it/s]
+100%|██████████| 34/34 [00:02<00:00, 28.87it/s]
+                                               Saving model checkpoint to ./results/pub/30_epochs_base_pt_BR\checkpoint-1340
+Configuration saved in ./results/pub/30_epochs_base_pt_BR\checkpoint-1340\config.json
+{'eval_loss': 0.09232881665229797, 'eval_accuracy_score': 0.983263460205328, 'eval_precision': 0.8287581699346406, 'eval_recall': 0.9135446685878963, 'eval_f1': 0.8690884167237836, 'eval_f1_masked': 0.8755601516718372, 'eval_runtime': 3.0021, 'eval_samples_per_second': 33.31, 'epoch': 10.0}
+Model weights saved in ./results/pub/30_epochs_base_pt_BR\checkpoint-1340\pytorch_model.bin
+ 34%|███▎      | 1350/4020 [04:53<10:34,  4.21it/s]{'loss': 0.0036, 'learning_rate': 3.792613636363637e-05, 'epoch': 10.07}
+ 34%|███▍      | 1360/4020 [04:55<08:07,  5.46it/s]{'loss': 0.0048, 'learning_rate': 3.778409090909091e-05, 'epoch': 10.15}
+ 34%|███▍      | 1370/4020 [04:56<08:00,  5.51it/s]{'loss': 0.003, 'learning_rate': 3.764204545454545e-05, 'epoch': 10.22}
+ 34%|███▍      | 1380/4020 [04:58<07:59,  5.50it/s]{'loss': 0.0053, 'learning_rate': 3.7500000000000003e-05, 'epoch': 10.3}
+ 35%|███▍      | 1390/4020 [05:00<08:01,  5.46it/s]{'loss': 0.0033, 'learning_rate': 3.735795454545455e-05, 'epoch': 10.37}
+ 35%|███▍      | 1400/4020 [05:02<07:57,  5.49it/s]{'loss': 0.002, 'learning_rate': 3.721590909090909e-05, 'epoch': 10.45}
+ 35%|███▌      | 1410/4020 [05:04<07:53,  5.51it/s]{'loss': 0.0052, 'learning_rate': 3.707386363636364e-05, 'epoch': 10.52}
+ 35%|███▌      | 1420/4020 [05:05<07:50,  5.53it/s]{'loss': 0.0309, 'learning_rate': 3.6931818181818184e-05, 'epoch': 10.6}
+ 36%|███▌      | 1430/4020 [05:07<07:44,  5.57it/s]{'loss': 0.002, 'learning_rate': 3.678977272727273e-05, 'epoch': 10.67}
+ 36%|███▌      | 1440/4020 [05:09<07:52,  5.46it/s]{'loss': 0.0081, 'learning_rate': 3.6647727272727274e-05, 'epoch': 10.75}
+ 36%|███▌      | 1450/4020 [05:11<07:38,  5.61it/s]{'loss': 0.0043, 'learning_rate': 3.650568181818182e-05, 'epoch': 10.82}
+ 36%|███▋      | 1460/4020 [05:13<07:44,  5.52it/s]{'loss': 0.0031, 'learning_rate': 3.6363636363636364e-05, 'epoch': 10.9}
+ 37%|███▋      | 1470/4020 [05:14<07:39,  5.55it/s]{'loss': 0.0206, 'learning_rate': 3.6221590909090916e-05, 'epoch': 10.97}
+ 37%|███▋      | 1474/4020 [05:15<07:13,  5.88it/s]***** Running Evaluation *****
+  Num examples = 100
+  Batch size = 3
+
+  0%|          | 0/34 [00:00<?, ?it/s]
+ 15%|█▍        | 5/34 [00:00<00:00, 40.01it/s]
+ 29%|██▉       | 10/34 [00:00<00:00, 30.92it/s]
+ 41%|████      | 14/34 [00:00<00:00, 30.60it/s]
+ 53%|█████▎    | 18/34 [00:00<00:00, 29.78it/s]
+ 65%|██████▍   | 22/34 [00:00<00:00, 29.22it/s]
+ 74%|███████▎  | 25/34 [00:00<00:00, 29.30it/s]
+ 82%|████████▏ | 28/34 [00:00<00:00, 28.75it/s]
+ 94%|█████████▍| 32/34 [00:01<00:00, 29.71it/s]{'TP': 3090, 'FP': 373, 'FN': 119, 'TN': 26711}
+              precision    recall  f1-score   support
+
+         LOC       0.82      0.92      0.87       279
+         ORG       0.76      0.86      0.80       189
+      PESSOA       0.85      0.97      0.90       323
+         PUB       0.87      0.92      0.89       597
+
+   micro avg       0.84      0.92      0.88      1388
+   macro avg       0.82      0.92      0.87      1388
+weighted avg       0.84      0.92      0.88      1388
+
+C:\Users\aceite\anaconda3\envs\ner-noticias-mapa\lib\site-packages\sklearn\utils\validation.py:70: FutureWarning: Pass labels=['B-LOC', 'B-ORG', 'B-PESSOA', 'B-PUB', 'I-LOC', 'I-ORG', 'I-PESSOA', 'I-PUB', 'O'] as keyword args. From version 1.0 (renaming of 0.25) passing these as positional arguments will result in an error
+  warnings.warn(f"Pass {args_msg} as keyword args. From version "
+              precision    recall  f1-score   support
+
+       B-LOC       0.84      0.94      0.89       277
+       B-ORG       0.82      0.90      0.86       187
+    B-PESSOA       0.86      0.98      0.92       322
+       B-PUB       0.92      0.94      0.93       595
+       I-LOC       0.88      0.90      0.89       154
+       I-ORG       0.90      0.90      0.90       296
+    I-PESSOA       0.90      0.99      0.94       434
+       I-PUB       0.92      0.93      0.93      1016
+           O       1.00      0.99      0.99     27012
+
+    accuracy                           0.98     30293
+   macro avg       0.89      0.94      0.92     30293
+weighted avg       0.98      0.98      0.98     30293
+
+f1 0.8785175017158544 f1_masked 0.8881966078227761
+{'eval_loss': 0.09623859077692032, 'eval_accuracy_score': 0.9837586241045786, 'eval_precision': 0.8387942332896461, 'eval_recall': 0.9221902017291066, 'eval_f1': 0.8785175017158544, 'eval_f1_masked': 0.8881966078227761, 'eval_runtime': 3.0108, 'eval_samples_per_second': 33.214, 'epoch': 11.0}
+                                                   
+ 37%|███▋      | 1474/4020 [05:18<07:13,  5.88it/s]
+100%|██████████| 34/34 [00:02<00:00, 29.71it/s]
+                                               Saving model checkpoint to ./results/pub/30_epochs_base_pt_BR\checkpoint-1474
+Configuration saved in ./results/pub/30_epochs_base_pt_BR\checkpoint-1474\config.json
+Model weights saved in ./results/pub/30_epochs_base_pt_BR\checkpoint-1474\pytorch_model.bin
+ 37%|███▋      | 1480/4020 [05:21<17:08,  2.47it/s]{'loss': 0.002, 'learning_rate': 3.6079545454545454e-05, 'epoch': 11.04}
+ 37%|███▋      | 1490/4020 [05:23<07:55,  5.32it/s]{'loss': 0.0013, 'learning_rate': 3.59375e-05, 'epoch': 11.12}
+ 37%|███▋      | 1500/4020 [05:24<07:39,  5.48it/s]{'loss': 0.0231, 'learning_rate': 3.579545454545455e-05, 'epoch': 11.19}
+ 38%|███▊      | 1510/4020 [05:26<07:34,  5.53it/s]{'loss': 0.0019, 'learning_rate': 3.565340909090909e-05, 'epoch': 11.27}
+ 38%|███▊      | 1520/4020 [05:28<07:27,  5.58it/s]{'loss': 0.0025, 'learning_rate': 3.5511363636363635e-05, 'epoch': 11.34}
+ 38%|███▊      | 1530/4020 [05:30<07:25,  5.58it/s]{'loss': 0.0046, 'learning_rate': 3.5369318181818186e-05, 'epoch': 11.42}
+ 38%|███▊      | 1540/4020 [05:32<07:23,  5.59it/s]{'loss': 0.0018, 'learning_rate': 3.522727272727273e-05, 'epoch': 11.49}
+ 39%|███▊      | 1550/4020 [05:33<07:26,  5.53it/s]{'loss': 0.0022, 'learning_rate': 3.508522727272727e-05, 'epoch': 11.57}
+ 39%|███▉      | 1560/4020 [05:35<07:19,  5.59it/s]{'loss': 0.002, 'learning_rate': 3.494318181818182e-05, 'epoch': 11.64}
+ 39%|███▉      | 1570/4020 [05:37<07:28,  5.46it/s]{'loss': 0.0151, 'learning_rate': 3.480113636363637e-05, 'epoch': 11.72}
+ 39%|███▉      | 1580/4020 [05:39<07:21,  5.53it/s]{'loss': 0.004, 'learning_rate': 3.465909090909091e-05, 'epoch': 11.79}
+ 40%|███▉      | 1590/4020 [05:41<07:21,  5.50it/s]{'loss': 0.0029, 'learning_rate': 3.451704545454546e-05, 'epoch': 11.87}
+ 40%|███▉      | 1600/4020 [05:42<07:21,  5.48it/s]{'loss': 0.0051, 'learning_rate': 3.4375e-05, 'epoch': 11.94}
+ 40%|████      | 1608/4020 [05:44<06:47,  5.92it/s]***** Running Evaluation *****
+  Num examples = 100
+  Batch size = 3
+
+  0%|          | 0/34 [00:00<?, ?it/s]
+ 15%|█▍        | 5/34 [00:00<00:00, 35.57it/s]
+ 26%|██▋       | 9/34 [00:00<00:00, 31.38it/s]
+ 38%|███▊      | 13/34 [00:00<00:00, 30.82it/s]
+ 50%|█████     | 17/34 [00:00<00:00, 29.87it/s]
+ 62%|██████▏   | 21/34 [00:00<00:00, 29.27it/s]
+ 74%|███████▎  | 25/34 [00:00<00:00, 30.13it/s]
+ 85%|████████▌ | 29/34 [00:00<00:00, 29.57it/s]
+ 94%|█████████▍| 32/34 [00:01<00:00, 28.99it/s]{'TP': 3093, 'FP': 422, 'FN': 117, 'TN': 26661}
+C:\Users\aceite\anaconda3\envs\ner-noticias-mapa\lib\site-packages\sklearn\utils\validation.py:70: FutureWarning: Pass labels=['B-LOC', 'B-ORG', 'B-PESSOA', 'B-PUB', 'I-LOC', 'I-ORG', 'I-PESSOA', 'I-PUB', 'O'] as keyword args. From version 1.0 (renaming of 0.25) passing these as positional arguments will result in an error
+  warnings.warn(f"Pass {args_msg} as keyword args. From version "
+              precision    recall  f1-score   support
+
+         LOC       0.80      0.92      0.86       279
+         ORG       0.71      0.88      0.79       189
+      PESSOA       0.87      0.95      0.91       323
+         PUB       0.86      0.91      0.88       597
+
+   micro avg       0.83      0.92      0.87      1388
+   macro avg       0.81      0.92      0.86      1388
+weighted avg       0.83      0.92      0.87      1388
+
+              precision    recall  f1-score   support
+
+       B-LOC       0.82      0.94      0.88       277
+       B-ORG       0.79      0.93      0.85       187
+    B-PESSOA       0.91      0.98      0.94       322
+       B-PUB       0.90      0.93      0.92       595
+       I-LOC       0.81      0.90      0.86       154
+       I-ORG       0.85      0.95      0.90       296
+    I-PESSOA       0.94      0.97      0.95       434
+       I-PUB       0.89      0.93      0.91      1016
+           O       1.00      0.99      0.99     27012
+
+    accuracy                           0.98     30293
+   macro avg       0.88      0.95      0.91     30293
+weighted avg       0.98      0.98      0.98     30293
+
+f1 0.8693278744455818 f1_masked 0.8787878787878788
+                                                   
+ 40%|████      | 1608/4020 [05:47<06:47,  5.92it/s]
+100%|██████████| 34/34 [00:02<00:00, 28.99it/s]
+                                               Saving model checkpoint to ./results/pub/30_epochs_base_pt_BR\checkpoint-1608
+Configuration saved in ./results/pub/30_epochs_base_pt_BR\checkpoint-1608\config.json
+{'eval_loss': 0.10243865102529526, 'eval_accuracy_score': 0.9822071105535932, 'eval_precision': 0.8256642903434868, 'eval_recall': 0.9178674351585014, 'eval_f1': 0.8693278744455818, 'eval_f1_masked': 0.8787878787878788, 'eval_runtime': 2.995, 'eval_samples_per_second': 33.389, 'epoch': 12.0}
+Model weights saved in ./results/pub/30_epochs_base_pt_BR\checkpoint-1608\pytorch_model.bin
+ 40%|████      | 1610/4020 [05:49<44:47,  1.12s/it]{'loss': 0.0048, 'learning_rate': 3.423295454545455e-05, 'epoch': 12.01}
+ 40%|████      | 1620/4020 [05:50<08:22,  4.78it/s]{'loss': 0.0039, 'learning_rate': 3.409090909090909e-05, 'epoch': 12.09}
+ 41%|████      | 1630/4020 [05:52<07:25,  5.37it/s]{'loss': 0.046, 'learning_rate': 3.394886363636364e-05, 'epoch': 12.16}
+ 41%|████      | 1640/4020 [05:54<07:03,  5.62it/s]{'loss': 0.0065, 'learning_rate': 3.380681818181818e-05, 'epoch': 12.24}
+ 41%|████      | 1650/4020 [05:56<07:09,  5.51it/s]{'loss': 0.0038, 'learning_rate': 3.3664772727272734e-05, 'epoch': 12.31}
+ 41%|████▏     | 1660/4020 [05:58<07:15,  5.42it/s]{'loss': 0.0035, 'learning_rate': 3.352272727272727e-05, 'epoch': 12.39}
+ 42%|████▏     | 1670/4020 [06:00<07:01,  5.57it/s]{'loss': 0.004, 'learning_rate': 3.338068181818182e-05, 'epoch': 12.46}
+ 42%|████▏     | 1680/4020 [06:01<07:06,  5.49it/s]{'loss': 0.0024, 'learning_rate': 3.323863636363637e-05, 'epoch': 12.54}
+ 42%|████▏     | 1690/4020 [06:03<07:02,  5.52it/s]{'loss': 0.0024, 'learning_rate': 3.3096590909090915e-05, 'epoch': 12.61}
+ 42%|████▏     | 1700/4020 [06:05<06:54,  5.60it/s]{'loss': 0.0037, 'learning_rate': 3.295454545454545e-05, 'epoch': 12.69}
+ 43%|████▎     | 1710/4020 [06:07<07:05,  5.43it/s]{'loss': 0.0023, 'learning_rate': 3.2812500000000005e-05, 'epoch': 12.76}
+ 43%|████▎     | 1720/4020 [06:09<06:58,  5.50it/s]{'loss': 0.0131, 'learning_rate': 3.267045454545455e-05, 'epoch': 12.84}
+ 43%|████▎     | 1730/4020 [06:10<06:46,  5.64it/s]{'loss': 0.0013, 'learning_rate': 3.252840909090909e-05, 'epoch': 12.91}
+ 43%|████▎     | 1740/4020 [06:12<06:53,  5.52it/s]{'loss': 0.0011, 'learning_rate': 3.238636363636364e-05, 'epoch': 12.99}
+ 43%|████▎     | 1742/4020 [06:13<06:31,  5.82it/s]***** Running Evaluation *****
+  Num examples = 100
+  Batch size = 3
+
+  0%|          | 0/34 [00:00<?, ?it/s]
+ 15%|█▍        | 5/34 [00:00<00:00, 35.56it/s]
+ 26%|██▋       | 9/34 [00:00<00:00, 33.58it/s]
+ 38%|███▊      | 13/34 [00:00<00:00, 30.36it/s]
+ 50%|█████     | 17/34 [00:00<00:00, 29.50it/s]
+ 62%|██████▏   | 21/34 [00:00<00:00, 30.34it/s]
+ 74%|███████▎  | 25/34 [00:00<00:00, 29.68it/s]
+ 82%|████████▏ | 28/34 [00:00<00:00, 29.05it/s]
+ 94%|█████████▍| 32/34 [00:01<00:00, 28.85it/s]{'TP': 3089, 'FP': 357, 'FN': 119, 'TN': 26728}
+              precision    recall  f1-score   support
+
+         LOC       0.84      0.93      0.88       279
+         ORG       0.74      0.86      0.80       189
+      PESSOA       0.84      0.96      0.90       323
+         PUB       0.89      0.91      0.90       597
+
+   micro avg       0.84      0.92      0.88      1388
+   macro avg       0.83      0.92      0.87      1388
+weighted avg       0.85      0.92      0.88      1388
+
+C:\Users\aceite\anaconda3\envs\ner-noticias-mapa\lib\site-packages\sklearn\utils\validation.py:70: FutureWarning: Pass labels=['B-LOC', 'B-ORG', 'B-PESSOA', 'B-PUB', 'I-LOC', 'I-ORG', 'I-PESSOA', 'I-PUB', 'O'] as keyword args. From version 1.0 (renaming of 0.25) passing these as positional arguments will result in an error
+  warnings.warn(f"Pass {args_msg} as keyword args. From version "
+              precision    recall  f1-score   support
+
+       B-LOC       0.85      0.95      0.90       277
+       B-ORG       0.82      0.93      0.87       187
+    B-PESSOA       0.86      0.98      0.92       322
+       B-PUB       0.93      0.94      0.93       595
+       I-LOC       0.88      0.92      0.90       154
+       I-ORG       0.87      0.91      0.89       296
+    I-PESSOA       0.90      0.98      0.94       434
+       I-PUB       0.93      0.93      0.93      1016
+           O       1.00      0.99      0.99     27012
+
+    accuracy                           0.98     30293
+   macro avg       0.89      0.95      0.92     30293
+weighted avg       0.98      0.98      0.98     30293
+
+f1 0.8799171842650104 f1_masked 0.8895066018068103
+                                                   
+ 43%|████▎     | 1742/4020 [06:16<06:31,  5.82it/s]
+100%|██████████| 34/34 [00:02<00:00, 28.85it/s]
+                                               Saving model checkpoint to ./results/pub/30_epochs_base_pt_BR\checkpoint-1742
+Configuration saved in ./results/pub/30_epochs_base_pt_BR\checkpoint-1742\config.json
+{'eval_loss': 0.0985284149646759, 'eval_accuracy_score': 0.984286798930446, 'eval_precision': 0.8443708609271523, 'eval_recall': 0.9185878962536023, 'eval_f1': 0.8799171842650104, 'eval_f1_masked': 0.8895066018068103, 'eval_runtime': 3.0304, 'eval_samples_per_second': 32.999, 'epoch': 13.0}
+Model weights saved in ./results/pub/30_epochs_base_pt_BR\checkpoint-1742\pytorch_model.bin
+ 44%|████▎     | 1750/4020 [06:19<11:24,  3.32it/s]{'loss': 0.0064, 'learning_rate': 3.2244318181818185e-05, 'epoch': 13.06}
+ 44%|████▍     | 1760/4020 [06:20<07:01,  5.36it/s]{'loss': 0.0026, 'learning_rate': 3.210227272727273e-05, 'epoch': 13.13}
+ 44%|████▍     | 1770/4020 [06:22<07:08,  5.25it/s]{'loss': 0.0022, 'learning_rate': 3.1960227272727275e-05, 'epoch': 13.21}
+ 44%|████▍     | 1780/4020 [06:24<06:56,  5.38it/s]{'loss': 0.0216, 'learning_rate': 3.181818181818182e-05, 'epoch': 13.28}
+ 45%|████▍     | 1790/4020 [06:26<06:49,  5.45it/s]{'loss': 0.0017, 'learning_rate': 3.1676136363636365e-05, 'epoch': 13.36}
+ 45%|████▍     | 1800/4020 [06:28<06:39,  5.56it/s]{'loss': 0.0027, 'learning_rate': 3.153409090909091e-05, 'epoch': 13.43}
+ 45%|████▌     | 1810/4020 [06:30<06:37,  5.56it/s]{'loss': 0.001, 'learning_rate': 3.1392045454545456e-05, 'epoch': 13.51}
+ 45%|████▌     | 1820/4020 [06:31<06:30,  5.64it/s]{'loss': 0.0022, 'learning_rate': 3.125e-05, 'epoch': 13.58}
+ 46%|████▌     | 1830/4020 [06:33<06:37,  5.51it/s]{'loss': 0.0022, 'learning_rate': 3.1107954545454546e-05, 'epoch': 13.66}
+ 46%|████▌     | 1840/4020 [06:35<06:33,  5.55it/s]{'loss': 0.0019, 'learning_rate': 3.096590909090909e-05, 'epoch': 13.73}
+ 46%|████▌     | 1850/4020 [06:37<06:33,  5.51it/s]{'loss': 0.0008, 'learning_rate': 3.0823863636363636e-05, 'epoch': 13.81}
+ 46%|████▋     | 1860/4020 [06:39<06:32,  5.50it/s]{'loss': 0.0014, 'learning_rate': 3.068181818181818e-05, 'epoch': 13.88}
+ 47%|████▋     | 1870/4020 [06:41<06:31,  5.49it/s]{'loss': 0.0144, 'learning_rate': 3.053977272727273e-05, 'epoch': 13.96}
+ 47%|████▋     | 1876/4020 [06:42<06:11,  5.78it/s]***** Running Evaluation *****
+  Num examples = 100
+  Batch size = 3
+
+  0%|          | 0/34 [00:00<?, ?it/s]
+ 12%|█▏        | 4/34 [00:00<00:00, 36.84it/s]
+ 24%|██▎       | 8/34 [00:00<00:00, 31.25it/s]
+ 35%|███▌      | 12/34 [00:00<00:00, 30.07it/s]
+ 47%|████▋     | 16/34 [00:00<00:00, 30.65it/s]
+ 59%|█████▉    | 20/34 [00:00<00:00, 29.02it/s]
+ 71%|███████   | 24/34 [00:00<00:00, 28.86it/s]
+ 79%|███████▉  | 27/34 [00:00<00:00, 29.12it/s]
+ 88%|████████▊ | 30/34 [00:01<00:00, 28.68it/s]
+ 97%|█████████▋| 33/34 [00:01<00:00, 28.56it/s]{'TP': 3101, 'FP': 384, 'FN': 108, 'TN': 26700}
+C:\Users\aceite\anaconda3\envs\ner-noticias-mapa\lib\site-packages\sklearn\utils\validation.py:70: FutureWarning: Pass labels=['B-LOC', 'B-ORG', 'B-PESSOA', 'B-PUB', 'I-LOC', 'I-ORG', 'I-PESSOA', 'I-PUB', 'O'] as keyword args. From version 1.0 (renaming of 0.25) passing these as positional arguments will result in an error
+  warnings.warn(f"Pass {args_msg} as keyword args. From version "
+              precision    recall  f1-score   support
+
+         LOC       0.83      0.95      0.88       279
+         ORG       0.76      0.86      0.80       189
+      PESSOA       0.85      0.97      0.91       323
+         PUB       0.88      0.91      0.89       597
+
+   micro avg       0.84      0.92      0.88      1388
+   macro avg       0.83      0.92      0.87      1388
+weighted avg       0.84      0.92      0.88      1388
+
+              precision    recall  f1-score   support
+
+       B-LOC       0.85      0.95      0.90       277
+       B-ORG       0.81      0.90      0.85       187
+    B-PESSOA       0.87      0.98      0.92       322
+       B-PUB       0.92      0.94      0.93       595
+       I-LOC       0.84      0.95      0.89       154
+       I-ORG       0.87      0.91      0.89       296
+    I-PESSOA       0.90      0.99      0.94       434
+       I-PUB       0.91      0.93      0.92      1016
+           O       1.00      0.99      0.99     27012
+
+    accuracy                           0.98     30293
+   macro avg       0.89      0.95      0.92     30293
+weighted avg       0.98      0.98      0.98     30293
+
+f1 0.8813209494324046 f1_masked 0.8914325355532431
+                                                   
+ 47%|████▋     | 1876/4020 [06:45<06:11,  5.78it/s]
+100%|██████████| 34/34 [00:03<00:00, 28.56it/s]
+                                               Saving model checkpoint to ./results/pub/30_epochs_base_pt_BR\checkpoint-1876
+Configuration saved in ./results/pub/30_epochs_base_pt_BR\checkpoint-1876\config.json
+{'eval_loss': 0.10630406439304352, 'eval_accuracy_score': 0.9837586241045786, 'eval_precision': 0.8433179723502304, 'eval_recall': 0.9229106628242075, 'eval_f1': 0.8813209494324046, 'eval_f1_masked': 0.8914325355532431, 'eval_runtime': 3.0436, 'eval_samples_per_second': 32.856, 'epoch': 14.0}
+Model weights saved in ./results/pub/30_epochs_base_pt_BR\checkpoint-1876\pytorch_model.bin
+ 47%|████▋     | 1880/4020 [06:47<23:04,  1.55it/s]{'loss': 0.0017, 'learning_rate': 3.039772727272727e-05, 'epoch': 14.03}
+ 47%|████▋     | 1890/4020 [06:49<06:56,  5.11it/s]{'loss': 0.0024, 'learning_rate': 3.025568181818182e-05, 'epoch': 14.1}
+ 47%|████▋     | 1900/4020 [06:50<06:24,  5.51it/s]{'loss': 0.0017, 'learning_rate': 3.0113636363636365e-05, 'epoch': 14.18}
+ 48%|████▊     | 1910/4020 [06:52<06:17,  5.58it/s]{'loss': 0.0009, 'learning_rate': 2.9971590909090913e-05, 'epoch': 14.25}
+ 48%|████▊     | 1920/4020 [06:54<06:13,  5.62it/s]{'loss': 0.0009, 'learning_rate': 2.9829545454545455e-05, 'epoch': 14.33}
+ 48%|████▊     | 1930/4020 [06:56<06:21,  5.48it/s]{'loss': 0.0004, 'learning_rate': 2.96875e-05, 'epoch': 14.4}
+ 48%|████▊     | 1940/4020 [06:58<06:20,  5.47it/s]{'loss': 0.0009, 'learning_rate': 2.954545454545455e-05, 'epoch': 14.48}
+ 49%|████▊     | 1950/4020 [07:00<06:16,  5.50it/s]{'loss': 0.0023, 'learning_rate': 2.940340909090909e-05, 'epoch': 14.55}
+ 49%|████▉     | 1960/4020 [07:01<06:12,  5.53it/s]{'loss': 0.001, 'learning_rate': 2.9261363636363635e-05, 'epoch': 14.63}
+ 49%|████▉     | 1970/4020 [07:03<06:13,  5.49it/s]{'loss': 0.0135, 'learning_rate': 2.9119318181818184e-05, 'epoch': 14.7}
+ 49%|████▉     | 1980/4020 [07:05<06:11,  5.49it/s]{'loss': 0.0015, 'learning_rate': 2.8977272727272732e-05, 'epoch': 14.78}
+ 50%|████▉     | 1990/4020 [07:07<06:17,  5.38it/s]{'loss': 0.0007, 'learning_rate': 2.883522727272727e-05, 'epoch': 14.85}
+ 50%|████▉     | 2000/4020 [07:09<06:06,  5.51it/s]{'loss': 0.0019, 'learning_rate': 2.869318181818182e-05, 'epoch': 14.93}
+ 50%|█████     | 2010/4020 [07:10<05:51,  5.72it/s]***** Running Evaluation *****
+{'loss': 0.0265, 'learning_rate': 2.8551136363636367e-05, 'epoch': 15.0}
+  Num examples = 100
+  Batch size = 3
+
+  0%|          | 0/34 [00:00<?, ?it/s]
+ 12%|█▏        | 4/34 [00:00<00:00, 38.55it/s]
+ 24%|██▎       | 8/34 [00:00<00:00, 32.07it/s]
+ 35%|███▌      | 12/34 [00:00<00:00, 31.22it/s]
+ 47%|████▋     | 16/34 [00:00<00:00, 29.85it/s]
+ 59%|█████▉    | 20/34 [00:00<00:00, 29.38it/s]
+ 68%|██████▊   | 23/34 [00:00<00:00, 29.21it/s]
+ 76%|███████▋  | 26/34 [00:00<00:00, 29.08it/s]
+ 85%|████████▌ | 29/34 [00:00<00:00, 29.09it/s]
+ 94%|█████████▍| 32/34 [00:01<00:00, 28.97it/s]{'TP': 3079, 'FP': 343, 'FN': 136, 'TN': 26735}
+C:\Users\aceite\anaconda3\envs\ner-noticias-mapa\lib\site-packages\sklearn\utils\validation.py:70: FutureWarning: Pass labels=['B-LOC', 'B-ORG', 'B-PESSOA', 'B-PUB', 'I-LOC', 'I-ORG', 'I-PESSOA', 'I-PUB', 'O'] as keyword args. From version 1.0 (renaming of 0.25) passing these as positional arguments will result in an error
+  warnings.warn(f"Pass {args_msg} as keyword args. From version "
+              precision    recall  f1-score   support
+
+         LOC       0.85      0.94      0.89       279
+         ORG       0.77      0.86      0.81       189
+      PESSOA       0.84      0.96      0.90       323
+         PUB       0.89      0.90      0.89       597
+
+   micro avg       0.85      0.92      0.88      1388
+   macro avg       0.84      0.92      0.87      1388
+weighted avg       0.86      0.92      0.88      1388
+
+              precision    recall  f1-score   support
+
+       B-LOC       0.87      0.95      0.91       277
+       B-ORG       0.83      0.91      0.87       187
+    B-PESSOA       0.87      0.98      0.92       322
+       B-PUB       0.93      0.92      0.93       595
+       I-LOC       0.87      0.95      0.91       154
+       I-ORG       0.89      0.91      0.90       296
+    I-PESSOA       0.90      0.98      0.94       434
+       I-PUB       0.92      0.92      0.92      1016
+           O       0.99      0.99      0.99     27012
+
+    accuracy                           0.98     30293
+   macro avg       0.90      0.95      0.92     30293
+weighted avg       0.98      0.98      0.98     30293
+
+f1 0.8839471855455178 f1_masked 0.892156862745098
+                                                   
+ 50%|█████     | 2010/4020 [07:13<05:51,  5.72it/s]
+100%|██████████| 34/34 [00:02<00:00, 28.97it/s]
+                                               Saving model checkpoint to ./results/pub/30_epochs_base_pt_BR\checkpoint-2010
+Configuration saved in ./results/pub/30_epochs_base_pt_BR\checkpoint-2010\config.json
+{'eval_loss': 0.09511540085077286, 'eval_accuracy_score': 0.9841877661505959, 'eval_precision': 0.8536912751677852, 'eval_recall': 0.9164265129682997, 'eval_f1': 0.8839471855455178, 'eval_f1_masked': 0.892156862745098, 'eval_runtime': 3.0254, 'eval_samples_per_second': 33.053, 'epoch': 15.0}
+Model weights saved in ./results/pub/30_epochs_base_pt_BR\checkpoint-2010\pytorch_model.bin
+ 50%|█████     | 2020/4020 [07:17<07:58,  4.18it/s]{'loss': 0.0203, 'learning_rate': 2.8409090909090912e-05, 'epoch': 15.07}
+ 50%|█████     | 2030/4020 [07:19<06:06,  5.42it/s]{'loss': 0.0009, 'learning_rate': 2.8267045454545454e-05, 'epoch': 15.15}
+ 51%|█████     | 2040/4020 [07:20<05:53,  5.60it/s]{'loss': 0.0193, 'learning_rate': 2.8125000000000003e-05, 'epoch': 15.22}
+ 51%|█████     | 2050/4020 [07:22<05:54,  5.55it/s]{'loss': 0.0015, 'learning_rate': 2.7982954545454548e-05, 'epoch': 15.3}
+ 51%|█████     | 2060/4020 [07:24<05:55,  5.52it/s]{'loss': 0.0006, 'learning_rate': 2.784090909090909e-05, 'epoch': 15.37}
+ 51%|█████▏    | 2070/4020 [07:26<05:51,  5.54it/s]{'loss': 0.0011, 'learning_rate': 2.7698863636363638e-05, 'epoch': 15.45}
+ 52%|█████▏    | 2080/4020 [07:28<05:51,  5.52it/s]{'loss': 0.0013, 'learning_rate': 2.7556818181818183e-05, 'epoch': 15.52}
+ 52%|█████▏    | 2090/4020 [07:29<05:48,  5.53it/s]{'loss': 0.0008, 'learning_rate': 2.741477272727273e-05, 'epoch': 15.6}
+ 52%|█████▏    | 2100/4020 [07:31<05:47,  5.52it/s]{'loss': 0.0008, 'learning_rate': 2.7272727272727273e-05, 'epoch': 15.67}
+ 52%|█████▏    | 2110/4020 [07:33<05:59,  5.31it/s]{'loss': 0.0007, 'learning_rate': 2.7130681818181818e-05, 'epoch': 15.75}
+ 53%|█████▎    | 2120/4020 [07:35<05:43,  5.52it/s]{'loss': 0.0018, 'learning_rate': 2.6988636363636367e-05, 'epoch': 15.82}
+ 53%|█████▎    | 2130/4020 [07:37<05:50,  5.39it/s]{'loss': 0.0007, 'learning_rate': 2.6846590909090912e-05, 'epoch': 15.9}
+ 53%|█████▎    | 2140/4020 [07:39<05:43,  5.47it/s]{'loss': 0.0011, 'learning_rate': 2.6704545454545453e-05, 'epoch': 15.97}
+ 53%|█████▎    | 2144/4020 [07:39<05:18,  5.89it/s]***** Running Evaluation *****
+  Num examples = 100
+  Batch size = 3
+
+  0%|          | 0/34 [00:00<?, ?it/s]
+ 12%|█▏        | 4/34 [00:00<00:00, 38.60it/s]
+ 24%|██▎       | 8/34 [00:00<00:00, 32.15it/s]
+ 35%|███▌      | 12/34 [00:00<00:00, 31.33it/s]
+ 47%|████▋     | 16/34 [00:00<00:00, 29.73it/s]
+ 59%|█████▉    | 20/34 [00:00<00:00, 29.47it/s]
+ 68%|██████▊   | 23/34 [00:00<00:00, 29.29it/s]
+ 76%|███████▋  | 26/34 [00:00<00:00, 29.17it/s]
+ 85%|████████▌ | 29/34 [00:00<00:00, 29.11it/s]
+ 94%|█████████▍| 32/34 [00:01<00:00, 28.86it/s]{'TP': 3078, 'FP': 358, 'FN': 127, 'TN': 26730}
+C:\Users\aceite\anaconda3\envs\ner-noticias-mapa\lib\site-packages\sklearn\utils\validation.py:70: FutureWarning: Pass labels=['B-LOC', 'B-ORG', 'B-PESSOA', 'B-PUB', 'I-LOC', 'I-ORG', 'I-PESSOA', 'I-PUB', 'O'] as keyword args. From version 1.0 (renaming of 0.25) passing these as positional arguments will result in an error
+  warnings.warn(f"Pass {args_msg} as keyword args. From version "
+              precision    recall  f1-score   support
+
+         LOC       0.83      0.95      0.88       279
+         ORG       0.76      0.86      0.81       189
+      PESSOA       0.84      0.96      0.90       323
+         PUB       0.89      0.90      0.89       597
+
+   micro avg       0.85      0.92      0.88      1388
+   macro avg       0.83      0.92      0.87      1388
+weighted avg       0.85      0.92      0.88      1388
+
+              precision    recall  f1-score   support
+
+       B-LOC       0.85      0.95      0.90       277
+       B-ORG       0.81      0.91      0.86       187
+    B-PESSOA       0.86      0.98      0.92       322
+       B-PUB       0.93      0.94      0.93       595
+       I-LOC       0.82      0.95      0.88       154
+       I-ORG       0.88      0.90      0.89       296
+    I-PESSOA       0.90      0.98      0.94       434
+       I-PUB       0.94      0.92      0.93      1016
+           O       1.00      0.99      0.99     27012
+
+    accuracy                           0.98     30293
+   macro avg       0.89      0.95      0.91     30293
+weighted avg       0.98      0.98      0.98     30293
+
+f1 0.8808290155440415 f1_masked 0.8880389429763561
+                                                   
+ 53%|█████▎    | 2144/4020 [07:42<05:18,  5.89it/s]
+100%|██████████| 34/34 [00:02<00:00, 28.86it/s]
+                                               Saving model checkpoint to ./results/pub/30_epochs_base_pt_BR\checkpoint-2144
+Configuration saved in ./results/pub/30_epochs_base_pt_BR\checkpoint-2144\config.json
+{'eval_loss': 0.10576732456684113, 'eval_accuracy_score': 0.9839897005908956, 'eval_precision': 0.8460517584605176, 'eval_recall': 0.9185878962536023, 'eval_f1': 0.8808290155440415, 'eval_f1_masked': 0.8880389429763561, 'eval_runtime': 3.0154, 'eval_samples_per_second': 33.163, 'epoch': 16.0}
+Model weights saved in ./results/pub/30_epochs_base_pt_BR\checkpoint-2144\pytorch_model.bin
+ 53%|█████▎    | 2150/4020 [07:45<12:39,  2.46it/s]{'loss': 0.0007, 'learning_rate': 2.6562500000000002e-05, 'epoch': 16.04}
+ 54%|█████▎    | 2160/4020 [07:47<05:55,  5.23it/s]{'loss': 0.0005, 'learning_rate': 2.6420454545454547e-05, 'epoch': 16.12}
+ 54%|█████▍    | 2170/4020 [07:48<05:38,  5.47it/s]{'loss': 0.0005, 'learning_rate': 2.627840909090909e-05, 'epoch': 16.19}
+ 54%|█████▍    | 2180/4020 [07:50<05:32,  5.53it/s]{'loss': 0.0009, 'learning_rate': 2.6136363636363637e-05, 'epoch': 16.27}
+ 54%|█████▍    | 2190/4020 [07:52<05:35,  5.46it/s]{'loss': 0.0003, 'learning_rate': 2.5994318181818182e-05, 'epoch': 16.34}
+ 55%|█████▍    | 2200/4020 [07:54<05:24,  5.60it/s]{'loss': 0.0013, 'learning_rate': 2.585227272727273e-05, 'epoch': 16.42}
+ 55%|█████▍    | 2210/4020 [07:56<05:28,  5.51it/s]{'loss': 0.0014, 'learning_rate': 2.5710227272727272e-05, 'epoch': 16.49}
+ 55%|█████▌    | 2220/4020 [07:58<05:24,  5.54it/s]{'loss': 0.0004, 'learning_rate': 2.5568181818181817e-05, 'epoch': 16.57}
+ 55%|█████▌    | 2230/4020 [07:59<05:17,  5.63it/s]{'loss': 0.0018, 'learning_rate': 2.5426136363636366e-05, 'epoch': 16.64}
+ 56%|█████▌    | 2240/4020 [08:01<05:18,  5.59it/s]{'loss': 0.0004, 'learning_rate': 2.5284090909090914e-05, 'epoch': 16.72}
+ 56%|█████▌    | 2250/4020 [08:03<05:22,  5.50it/s]{'loss': 0.0455, 'learning_rate': 2.5142045454545453e-05, 'epoch': 16.79}
+ 56%|█████▌    | 2260/4020 [08:05<05:16,  5.57it/s]{'loss': 0.0005, 'learning_rate': 2.5e-05, 'epoch': 16.87}
+ 56%|█████▋    | 2270/4020 [08:07<05:25,  5.37it/s]{'loss': 0.0009, 'learning_rate': 2.4857954545454546e-05, 'epoch': 16.94}
+ 57%|█████▋    | 2278/4020 [08:08<05:01,  5.78it/s]***** Running Evaluation *****
+  Num examples = 100
+  Batch size = 3
+
+  0%|          | 0/34 [00:00<?, ?it/s]
+ 12%|█▏        | 4/34 [00:00<00:00, 36.57it/s]
+ 24%|██▎       | 8/34 [00:00<00:00, 30.40it/s]
+ 35%|███▌      | 12/34 [00:00<00:00, 29.61it/s]
+ 44%|████▍     | 15/34 [00:00<00:00, 29.13it/s]
+ 53%|█████▎    | 18/34 [00:00<00:00, 28.96it/s]
+ 62%|██████▏   | 21/34 [00:00<00:00, 28.99it/s]
+ 71%|███████   | 24/34 [00:00<00:00, 28.89it/s]
+ 79%|███████▉  | 27/34 [00:00<00:00, 28.85it/s]
+ 88%|████████▊ | 30/34 [00:01<00:00, 28.84it/s]
+ 97%|█████████▋| 33/34 [00:01<00:00, 28.73it/s]{'TP': 3070, 'FP': 343, 'FN': 136, 'TN': 26744}
+C:\Users\aceite\anaconda3\envs\ner-noticias-mapa\lib\site-packages\sklearn\utils\validation.py:70: FutureWarning: Pass labels=['B-LOC', 'B-ORG', 'B-PESSOA', 'B-PUB', 'I-LOC', 'I-ORG', 'I-PESSOA', 'I-PUB', 'O'] as keyword args. From version 1.0 (renaming of 0.25) passing these as positional arguments will result in an error
+  warnings.warn(f"Pass {args_msg} as keyword args. From version "
+              precision    recall  f1-score   support
+
+         LOC       0.84      0.92      0.88       279
+         ORG       0.79      0.86      0.82       189
+      PESSOA       0.84      0.95      0.89       323
+         PUB       0.89      0.90      0.90       597
+
+   micro avg       0.85      0.91      0.88      1388
+   macro avg       0.84      0.91      0.87      1388
+weighted avg       0.85      0.91      0.88      1388
+
+              precision    recall  f1-score   support
+
+       B-LOC       0.86      0.93      0.90       277
+       B-ORG       0.84      0.91      0.87       187
+    B-PESSOA       0.86      0.98      0.92       322
+       B-PUB       0.93      0.93      0.93       595
+       I-LOC       0.85      0.94      0.89       154
+       I-ORG       0.89      0.89      0.89       296
+    I-PESSOA       0.90      0.98      0.93       434
+       I-PUB       0.93      0.93      0.93      1016
+           O       0.99      0.99      0.99     27012
+
+    accuracy                           0.98     30293
+   macro avg       0.89      0.94      0.92     30293
+weighted avg       0.98      0.98      0.98     30293
+
+f1 0.8806956521739131 f1_masked 0.8875656742556918
+                                                   
+ 57%|█████▋    | 2278/4020 [08:11<05:01,  5.78it/s]
+100%|██████████| 34/34 [00:03<00:00, 28.73it/s]
+                                               Saving model checkpoint to ./results/pub/30_epochs_base_pt_BR\checkpoint-2278
+Configuration saved in ./results/pub/30_epochs_base_pt_BR\checkpoint-2278\config.json
+{'eval_loss': 0.10263950377702713, 'eval_accuracy_score': 0.9841877661505959, 'eval_precision': 0.85137861466039, 'eval_recall': 0.9121037463976945, 'eval_f1': 0.8806956521739131, 'eval_f1_masked': 0.8875656742556918, 'eval_runtime': 3.0411, 'eval_samples_per_second': 32.882, 'epoch': 17.0}
+Model weights saved in ./results/pub/30_epochs_base_pt_BR\checkpoint-2278\pytorch_model.bin
+ 57%|█████▋    | 2280/4020 [08:13<32:23,  1.12s/it]{'loss': 0.008, 'learning_rate': 2.471590909090909e-05, 'epoch': 17.01}
+ 57%|█████▋    | 2290/4020 [08:15<06:03,  4.76it/s]{'loss': 0.0037, 'learning_rate': 2.4573863636363636e-05, 'epoch': 17.09}
+ 57%|█████▋    | 2300/4020 [08:17<05:18,  5.41it/s]{'loss': 0.0008, 'learning_rate': 2.4431818181818185e-05, 'epoch': 17.16}
+ 57%|█████▋    | 2310/4020 [08:18<05:12,  5.47it/s]{'loss': 0.0011, 'learning_rate': 2.4289772727272727e-05, 'epoch': 17.24}
+ 58%|█████▊    | 2320/4020 [08:20<05:13,  5.42it/s]{'loss': 0.0005, 'learning_rate': 2.4147727272727275e-05, 'epoch': 17.31}
+ 58%|█████▊    | 2330/4020 [08:22<05:13,  5.38it/s]{'loss': 0.0003, 'learning_rate': 2.400568181818182e-05, 'epoch': 17.39}
+ 58%|█████▊    | 2340/4020 [08:24<05:07,  5.46it/s]{'loss': 0.0004, 'learning_rate': 2.3863636363636365e-05, 'epoch': 17.46}
+ 58%|█████▊    | 2350/4020 [08:26<05:00,  5.55it/s]{'loss': 0.0005, 'learning_rate': 2.372159090909091e-05, 'epoch': 17.54}
+ 59%|█████▊    | 2360/4020 [08:28<04:59,  5.55it/s]{'loss': 0.0004, 'learning_rate': 2.3579545454545455e-05, 'epoch': 17.61}
+ 59%|█████▉    | 2370/4020 [08:29<05:02,  5.46it/s]{'loss': 0.001, 'learning_rate': 2.34375e-05, 'epoch': 17.69}
+ 59%|█████▉    | 2380/4020 [08:31<05:02,  5.42it/s]{'loss': 0.0007, 'learning_rate': 2.3295454545454546e-05, 'epoch': 17.76}
+ 59%|█████▉    | 2390/4020 [08:33<04:58,  5.46it/s]{'loss': 0.0006, 'learning_rate': 2.315340909090909e-05, 'epoch': 17.84}
+ 60%|█████▉    | 2400/4020 [08:35<04:58,  5.43it/s]{'loss': 0.0013, 'learning_rate': 2.3011363636363636e-05, 'epoch': 17.91}
+ 60%|█████▉    | 2410/4020 [08:37<05:02,  5.32it/s]{'loss': 0.0043, 'learning_rate': 2.2869318181818184e-05, 'epoch': 17.99}
+ 60%|██████    | 2412/4020 [08:37<04:45,  5.63it/s]***** Running Evaluation *****
+  Num examples = 100
+  Batch size = 3
+
+  0%|          | 0/34 [00:00<?, ?it/s]
+ 12%|█▏        | 4/34 [00:00<00:00, 36.61it/s]
+ 24%|██▎       | 8/34 [00:00<00:00, 29.86it/s]
+ 35%|███▌      | 12/34 [00:00<00:00, 29.23it/s]
+ 44%|████▍     | 15/34 [00:00<00:00, 28.89it/s]
+ 53%|█████▎    | 18/34 [00:00<00:00, 28.75it/s]
+ 62%|██████▏   | 21/34 [00:00<00:00, 28.65it/s]
+ 71%|███████   | 24/34 [00:00<00:00, 28.57it/s]
+ 79%|███████▉  | 27/34 [00:00<00:00, 28.56it/s]
+ 88%|████████▊ | 30/34 [00:01<00:00, 28.52it/s]
+ 97%|█████████▋| 33/34 [00:01<00:00, 28.65it/s]{'TP': 3098, 'FP': 379, 'FN': 111, 'TN': 26705}
+              precision    recall  f1-score   support
+
+         LOC       0.81      0.95      0.88       279
+         ORG       0.78      0.86      0.82       189
+      PESSOA       0.85      0.97      0.91       323
+         PUB       0.87      0.92      0.90       597
+
+   micro avg       0.84      0.93      0.88      1388
+   macro avg       0.83      0.92      0.87      1388
+weighted avg       0.84      0.93      0.88      1388
+
+C:\Users\aceite\anaconda3\envs\ner-noticias-mapa\lib\site-packages\sklearn\utils\validation.py:70: FutureWarning: Pass labels=['B-LOC', 'B-ORG', 'B-PESSOA', 'B-PUB', 'I-LOC', 'I-ORG', 'I-PESSOA', 'I-PUB', 'O'] as keyword args. From version 1.0 (renaming of 0.25) passing these as positional arguments will result in an error
+  warnings.warn(f"Pass {args_msg} as keyword args. From version "
+              precision    recall  f1-score   support
+
+       B-LOC       0.83      0.95      0.89       277
+       B-ORG       0.83      0.91      0.87       187
+    B-PESSOA       0.87      0.98      0.92       322
+       B-PUB       0.91      0.95      0.93       595
+       I-LOC       0.84      0.95      0.89       154
+       I-ORG       0.89      0.88      0.88       296
+    I-PESSOA       0.90      0.99      0.94       434
+       I-PUB       0.93      0.93      0.93      1016
+           O       1.00      0.99      0.99     27012
+
+    accuracy                           0.98     30293
+   macro avg       0.89      0.95      0.92     30293
+weighted avg       0.98      0.98      0.98     30293
+
+f1 0.8837847103188207 f1_masked 0.8900379179593245
+                                                   
+ 60%|██████    | 2412/4020 [08:40<04:45,  5.63it/s]
+100%|██████████| 34/34 [00:03<00:00, 28.65it/s]
+                                               Saving model checkpoint to ./results/pub/30_epochs_base_pt_BR\checkpoint-2412
+Configuration saved in ./results/pub/30_epochs_base_pt_BR\checkpoint-2412\config.json
+{'eval_loss': 0.11585715413093567, 'eval_accuracy_score': 0.983824645957812, 'eval_precision': 0.843034663178548, 'eval_recall': 0.9286743515850144, 'eval_f1': 0.8837847103188207, 'eval_f1_masked': 0.8900379179593245, 'eval_runtime': 3.0512, 'eval_samples_per_second': 32.774, 'epoch': 18.0}
+Model weights saved in ./results/pub/30_epochs_base_pt_BR\checkpoint-2412\pytorch_model.bin
+ 60%|██████    | 2420/4020 [08:43<07:50,  3.40it/s]{'loss': 0.001, 'learning_rate': 2.272727272727273e-05, 'epoch': 18.06}
+ 60%|██████    | 2430/4020 [08:45<04:57,  5.35it/s]{'loss': 0.0002, 'learning_rate': 2.2585227272727274e-05, 'epoch': 18.13}
+ 61%|██████    | 2440/4020 [08:47<04:45,  5.53it/s]{'loss': 0.0063, 'learning_rate': 2.244318181818182e-05, 'epoch': 18.21}
+ 61%|██████    | 2450/4020 [08:48<04:49,  5.43it/s]{'loss': 0.0003, 'learning_rate': 2.2301136363636365e-05, 'epoch': 18.28}
+ 61%|██████    | 2460/4020 [08:50<04:41,  5.55it/s]{'loss': 0.0241, 'learning_rate': 2.215909090909091e-05, 'epoch': 18.36}
+ 61%|██████▏   | 2470/4020 [08:52<04:47,  5.39it/s]{'loss': 0.001, 'learning_rate': 2.2017045454545458e-05, 'epoch': 18.43}
+ 62%|██████▏   | 2480/4020 [08:54<04:44,  5.42it/s]{'loss': 0.0005, 'learning_rate': 2.1875e-05, 'epoch': 18.51}
+ 62%|██████▏   | 2490/4020 [08:56<04:39,  5.47it/s]{'loss': 0.0004, 'learning_rate': 2.1732954545454545e-05, 'epoch': 18.58}
+ 62%|██████▏   | 2500/4020 [08:58<04:32,  5.58it/s]{'loss': 0.0011, 'learning_rate': 2.1590909090909093e-05, 'epoch': 18.66}
+ 62%|██████▏   | 2510/4020 [08:59<04:38,  5.42it/s]{'loss': 0.0012, 'learning_rate': 2.1448863636363635e-05, 'epoch': 18.73}
+ 63%|██████▎   | 2520/4020 [09:01<04:33,  5.49it/s]{'loss': 0.0005, 'learning_rate': 2.1306818181818183e-05, 'epoch': 18.81}
+ 63%|██████▎   | 2530/4020 [09:03<04:31,  5.49it/s]{'loss': 0.0003, 'learning_rate': 2.116477272727273e-05, 'epoch': 18.88}
+ 63%|██████▎   | 2540/4020 [09:05<04:31,  5.46it/s]{'loss': 0.0018, 'learning_rate': 2.1022727272727274e-05, 'epoch': 18.96}
+ 63%|██████▎   | 2546/4020 [09:06<04:17,  5.72it/s]***** Running Evaluation *****
+  Num examples = 100
+  Batch size = 3
+
+  0%|          | 0/34 [00:00<?, ?it/s]
+ 12%|█▏        | 4/34 [00:00<00:00, 37.95it/s]
+ 24%|██▎       | 8/34 [00:00<00:00, 32.99it/s]
+ 35%|███▌      | 12/34 [00:00<00:00, 29.18it/s]
+ 44%|████▍     | 15/34 [00:00<00:00, 27.79it/s]
+ 53%|█████▎    | 18/34 [00:00<00:00, 28.43it/s]
+ 62%|██████▏   | 21/34 [00:00<00:00, 27.94it/s]
+ 74%|███████▎  | 25/34 [00:00<00:00, 28.19it/s]
+ 82%|████████▏ | 28/34 [00:00<00:00, 28.20it/s]
+ 94%|█████████▍| 32/34 [00:01<00:00, 28.32it/s]{'TP': 3092, 'FP': 387, 'FN': 109, 'TN': 26705}
+C:\Users\aceite\anaconda3\envs\ner-noticias-mapa\lib\site-packages\sklearn\utils\validation.py:70: FutureWarning: Pass labels=['B-LOC', 'B-ORG', 'B-PESSOA', 'B-PUB', 'I-LOC', 'I-ORG', 'I-PESSOA', 'I-PUB', 'O'] as keyword args. From version 1.0 (renaming of 0.25) passing these as positional arguments will result in an error
+  warnings.warn(f"Pass {args_msg} as keyword args. From version "
+              precision    recall  f1-score   support
+
+         LOC       0.82      0.94      0.88       279
+         ORG       0.76      0.85      0.80       189
+      PESSOA       0.84      0.96      0.90       323
+         PUB       0.87      0.91      0.89       597
+
+   micro avg       0.84      0.92      0.88      1388
+   macro avg       0.83      0.92      0.87      1388
+weighted avg       0.84      0.92      0.88      1388
+
+              precision    recall  f1-score   support
+
+       B-LOC       0.84      0.94      0.89       277
+       B-ORG       0.83      0.91      0.87       187
+    B-PESSOA       0.86      0.98      0.92       322
+       B-PUB       0.92      0.94      0.93       595
+       I-LOC       0.84      0.95      0.89       154
+       I-ORG       0.87      0.89      0.88       296
+    I-PESSOA       0.89      0.98      0.94       434
+       I-PUB       0.92      0.93      0.92      1016
+           O       1.00      0.99      0.99     27012
+
+    accuracy                           0.98     30293
+   macro avg       0.89      0.95      0.91     30293
+weighted avg       0.98      0.98      0.98     30293
+
+f1 0.8783505154639175 f1_masked 0.8868120456905505
+                                                   
+ 63%|██████▎   | 2546/4020 [09:09<04:17,  5.72it/s]
+100%|██████████| 34/34 [00:03<00:00, 28.32it/s]
+                                               Saving model checkpoint to ./results/pub/30_epochs_base_pt_BR\checkpoint-2546
+Configuration saved in ./results/pub/30_epochs_base_pt_BR\checkpoint-2546\config.json
+{'eval_loss': 0.11407970637083054, 'eval_accuracy_score': 0.9836265803981118, 'eval_precision': 0.8396846254927727, 'eval_recall': 0.920749279538905, 'eval_f1': 0.8783505154639175, 'eval_f1_masked': 0.8868120456905505, 'eval_runtime': 3.061, 'eval_samples_per_second': 32.669, 'epoch': 19.0}
+Model weights saved in ./results/pub/30_epochs_base_pt_BR\checkpoint-2546\pytorch_model.bin
+ 63%|██████▎   | 2550/4020 [09:11<15:45,  1.55it/s]{'loss': 0.0012, 'learning_rate': 2.088068181818182e-05, 'epoch': 19.03}
+ 64%|██████▎   | 2560/4020 [09:13<04:47,  5.09it/s]{'loss': 0.0014, 'learning_rate': 2.0738636363636367e-05, 'epoch': 19.1}
+ 64%|██████▍   | 2570/4020 [09:15<04:23,  5.51it/s]{'loss': 0.0003, 'learning_rate': 2.059659090909091e-05, 'epoch': 19.18}
+ 64%|██████▍   | 2580/4020 [09:17<04:23,  5.47it/s]{'loss': 0.0004, 'learning_rate': 2.0454545454545457e-05, 'epoch': 19.25}
+ 64%|██████▍   | 2590/4020 [09:19<04:23,  5.42it/s]{'loss': 0.0004, 'learning_rate': 2.0312500000000002e-05, 'epoch': 19.33}
+ 65%|██████▍   | 2600/4020 [09:20<04:22,  5.42it/s]{'loss': 0.0019, 'learning_rate': 2.0170454545454544e-05, 'epoch': 19.4}
+ 65%|██████▍   | 2610/4020 [09:22<04:22,  5.38it/s]{'loss': 0.0003, 'learning_rate': 2.0028409090909093e-05, 'epoch': 19.48}
+ 65%|██████▌   | 2620/4020 [09:24<04:19,  5.40it/s]{'loss': 0.0011, 'learning_rate': 1.9886363636363638e-05, 'epoch': 19.55}
+ 65%|██████▌   | 2630/4020 [09:26<04:16,  5.42it/s]{'loss': 0.001, 'learning_rate': 1.9744318181818183e-05, 'epoch': 19.63}
+ 66%|██████▌   | 2640/4020 [09:28<04:15,  5.41it/s]{'loss': 0.0017, 'learning_rate': 1.9602272727272728e-05, 'epoch': 19.7}
+ 66%|██████▌   | 2650/4020 [09:30<04:07,  5.53it/s]{'loss': 0.0019, 'learning_rate': 1.9460227272727273e-05, 'epoch': 19.78}
+ 66%|██████▌   | 2660/4020 [09:31<04:11,  5.41it/s]{'loss': 0.0008, 'learning_rate': 1.9318181818181818e-05, 'epoch': 19.85}
+ 66%|██████▋   | 2670/4020 [09:33<04:04,  5.53it/s]{'loss': 0.0014, 'learning_rate': 1.9176136363636366e-05, 'epoch': 19.93}
+ 67%|██████▋   | 2680/4020 [09:35<03:53,  5.74it/s]***** Running Evaluation *****
+{'loss': 0.0006, 'learning_rate': 1.9034090909090908e-05, 'epoch': 20.0}
+  Num examples = 100
+  Batch size = 3
+
+  0%|          | 0/34 [00:00<?, ?it/s]
+ 15%|█▍        | 5/34 [00:00<00:00, 35.68it/s]
+ 26%|██▋       | 9/34 [00:00<00:00, 33.08it/s]
+ 38%|███▊      | 13/34 [00:00<00:00, 30.71it/s]
+ 50%|█████     | 17/34 [00:00<00:00, 28.78it/s]
+ 59%|█████▉    | 20/34 [00:00<00:00, 28.78it/s]
+ 68%|██████▊   | 23/34 [00:00<00:00, 29.06it/s]
+ 76%|███████▋  | 26/34 [00:00<00:00, 28.57it/s]
+ 88%|████████▊ | 30/34 [00:01<00:00, 28.38it/s]
+ 97%|█████████▋| 33/34 [00:01<00:00, 28.34it/s]{'TP': 3095, 'FP': 351, 'FN': 113, 'TN': 26734}
+C:\Users\aceite\anaconda3\envs\ner-noticias-mapa\lib\site-packages\sklearn\utils\validation.py:70: FutureWarning: Pass labels=['B-LOC', 'B-ORG', 'B-PESSOA', 'B-PUB', 'I-LOC', 'I-ORG', 'I-PESSOA', 'I-PUB', 'O'] as keyword args. From version 1.0 (renaming of 0.25) passing these as positional arguments will result in an error
+  warnings.warn(f"Pass {args_msg} as keyword args. From version "
+              precision    recall  f1-score   support
+
+         LOC       0.84      0.93      0.88       279
+         ORG       0.81      0.86      0.84       189
+      PESSOA       0.86      0.97      0.91       323
+         PUB       0.88      0.92      0.90       597
+
+   micro avg       0.85      0.93      0.89      1388
+   macro avg       0.85      0.92      0.88      1388
+weighted avg       0.86      0.93      0.89      1388
+
+              precision    recall  f1-score   support
+
+       B-LOC       0.85      0.94      0.89       277
+       B-ORG       0.86      0.90      0.88       187
+    B-PESSOA       0.87      0.98      0.92       322
+       B-PUB       0.92      0.95      0.93       595
+       I-LOC       0.86      0.94      0.90       154
+       I-ORG       0.90      0.90      0.90       296
+    I-PESSOA       0.90      0.99      0.94       434
+       I-PUB       0.92      0.93      0.93      1016
+           O       1.00      0.99      0.99     27012
+
+    accuracy                           0.98     30293
+   macro avg       0.90      0.95      0.92     30293
+weighted avg       0.99      0.98      0.98     30293
+
+f1 0.8885813148788927 f1_masked 0.8937652385928249
+                                                   
+ 67%|██████▋   | 2680/4020 [09:38<03:53,  5.74it/s]
+100%|██████████| 34/34 [00:03<00:00, 28.34it/s]
+                                               Saving model checkpoint to ./results/pub/30_epochs_base_pt_BR\checkpoint-2680
+{'eval_loss': 0.1037185862660408, 'eval_accuracy_score': 0.9846829300498465, 'eval_precision': 0.8548601864181092, 'eval_recall': 0.9250720461095101, 'eval_f1': 0.8885813148788927, 'eval_f1_masked': 0.8937652385928249, 'eval_runtime': 3.0728, 'eval_samples_per_second': 32.544, 'epoch': 20.0}
+Configuration saved in ./results/pub/30_epochs_base_pt_BR\checkpoint-2680\config.json
+Model weights saved in ./results/pub/30_epochs_base_pt_BR\checkpoint-2680\pytorch_model.bin
+ 67%|██████▋   | 2690/4020 [09:42<05:19,  4.16it/s]{'loss': 0.0008, 'learning_rate': 1.8892045454545457e-05, 'epoch': 20.07}
+ 67%|██████▋   | 2700/4020 [09:43<04:00,  5.50it/s]{'loss': 0.0013, 'learning_rate': 1.8750000000000002e-05, 'epoch': 20.15}
+ 67%|██████▋   | 2710/4020 [09:45<04:01,  5.42it/s]{'loss': 0.0007, 'learning_rate': 1.8607954545454543e-05, 'epoch': 20.22}
+ 68%|██████▊   | 2720/4020 [09:47<03:54,  5.55it/s]{'loss': 0.0009, 'learning_rate': 1.8465909090909092e-05, 'epoch': 20.3}
+ 68%|██████▊   | 2730/4020 [09:49<03:58,  5.42it/s]{'loss': 0.0003, 'learning_rate': 1.8323863636363637e-05, 'epoch': 20.37}
+ 68%|██████▊   | 2740/4020 [09:51<03:55,  5.43it/s]{'loss': 0.0003, 'learning_rate': 1.8181818181818182e-05, 'epoch': 20.45}
+ 68%|██████▊   | 2750/4020 [09:53<03:55,  5.39it/s]{'loss': 0.0012, 'learning_rate': 1.8039772727272727e-05, 'epoch': 20.52}
+ 69%|██████▊   | 2760/4020 [09:54<03:52,  5.41it/s]{'loss': 0.0003, 'learning_rate': 1.7897727272727276e-05, 'epoch': 20.6}
+ 69%|██████▉   | 2770/4020 [09:56<03:52,  5.37it/s]{'loss': 0.0011, 'learning_rate': 1.7755681818181817e-05, 'epoch': 20.67}
+ 69%|██████▉   | 2780/4020 [09:58<03:47,  5.45it/s]{'loss': 0.0002, 'learning_rate': 1.7613636363636366e-05, 'epoch': 20.75}
+ 69%|██████▉   | 2790/4020 [10:00<03:46,  5.43it/s]{'loss': 0.0003, 'learning_rate': 1.747159090909091e-05, 'epoch': 20.82}
+ 70%|██████▉   | 2800/4020 [10:02<03:41,  5.51it/s]{'loss': 0.0008, 'learning_rate': 1.7329545454545456e-05, 'epoch': 20.9}
+ 70%|██████▉   | 2810/4020 [10:04<03:41,  5.45it/s]{'loss': 0.0002, 'learning_rate': 1.71875e-05, 'epoch': 20.97}
+ 70%|███████   | 2814/4020 [10:04<03:31,  5.70it/s]***** Running Evaluation *****
+  Num examples = 100
+  Batch size = 3
+
+  0%|          | 0/34 [00:00<?, ?it/s]
+ 12%|█▏        | 4/34 [00:00<00:00, 36.60it/s]
+ 24%|██▎       | 8/34 [00:00<00:00, 31.21it/s]
+ 35%|███▌      | 12/34 [00:00<00:00, 29.89it/s]
+ 47%|████▋     | 16/34 [00:00<00:00, 29.44it/s]
+ 59%|█████▉    | 20/34 [00:00<00:00, 29.07it/s]
+ 68%|██████▊   | 23/34 [00:00<00:00, 28.74it/s]
+ 79%|███████▉  | 27/34 [00:00<00:00, 28.65it/s]
+ 91%|█████████ | 31/34 [00:01<00:00, 28.57it/s]{'TP': 3094, 'FP': 384, 'FN': 114, 'TN': 26701}
+              precision    recall  f1-score   support
+
+         LOC       0.83      0.93      0.88       279
+         ORG       0.76      0.87      0.81       189
+      PESSOA       0.86      0.97      0.91       323
+         PUB       0.88      0.91      0.89       597
+
+   micro avg       0.85      0.92      0.88      1388
+   macro avg       0.83      0.92      0.87      1388
+weighted avg       0.85      0.92      0.88      1388
+
+C:\Users\aceite\anaconda3\envs\ner-noticias-mapa\lib\site-packages\sklearn\utils\validation.py:70: FutureWarning: Pass labels=['B-LOC', 'B-ORG', 'B-PESSOA', 'B-PUB', 'I-LOC', 'I-ORG', 'I-PESSOA', 'I-PUB', 'O'] as keyword args. From version 1.0 (renaming of 0.25) passing these as positional arguments will result in an error
+  warnings.warn(f"Pass {args_msg} as keyword args. From version "
+              precision    recall  f1-score   support
+
+       B-LOC       0.85      0.94      0.89       277
+       B-ORG       0.81      0.91      0.86       187
+    B-PESSOA       0.87      0.99      0.93       322
+       B-PUB       0.93      0.94      0.93       595
+       I-LOC       0.85      0.94      0.90       154
+       I-ORG       0.87      0.91      0.89       296
+    I-PESSOA       0.91      0.99      0.94       434
+       I-PUB       0.91      0.93      0.92      1016
+           O       1.00      0.99      0.99     27012
+
+    accuracy                           0.98     30293
+   macro avg       0.89      0.95      0.92     30293
+weighted avg       0.98      0.98      0.98     30293
+
+f1 0.8829823955816362 f1_masked 0.8884254431699687
+                                                   
+ 70%|███████   | 2814/4020 [10:07<03:31,  5.70it/s]
+100%|██████████| 34/34 [00:03<00:00, 28.57it/s]
+                                               Saving model checkpoint to ./results/pub/30_epochs_base_pt_BR\checkpoint-2814
+Configuration saved in ./results/pub/30_epochs_base_pt_BR\checkpoint-2814\config.json
+{'eval_loss': 0.11494625359773636, 'eval_accuracy_score': 0.9835605585448783, 'eval_precision': 0.8475811795891319, 'eval_recall': 0.9214697406340058, 'eval_f1': 0.8829823955816362, 'eval_f1_masked': 0.8884254431699687, 'eval_runtime': 3.0612, 'eval_samples_per_second': 32.666, 'epoch': 21.0}
+Model weights saved in ./results/pub/30_epochs_base_pt_BR\checkpoint-2814\pytorch_model.bin
+ 70%|███████   | 2820/4020 [10:10<08:13,  2.43it/s]{'loss': 0.0002, 'learning_rate': 1.7045454545454546e-05, 'epoch': 21.04}
+ 70%|███████   | 2830/4020 [10:12<03:47,  5.23it/s]{'loss': 0.0011, 'learning_rate': 1.690340909090909e-05, 'epoch': 21.12}
+ 71%|███████   | 2840/4020 [10:14<03:35,  5.46it/s]{'loss': 0.0003, 'learning_rate': 1.6761363636363636e-05, 'epoch': 21.19}
+ 71%|███████   | 2850/4020 [10:15<03:29,  5.57it/s]{'loss': 0.0003, 'learning_rate': 1.6619318181818185e-05, 'epoch': 21.27}
+ 71%|███████   | 2860/4020 [10:17<03:32,  5.47it/s]{'loss': 0.0003, 'learning_rate': 1.6477272727272726e-05, 'epoch': 21.34}
+ 71%|███████▏  | 2870/4020 [10:19<03:29,  5.48it/s]{'loss': 0.0003, 'learning_rate': 1.6335227272727275e-05, 'epoch': 21.42}
+ 72%|███████▏  | 2880/4020 [10:21<03:27,  5.50it/s]{'loss': 0.0002, 'learning_rate': 1.619318181818182e-05, 'epoch': 21.49}
+ 72%|███████▏  | 2890/4020 [10:23<03:26,  5.48it/s]{'loss': 0.0013, 'learning_rate': 1.6051136363636365e-05, 'epoch': 21.57}
+ 72%|███████▏  | 2900/4020 [10:25<03:25,  5.45it/s]{'loss': 0.0009, 'learning_rate': 1.590909090909091e-05, 'epoch': 21.64}
+ 72%|███████▏  | 2910/4020 [10:26<03:21,  5.51it/s]{'loss': 0.0014, 'learning_rate': 1.5767045454545455e-05, 'epoch': 21.72}
+ 73%|███████▎  | 2920/4020 [10:28<03:20,  5.48it/s]{'loss': 0.0008, 'learning_rate': 1.5625e-05, 'epoch': 21.79}
+ 73%|███████▎  | 2930/4020 [10:30<03:17,  5.51it/s]{'loss': 0.0005, 'learning_rate': 1.5482954545454545e-05, 'epoch': 21.87}
+ 73%|███████▎  | 2940/4020 [10:32<03:16,  5.49it/s]{'loss': 0.0006, 'learning_rate': 1.534090909090909e-05, 'epoch': 21.94}
+ 73%|███████▎  | 2948/4020 [10:33<03:06,  5.76it/s]***** Running Evaluation *****
+  Num examples = 100
+  Batch size = 3
+
+  0%|          | 0/34 [00:00<?, ?it/s]
+ 12%|█▏        | 4/34 [00:00<00:00, 35.56it/s]
+ 24%|██▎       | 8/34 [00:00<00:00, 31.29it/s]
+ 35%|███▌      | 12/34 [00:00<00:00, 29.96it/s]
+ 47%|████▋     | 16/34 [00:00<00:00, 29.47it/s]
+ 56%|█████▌    | 19/34 [00:00<00:00, 29.14it/s]
+ 65%|██████▍   | 22/34 [00:00<00:00, 28.99it/s]
+ 74%|███████▎  | 25/34 [00:00<00:00, 28.82it/s]
+ 82%|████████▏ | 28/34 [00:00<00:00, 28.81it/s]
+ 91%|█████████ | 31/34 [00:01<00:00, 28.62it/s]{'TP': 3089, 'FP': 351, 'FN': 122, 'TN': 26731}
+              precision    recall  f1-score   support
+
+         LOC       0.84      0.92      0.88       279
+         ORG       0.80      0.86      0.83       189
+      PESSOA       0.86      0.97      0.91       323
+         PUB       0.88      0.91      0.90       597
+
+   micro avg       0.86      0.92      0.89      1388
+   macro avg       0.85      0.92      0.88      1388
+weighted avg       0.86      0.92      0.89      1388
+
+C:\Users\aceite\anaconda3\envs\ner-noticias-mapa\lib\site-packages\sklearn\utils\validation.py:70: FutureWarning: Pass labels=['B-LOC', 'B-ORG', 'B-PESSOA', 'B-PUB', 'I-LOC', 'I-ORG', 'I-PESSOA', 'I-PUB', 'O'] as keyword args. From version 1.0 (renaming of 0.25) passing these as positional arguments will result in an error
+  warnings.warn(f"Pass {args_msg} as keyword args. From version "
+              precision    recall  f1-score   support
+
+       B-LOC       0.86      0.93      0.89       277
+       B-ORG       0.86      0.91      0.88       187
+    B-PESSOA       0.87      0.98      0.92       322
+       B-PUB       0.93      0.93      0.93       595
+       I-LOC       0.87      0.94      0.90       154
+       I-ORG       0.88      0.90      0.89       296
+    I-PESSOA       0.91      0.99      0.94       434
+       I-PUB       0.91      0.93      0.92      1016
+           O       1.00      0.99      0.99     27012
+
+    accuracy                           0.98     30293
+   macro avg       0.90      0.95      0.92     30293
+weighted avg       0.98      0.98      0.98     30293
+
+f1 0.8873435326842838 f1_masked 0.8935574229691877
+{'eval_loss': 0.11008504033088684, 'eval_accuracy_score': 0.9843858317102961, 'eval_precision': 0.8575268817204301, 'eval_recall': 0.9193083573487032, 'eval_f1': 0.8873435326842838, 'eval_f1_masked': 0.8935574229691877, 'eval_runtime': 3.0538, 'eval_samples_per_second': 32.746, 'epoch': 22.0}
+                                                   
+ 73%|███████▎  | 2948/4020 [10:36<03:06,  5.76it/s]
+100%|██████████| 34/34 [00:03<00:00, 28.62it/s]
+                                               Saving model checkpoint to ./results/pub/30_epochs_base_pt_BR\checkpoint-2948
+Configuration saved in ./results/pub/30_epochs_base_pt_BR\checkpoint-2948\config.json
+Model weights saved in ./results/pub/30_epochs_base_pt_BR\checkpoint-2948\pytorch_model.bin
+ 73%|███████▎  | 2950/4020 [10:38<20:05,  1.13s/it]{'loss': 0.0003, 'learning_rate': 1.5198863636363636e-05, 'epoch': 22.01}
+ 74%|███████▎  | 2960/4020 [10:40<03:41,  4.79it/s]{'loss': 0.0007, 'learning_rate': 1.5056818181818182e-05, 'epoch': 22.09}
+ 74%|███████▍  | 2970/4020 [10:42<03:12,  5.46it/s]{'loss': 0.0004, 'learning_rate': 1.4914772727272727e-05, 'epoch': 22.16}
+ 74%|███████▍  | 2980/4020 [10:44<03:09,  5.48it/s]{'loss': 0.0003, 'learning_rate': 1.4772727272727274e-05, 'epoch': 22.24}
+ 74%|███████▍  | 2990/4020 [10:45<03:06,  5.52it/s]{'loss': 0.0003, 'learning_rate': 1.4630681818181818e-05, 'epoch': 22.31}
+ 75%|███████▍  | 3000/4020 [10:47<03:06,  5.47it/s]{'loss': 0.0006, 'learning_rate': 1.4488636363636366e-05, 'epoch': 22.39}
+ 75%|███████▍  | 3010/4020 [10:49<03:03,  5.50it/s]{'loss': 0.0003, 'learning_rate': 1.434659090909091e-05, 'epoch': 22.46}
+ 75%|███████▌  | 3020/4020 [10:51<03:02,  5.49it/s]{'loss': 0.0004, 'learning_rate': 1.4204545454545456e-05, 'epoch': 22.54}
+ 75%|███████▌  | 3030/4020 [10:53<03:00,  5.49it/s]{'loss': 0.0002, 'learning_rate': 1.4062500000000001e-05, 'epoch': 22.61}
+ 76%|███████▌  | 3040/4020 [10:54<02:58,  5.48it/s]{'loss': 0.0002, 'learning_rate': 1.3920454545454545e-05, 'epoch': 22.69}
+ 76%|███████▌  | 3050/4020 [10:56<02:58,  5.45it/s]{'loss': 0.0003, 'learning_rate': 1.3778409090909091e-05, 'epoch': 22.76}
+ 76%|███████▌  | 3060/4020 [10:58<02:50,  5.62it/s]{'loss': 0.0016, 'learning_rate': 1.3636363636363637e-05, 'epoch': 22.84}
+ 76%|███████▋  | 3070/4020 [11:00<02:52,  5.49it/s]{'loss': 0.0005, 'learning_rate': 1.3494318181818183e-05, 'epoch': 22.91}
+ 77%|███████▋  | 3080/4020 [11:02<02:47,  5.63it/s]{'loss': 0.0004, 'learning_rate': 1.3352272727272727e-05, 'epoch': 22.99}
+ 77%|███████▋  | 3082/4020 [11:02<02:42,  5.78it/s]***** Running Evaluation *****
+  Num examples = 100
+  Batch size = 3
+
+  0%|          | 0/34 [00:00<?, ?it/s]
+ 12%|█▏        | 4/34 [00:00<00:00, 35.62it/s]
+ 24%|██▎       | 8/34 [00:00<00:00, 31.44it/s]
+ 35%|███▌      | 12/34 [00:00<00:00, 30.02it/s]
+ 47%|████▋     | 16/34 [00:00<00:00, 29.55it/s]
+ 56%|█████▌    | 19/34 [00:00<00:00, 29.39it/s]
+ 65%|██████▍   | 22/34 [00:00<00:00, 29.17it/s]
+ 74%|███████▎  | 25/34 [00:00<00:00, 29.04it/s]
+ 82%|████████▏ | 28/34 [00:00<00:00, 29.01it/s]
+ 91%|█████████ | 31/34 [00:01<00:00, 28.90it/s]{'TP': 3085, 'FP': 368, 'FN': 117, 'TN': 26723}
+              precision    recall  f1-score   support
+
+         LOC       0.84      0.93      0.88       279
+         ORG       0.79      0.86      0.82       189
+      PESSOA       0.85      0.97      0.90       323
+         PUB       0.88      0.90      0.89       597
+
+   micro avg       0.85      0.92      0.88      1388
+   macro avg       0.84      0.92      0.88      1388
+weighted avg       0.85      0.92      0.88      1388
+
+C:\Users\aceite\anaconda3\envs\ner-noticias-mapa\lib\site-packages\sklearn\utils\validation.py:70: FutureWarning: Pass labels=['B-LOC', 'B-ORG', 'B-PESSOA', 'B-PUB', 'I-LOC', 'I-ORG', 'I-PESSOA', 'I-PUB', 'O'] as keyword args. From version 1.0 (renaming of 0.25) passing these as positional arguments will result in an error
+  warnings.warn(f"Pass {args_msg} as keyword args. From version "
+              precision    recall  f1-score   support
+
+       B-LOC       0.85      0.94      0.89       277
+       B-ORG       0.85      0.91      0.88       187
+    B-PESSOA       0.86      0.98      0.92       322
+       B-PUB       0.93      0.94      0.93       595
+       I-LOC       0.84      0.94      0.89       154
+       I-ORG       0.89      0.89      0.89       296
+    I-PESSOA       0.90      0.98      0.94       434
+       I-PUB       0.91      0.93      0.92      1016
+           O       1.00      0.99      0.99     27012
+
+    accuracy                           0.98     30293
+   macro avg       0.89      0.94      0.92     30293
+weighted avg       0.98      0.98      0.98     30293
+
+f1 0.8831889081455806 f1_masked 0.8914485165794066
+{'eval_loss': 0.11368468403816223, 'eval_accuracy_score': 0.9839897005908956, 'eval_precision': 0.8510354041416166, 'eval_recall': 0.9178674351585014, 'eval_f1': 0.8831889081455806, 'eval_f1_masked': 0.8914485165794066, 'eval_runtime': 3.0162, 'eval_samples_per_second': 33.154, 'epoch': 23.0}
+                                                   
+ 77%|███████▋  | 3082/4020 [11:05<02:42,  5.78it/s]
+100%|██████████| 34/34 [00:02<00:00, 28.90it/s]
+                                               Saving model checkpoint to ./results/pub/30_epochs_base_pt_BR\checkpoint-3082
+Configuration saved in ./results/pub/30_epochs_base_pt_BR\checkpoint-3082\config.json
+Model weights saved in ./results/pub/30_epochs_base_pt_BR\checkpoint-3082\pytorch_model.bin
+ 77%|███████▋  | 3090/4020 [11:08<04:35,  3.38it/s]{'loss': 0.0004, 'learning_rate': 1.3210227272727273e-05, 'epoch': 23.06}
+ 77%|███████▋  | 3100/4020 [11:10<02:47,  5.50it/s]{'loss': 0.0004, 'learning_rate': 1.3068181818181819e-05, 'epoch': 23.13}
+ 77%|███████▋  | 3110/4020 [11:12<02:44,  5.53it/s]{'loss': 0.0002, 'learning_rate': 1.2926136363636365e-05, 'epoch': 23.21}
+ 78%|███████▊  | 3120/4020 [11:13<02:44,  5.47it/s]{'loss': 0.0002, 'learning_rate': 1.2784090909090909e-05, 'epoch': 23.28}
+ 78%|███████▊  | 3130/4020 [11:15<02:42,  5.49it/s]{'loss': 0.0004, 'learning_rate': 1.2642045454545457e-05, 'epoch': 23.36}
+ 78%|███████▊  | 3140/4020 [11:17<02:40,  5.48it/s]{'loss': 0.0002, 'learning_rate': 1.25e-05, 'epoch': 23.43}
+ 78%|███████▊  | 3150/4020 [11:19<02:39,  5.47it/s]{'loss': 0.0002, 'learning_rate': 1.2357954545454546e-05, 'epoch': 23.51}
+ 79%|███████▊  | 3160/4020 [11:21<02:37,  5.47it/s]{'loss': 0.0005, 'learning_rate': 1.2215909090909092e-05, 'epoch': 23.58}
+ 79%|███████▉  | 3170/4020 [11:23<02:35,  5.48it/s]{'loss': 0.0002, 'learning_rate': 1.2073863636363638e-05, 'epoch': 23.66}
+ 79%|███████▉  | 3180/4020 [11:24<02:33,  5.49it/s]{'loss': 0.0002, 'learning_rate': 1.1931818181818183e-05, 'epoch': 23.73}
+ 79%|███████▉  | 3190/4020 [11:26<02:28,  5.60it/s]{'loss': 0.0008, 'learning_rate': 1.1789772727272728e-05, 'epoch': 23.81}
+ 80%|███████▉  | 3200/4020 [11:28<02:29,  5.48it/s]{'loss': 0.0002, 'learning_rate': 1.1647727272727273e-05, 'epoch': 23.88}
+ 80%|███████▉  | 3210/4020 [11:30<02:27,  5.48it/s]{'loss': 0.0002, 'learning_rate': 1.1505681818181818e-05, 'epoch': 23.96}
+ 80%|████████  | 3216/4020 [11:31<02:19,  5.75it/s]***** Running Evaluation *****
+  Num examples = 100
+  Batch size = 3
+
+  0%|          | 0/34 [00:00<?, ?it/s]
+ 12%|█▏        | 4/34 [00:00<00:00, 33.76it/s]
+ 24%|██▎       | 8/34 [00:00<00:00, 31.54it/s]
+ 35%|███▌      | 12/34 [00:00<00:00, 30.04it/s]
+ 47%|████▋     | 16/34 [00:00<00:00, 28.77it/s]
+ 56%|█████▌    | 19/34 [00:00<00:00, 28.73it/s]
+ 68%|██████▊   | 23/34 [00:00<00:00, 28.84it/s]
+ 76%|███████▋  | 26/34 [00:00<00:00, 28.60it/s]
+ 88%|████████▊ | 30/34 [00:01<00:00, 28.63it/s]
+ 97%|█████████▋| 33/34 [00:01<00:00, 28.57it/s]{'TP': 3077, 'FP': 368, 'FN': 120, 'TN': 26728}
+C:\Users\aceite\anaconda3\envs\ner-noticias-mapa\lib\site-packages\sklearn\utils\validation.py:70: FutureWarning: Pass labels=['B-LOC', 'B-ORG', 'B-PESSOA', 'B-PUB', 'I-LOC', 'I-ORG', 'I-PESSOA', 'I-PUB', 'O'] as keyword args. From version 1.0 (renaming of 0.25) passing these as positional arguments will result in an error
+  warnings.warn(f"Pass {args_msg} as keyword args. From version "
+              precision    recall  f1-score   support
+
+         LOC       0.83      0.94      0.88       279
+         ORG       0.78      0.85      0.81       189
+      PESSOA       0.86      0.97      0.91       323
+         PUB       0.88      0.90      0.89       597
+
+   micro avg       0.85      0.92      0.88      1388
+   macro avg       0.84      0.92      0.87      1388
+weighted avg       0.85      0.92      0.88      1388
+
+              precision    recall  f1-score   support
+
+       B-LOC       0.84      0.94      0.89       277
+       B-ORG       0.85      0.91      0.88       187
+    B-PESSOA       0.87      0.99      0.92       322
+       B-PUB       0.93      0.94      0.93       595
+       I-LOC       0.82      0.94      0.88       154
+       I-ORG       0.89      0.88      0.88       296
+    I-PESSOA       0.89      0.99      0.94       434
+       I-PUB       0.92      0.92      0.92      1016
+           O       1.00      0.99      0.99     27012
+
+    accuracy                           0.98     30293
+   macro avg       0.89      0.94      0.92     30293
+weighted avg       0.98      0.98      0.98     30293
+
+f1 0.8822714681440442 f1_masked 0.8921465968586387
+{'eval_loss': 0.1142696961760521, 'eval_accuracy_score': 0.9838906678110455, 'eval_precision': 0.8493333333333334, 'eval_recall': 0.9178674351585014, 'eval_f1': 0.8822714681440442, 'eval_f1_masked': 0.8921465968586387, 'eval_runtime': 3.0291, 'eval_samples_per_second': 33.014, 'epoch': 24.0}
+                                                   
+ 80%|████████  | 3216/4020 [11:34<02:19,  5.75it/s]
+100%|██████████| 34/34 [00:03<00:00, 28.57it/s]
+                                               Saving model checkpoint to ./results/pub/30_epochs_base_pt_BR\checkpoint-3216
+Configuration saved in ./results/pub/30_epochs_base_pt_BR\checkpoint-3216\config.json
+Model weights saved in ./results/pub/30_epochs_base_pt_BR\checkpoint-3216\pytorch_model.bin
+ 80%|████████  | 3220/4020 [11:36<08:32,  1.56it/s]{'loss': 0.0002, 'learning_rate': 1.1363636363636365e-05, 'epoch': 24.03}
+ 80%|████████  | 3230/4020 [11:38<02:34,  5.13it/s]{'loss': 0.0002, 'learning_rate': 1.122159090909091e-05, 'epoch': 24.1}
+ 81%|████████  | 3240/4020 [11:40<02:21,  5.50it/s]{'loss': 0.0002, 'learning_rate': 1.1079545454545455e-05, 'epoch': 24.18}
+ 81%|████████  | 3250/4020 [11:42<02:21,  5.46it/s]{'loss': 0.0004, 'learning_rate': 1.09375e-05, 'epoch': 24.25}
+ 81%|████████  | 3260/4020 [11:43<02:18,  5.49it/s]{'loss': 0.0002, 'learning_rate': 1.0795454545454547e-05, 'epoch': 24.33}
+ 81%|████████▏ | 3270/4020 [11:45<02:16,  5.50it/s]{'loss': 0.0002, 'learning_rate': 1.0653409090909092e-05, 'epoch': 24.4}
+ 82%|████████▏ | 3280/4020 [11:47<02:14,  5.50it/s]{'loss': 0.0002, 'learning_rate': 1.0511363636363637e-05, 'epoch': 24.48}
+ 82%|████████▏ | 3290/4020 [11:49<02:10,  5.57it/s]{'loss': 0.0003, 'learning_rate': 1.0369318181818184e-05, 'epoch': 24.55}
+ 82%|████████▏ | 3300/4020 [11:51<02:12,  5.44it/s]{'loss': 0.0002, 'learning_rate': 1.0227272727272729e-05, 'epoch': 24.63}
+ 82%|████████▏ | 3310/4020 [11:53<02:08,  5.54it/s]{'loss': 0.0002, 'learning_rate': 1.0085227272727272e-05, 'epoch': 24.7}
+ 83%|████████▎ | 3320/4020 [11:54<02:06,  5.53it/s]{'loss': 0.0002, 'learning_rate': 9.943181818181819e-06, 'epoch': 24.78}
+ 83%|████████▎ | 3330/4020 [11:56<02:06,  5.44it/s]{'loss': 0.0003, 'learning_rate': 9.801136363636364e-06, 'epoch': 24.85}
+ 83%|████████▎ | 3340/4020 [11:58<02:04,  5.48it/s]{'loss': 0.0003, 'learning_rate': 9.659090909090909e-06, 'epoch': 24.93}
+ 83%|████████▎ | 3350/4020 [12:00<01:54,  5.84it/s]***** Running Evaluation *****
+{'loss': 0.0002, 'learning_rate': 9.517045454545454e-06, 'epoch': 25.0}
+  Num examples = 100
+  Batch size = 3
+
+  0%|          | 0/34 [00:00<?, ?it/s]
+ 12%|█▏        | 4/34 [00:00<00:00, 37.88it/s]
+ 24%|██▎       | 8/34 [00:00<00:00, 33.57it/s]
+ 35%|███▌      | 12/34 [00:00<00:00, 30.99it/s]
+ 47%|████▋     | 16/34 [00:00<00:00, 30.01it/s]
+ 59%|█████▉    | 20/34 [00:00<00:00, 29.28it/s]
+ 68%|██████▊   | 23/34 [00:00<00:00, 28.89it/s]
+ 76%|███████▋  | 26/34 [00:00<00:00, 28.30it/s]
+ 88%|████████▊ | 30/34 [00:01<00:00, 28.42it/s]
+ 97%|█████████▋| 33/34 [00:01<00:00, 28.36it/s]{'TP': 3082, 'FP': 370, 'FN': 118, 'TN': 26723}
+C:\Users\aceite\anaconda3\envs\ner-noticias-mapa\lib\site-packages\sklearn\utils\validation.py:70: FutureWarning: Pass labels=['B-LOC', 'B-ORG', 'B-PESSOA', 'B-PUB', 'I-LOC', 'I-ORG', 'I-PESSOA', 'I-PUB', 'O'] as keyword args. From version 1.0 (renaming of 0.25) passing these as positional arguments will result in an error
+  warnings.warn(f"Pass {args_msg} as keyword args. From version "
+              precision    recall  f1-score   support
+
+         LOC       0.83      0.93      0.88       279
+         ORG       0.77      0.85      0.81       189
+      PESSOA       0.85      0.97      0.90       323
+         PUB       0.88      0.90      0.89       597
+
+   micro avg       0.85      0.92      0.88      1388
+   macro avg       0.83      0.91      0.87      1388
+weighted avg       0.85      0.92      0.88      1388
+
+              precision    recall  f1-score   support
+
+       B-LOC       0.85      0.94      0.89       277
+       B-ORG       0.84      0.91      0.87       187
+    B-PESSOA       0.86      0.99      0.92       322
+       B-PUB       0.93      0.94      0.93       595
+       I-LOC       0.83      0.94      0.88       154
+       I-ORG       0.89      0.89      0.89       296
+    I-PESSOA       0.90      0.98      0.94       434
+       I-PUB       0.92      0.93      0.92      1016
+           O       1.00      0.99      0.99     27012
+
+    accuracy                           0.98     30293
+   macro avg       0.89      0.94      0.92     30293
+weighted avg       0.98      0.98      0.98     30293
+
+f1 0.8800553059108193 f1_masked 0.890516039051604
+                                                   
+ 83%|████████▎ | 3350/4020 [12:03<01:54,  5.84it/s]
+100%|██████████| 34/34 [00:03<00:00, 28.36it/s]
+                                               Saving model checkpoint to ./results/pub/30_epochs_base_pt_BR\checkpoint-3350
+Configuration saved in ./results/pub/30_epochs_base_pt_BR\checkpoint-3350\config.json
+{'eval_loss': 0.11500218510627747, 'eval_accuracy_score': 0.9838906678110455, 'eval_precision': 0.8458471760797343, 'eval_recall': 0.9171469740634006, 'eval_f1': 0.8800553059108193, 'eval_f1_masked': 0.890516039051604, 'eval_runtime': 3.0645, 'eval_samples_per_second': 32.632, 'epoch': 25.0}
+Model weights saved in ./results/pub/30_epochs_base_pt_BR\checkpoint-3350\pytorch_model.bin
+ 84%|████████▎ | 3360/4020 [12:06<02:36,  4.22it/s]{'loss': 0.0001, 'learning_rate': 9.375000000000001e-06, 'epoch': 25.07}
+ 84%|████████▍ | 3370/4020 [12:08<01:59,  5.42it/s]{'loss': 0.0001, 'learning_rate': 9.232954545454546e-06, 'epoch': 25.15}
+ 84%|████████▍ | 3380/4020 [12:10<01:56,  5.47it/s]{'loss': 0.0002, 'learning_rate': 9.090909090909091e-06, 'epoch': 25.22}
+ 84%|████████▍ | 3390/4020 [12:12<01:54,  5.51it/s]{'loss': 0.0001, 'learning_rate': 8.948863636363638e-06, 'epoch': 25.3}
+ 85%|████████▍ | 3400/4020 [12:13<01:53,  5.48it/s]{'loss': 0.0002, 'learning_rate': 8.806818181818183e-06, 'epoch': 25.37}
+ 85%|████████▍ | 3410/4020 [12:15<01:49,  5.55it/s]{'loss': 0.0002, 'learning_rate': 8.664772727272728e-06, 'epoch': 25.45}
+ 85%|████████▌ | 3420/4020 [12:17<01:49,  5.48it/s]{'loss': 0.0001, 'learning_rate': 8.522727272727273e-06, 'epoch': 25.52}
+ 85%|████████▌ | 3430/4020 [12:19<01:46,  5.52it/s]{'loss': 0.001, 'learning_rate': 8.380681818181818e-06, 'epoch': 25.6}
+ 86%|████████▌ | 3440/4020 [12:21<01:46,  5.43it/s]{'loss': 0.0008, 'learning_rate': 8.238636363636363e-06, 'epoch': 25.67}
+ 86%|████████▌ | 3450/4020 [12:23<01:44,  5.45it/s]{'loss': 0.0002, 'learning_rate': 8.09659090909091e-06, 'epoch': 25.75}
+ 86%|████████▌ | 3460/4020 [12:24<01:41,  5.52it/s]{'loss': 0.0003, 'learning_rate': 7.954545454545455e-06, 'epoch': 25.82}
+ 86%|████████▋ | 3470/4020 [12:26<01:38,  5.57it/s]{'loss': 0.0002, 'learning_rate': 7.8125e-06, 'epoch': 25.9}
+ 87%|████████▋ | 3480/4020 [12:28<01:38,  5.48it/s]{'loss': 0.0006, 'learning_rate': 7.670454545454545e-06, 'epoch': 25.97}
+ 87%|████████▋ | 3484/4020 [12:29<01:32,  5.78it/s]***** Running Evaluation *****
+  Num examples = 100
+  Batch size = 3
+
+  0%|          | 0/34 [00:00<?, ?it/s]
+ 12%|█▏        | 4/34 [00:00<00:00, 34.62it/s]
+ 24%|██▎       | 8/34 [00:00<00:00, 30.87it/s]
+ 35%|███▌      | 12/34 [00:00<00:00, 30.00it/s]
+ 47%|████▋     | 16/34 [00:00<00:00, 29.53it/s]
+ 59%|█████▉    | 20/34 [00:00<00:00, 29.40it/s]
+ 71%|███████   | 24/34 [00:00<00:00, 29.18it/s]
+ 79%|███████▉  | 27/34 [00:00<00:00, 29.04it/s]
+ 88%|████████▊ | 30/34 [00:01<00:00, 28.94it/s]
+ 97%|█████████▋| 33/34 [00:01<00:00, 28.81it/s]{'TP': 3081, 'FP': 363, 'FN': 121, 'TN': 26728}
+              precision    recall  f1-score   support
+
+         LOC       0.84      0.93      0.88       279
+         ORG       0.79      0.86      0.82       189
+      PESSOA       0.85      0.97      0.91       323
+         PUB       0.88      0.90      0.89       597
+
+   micro avg       0.85      0.92      0.88      1388
+   macro avg       0.84      0.92      0.87      1388
+weighted avg       0.85      0.92      0.88      1388
+
+C:\Users\aceite\anaconda3\envs\ner-noticias-mapa\lib\site-packages\sklearn\utils\validation.py:70: FutureWarning: Pass labels=['B-LOC', 'B-ORG', 'B-PESSOA', 'B-PUB', 'I-LOC', 'I-ORG', 'I-PESSOA', 'I-PUB', 'O'] as keyword args. From version 1.0 (renaming of 0.25) passing these as positional arguments will result in an error
+  warnings.warn(f"Pass {args_msg} as keyword args. From version "
+              precision    recall  f1-score   support
+
+       B-LOC       0.85      0.94      0.89       277
+       B-ORG       0.84      0.90      0.87       187
+    B-PESSOA       0.87      0.99      0.92       322
+       B-PUB       0.93      0.94      0.93       595
+       I-LOC       0.85      0.94      0.89       154
+       I-ORG       0.88      0.89      0.89       296
+    I-PESSOA       0.90      0.98      0.94       434
+       I-PUB       0.92      0.93      0.92      1016
+           O       1.00      0.99      0.99     27012
+
+    accuracy                           0.98     30293
+   macro avg       0.89      0.94      0.92     30293
+weighted avg       0.98      0.98      0.98     30293
+
+f1 0.8828828828828829 f1_masked 0.8920712539294446
+                                                   
+ 87%|████████▋ | 3484/4020 [12:32<01:32,  5.78it/s]
+100%|██████████| 34/34 [00:03<00:00, 28.81it/s]
+                                               Saving model checkpoint to ./results/pub/30_epochs_base_pt_BR\checkpoint-3484
+Configuration saved in ./results/pub/30_epochs_base_pt_BR\checkpoint-3484\config.json
+{'eval_loss': 0.11383476853370667, 'eval_accuracy_score': 0.9840227115175123, 'eval_precision': 0.8504672897196262, 'eval_recall': 0.9178674351585014, 'eval_f1': 0.8828828828828829, 'eval_f1_masked': 0.8920712539294446, 'eval_runtime': 3.046, 'eval_samples_per_second': 32.83, 'epoch': 26.0}
+Model weights saved in ./results/pub/30_epochs_base_pt_BR\checkpoint-3484\pytorch_model.bin
+ 87%|████████▋ | 3490/4020 [12:34<03:38,  2.43it/s]{'loss': 0.0001, 'learning_rate': 7.528409090909091e-06, 'epoch': 26.04}
+ 87%|████████▋ | 3500/4020 [12:36<01:36,  5.36it/s]{'loss': 0.0002, 'learning_rate': 7.386363636363637e-06, 'epoch': 26.12}
+ 87%|████████▋ | 3510/4020 [12:38<01:31,  5.54it/s]{'loss': 0.0001, 'learning_rate': 7.244318181818183e-06, 'epoch': 26.19}
+ 88%|████████▊ | 3520/4020 [12:40<01:30,  5.51it/s]{'loss': 0.0001, 'learning_rate': 7.102272727272728e-06, 'epoch': 26.27}
+ 88%|████████▊ | 3530/4020 [12:42<01:28,  5.52it/s]{'loss': 0.0002, 'learning_rate': 6.960227272727272e-06, 'epoch': 26.34}
+ 88%|████████▊ | 3540/4020 [12:43<01:26,  5.56it/s]{'loss': 0.0002, 'learning_rate': 6.818181818181818e-06, 'epoch': 26.42}
+ 88%|████████▊ | 3550/4020 [12:45<01:25,  5.47it/s]{'loss': 0.0002, 'learning_rate': 6.676136363636363e-06, 'epoch': 26.49}
+ 89%|████████▊ | 3560/4020 [12:47<01:23,  5.50it/s]{'loss': 0.0002, 'learning_rate': 6.534090909090909e-06, 'epoch': 26.57}
+ 89%|████████▉ | 3570/4020 [12:49<01:21,  5.49it/s]{'loss': 0.0012, 'learning_rate': 6.392045454545454e-06, 'epoch': 26.64}
+ 89%|████████▉ | 3580/4020 [12:51<01:19,  5.52it/s]{'loss': 0.0002, 'learning_rate': 6.25e-06, 'epoch': 26.72}
+ 89%|████████▉ | 3590/4020 [12:52<01:19,  5.44it/s]{'loss': 0.0002, 'learning_rate': 6.107954545454546e-06, 'epoch': 26.79}
+ 90%|████████▉ | 3600/4020 [12:54<01:15,  5.60it/s]{'loss': 0.0002, 'learning_rate': 5.965909090909091e-06, 'epoch': 26.87}
+ 90%|████████▉ | 3610/4020 [12:56<01:14,  5.47it/s]{'loss': 0.0002, 'learning_rate': 5.823863636363636e-06, 'epoch': 26.94}
+ 90%|█████████ | 3618/4020 [12:58<01:09,  5.80it/s]***** Running Evaluation *****
+  Num examples = 100
+  Batch size = 3
+
+  0%|          | 0/34 [00:00<?, ?it/s]
+ 12%|█▏        | 4/34 [00:00<00:00, 37.01it/s]
+ 24%|██▎       | 8/34 [00:00<00:00, 30.62it/s]
+ 35%|███▌      | 12/34 [00:00<00:00, 29.91it/s]
+ 47%|████▋     | 16/34 [00:00<00:00, 29.47it/s]
+ 56%|█████▌    | 19/34 [00:00<00:00, 29.26it/s]
+ 65%|██████▍   | 22/34 [00:00<00:00, 29.17it/s]
+ 74%|███████▎  | 25/34 [00:00<00:00, 29.02it/s]
+ 82%|████████▏ | 28/34 [00:00<00:00, 29.08it/s]
+ 91%|█████████ | 31/34 [00:01<00:00, 29.05it/s]{'TP': 3087, 'FP': 371, 'FN': 117, 'TN': 26718}
+C:\Users\aceite\anaconda3\envs\ner-noticias-mapa\lib\site-packages\sklearn\utils\validation.py:70: FutureWarning: Pass labels=['B-LOC', 'B-ORG', 'B-PESSOA', 'B-PUB', 'I-LOC', 'I-ORG', 'I-PESSOA', 'I-PUB', 'O'] as keyword args. From version 1.0 (renaming of 0.25) passing these as positional arguments will result in an error
+  warnings.warn(f"Pass {args_msg} as keyword args. From version "
+              precision    recall  f1-score   support
+
+         LOC       0.83      0.94      0.88       279
+         ORG       0.78      0.86      0.81       189
+      PESSOA       0.85      0.97      0.90       323
+         PUB       0.87      0.91      0.89       597
+
+   micro avg       0.85      0.92      0.88      1388
+   macro avg       0.83      0.92      0.87      1388
+weighted avg       0.85      0.92      0.88      1388
+
+              precision    recall  f1-score   support
+
+       B-LOC       0.85      0.94      0.89       277
+       B-ORG       0.83      0.91      0.87       187
+    B-PESSOA       0.86      0.99      0.92       322
+       B-PUB       0.93      0.94      0.93       595
+       I-LOC       0.85      0.94      0.90       154
+       I-ORG       0.89      0.89      0.89       296
+    I-PESSOA       0.90      0.98      0.94       434
+       I-PUB       0.91      0.93      0.92      1016
+           O       1.00      0.99      0.99     27012
+
+    accuracy                           0.98     30293
+   macro avg       0.89      0.95      0.92     30293
+weighted avg       0.98      0.98      0.98     30293
+
+f1 0.8809934460158676 f1_masked 0.8904347826086958
+                                                   
+ 90%|█████████ | 3618/4020 [13:01<01:09,  5.80it/s]
+100%|██████████| 34/34 [00:03<00:00, 29.05it/s]
+                                               Saving model checkpoint to ./results/pub/30_epochs_base_pt_BR\checkpoint-3618
+Configuration saved in ./results/pub/30_epochs_base_pt_BR\checkpoint-3618\config.json
+{'eval_loss': 0.11653155088424683, 'eval_accuracy_score': 0.9838906678110455, 'eval_precision': 0.8451356717405691, 'eval_recall': 0.920028818443804, 'eval_f1': 0.8809934460158676, 'eval_f1_masked': 0.8904347826086958, 'eval_runtime': 3.0443, 'eval_samples_per_second': 32.848, 'epoch': 27.0}
+Model weights saved in ./results/pub/30_epochs_base_pt_BR\checkpoint-3618\pytorch_model.bin
+ 90%|█████████ | 3620/4020 [13:02<07:30,  1.13s/it]{'loss': 0.0002, 'learning_rate': 5.681818181818182e-06, 'epoch': 27.01}
+ 90%|█████████ | 3630/4020 [13:04<01:21,  4.79it/s]{'loss': 0.0001, 'learning_rate': 5.539772727272727e-06, 'epoch': 27.09}
+ 91%|█████████ | 3640/4020 [13:06<01:08,  5.56it/s]{'loss': 0.0001, 'learning_rate': 5.397727272727273e-06, 'epoch': 27.16}
+ 91%|█████████ | 3650/4020 [13:08<01:07,  5.48it/s]{'loss': 0.0003, 'learning_rate': 5.255681818181818e-06, 'epoch': 27.24}
+ 91%|█████████ | 3660/4020 [13:10<01:03,  5.64it/s]{'loss': 0.0001, 'learning_rate': 5.113636363636364e-06, 'epoch': 27.31}
+ 91%|█████████▏| 3670/4020 [13:11<01:03,  5.50it/s]{'loss': 0.0002, 'learning_rate': 4.9715909090909094e-06, 'epoch': 27.39}
+ 92%|█████████▏| 3680/4020 [13:13<01:02,  5.48it/s]{'loss': 0.0002, 'learning_rate': 4.8295454545454545e-06, 'epoch': 27.46}
+ 92%|█████████▏| 3690/4020 [13:15<00:59,  5.54it/s]{'loss': 0.0002, 'learning_rate': 4.6875000000000004e-06, 'epoch': 27.54}
+ 92%|█████████▏| 3700/4020 [13:17<00:58,  5.52it/s]{'loss': 0.0003, 'learning_rate': 4.5454545454545455e-06, 'epoch': 27.61}
+ 92%|█████████▏| 3710/4020 [13:19<00:56,  5.53it/s]{'loss': 0.0002, 'learning_rate': 4.4034090909090914e-06, 'epoch': 27.69}
+ 93%|█████████▎| 3720/4020 [13:21<00:54,  5.48it/s]{'loss': 0.0002, 'learning_rate': 4.2613636363636365e-06, 'epoch': 27.76}
+ 93%|█████████▎| 3730/4020 [13:22<00:52,  5.57it/s]{'loss': 0.0002, 'learning_rate': 4.119318181818182e-06, 'epoch': 27.84}
+ 93%|█████████▎| 3740/4020 [13:24<00:49,  5.63it/s]{'loss': 0.0001, 'learning_rate': 3.9772727272727275e-06, 'epoch': 27.91}
+ 93%|█████████▎| 3750/4020 [13:26<00:48,  5.52it/s]{'loss': 0.0001, 'learning_rate': 3.835227272727273e-06, 'epoch': 27.99}
+ 93%|█████████▎| 3752/4020 [13:26<00:46,  5.80it/s]***** Running Evaluation *****
+  Num examples = 100
+  Batch size = 3
+
+  0%|          | 0/34 [00:00<?, ?it/s]
+ 12%|█▏        | 4/34 [00:00<00:00, 38.53it/s]
+ 24%|██▎       | 8/34 [00:00<00:00, 33.86it/s]
+ 35%|███▌      | 12/34 [00:00<00:00, 30.94it/s]
+ 47%|████▋     | 16/34 [00:00<00:00, 29.31it/s]
+ 56%|█████▌    | 19/34 [00:00<00:00, 29.16it/s]
+ 65%|██████▍   | 22/34 [00:00<00:00, 29.10it/s]
+ 76%|███████▋  | 26/34 [00:00<00:00, 28.98it/s]
+ 85%|████████▌ | 29/34 [00:00<00:00, 29.01it/s]
+ 94%|█████████▍| 32/34 [00:01<00:00, 28.94it/s]{'TP': 3080, 'FP': 367, 'FN': 123, 'TN': 26723}
+C:\Users\aceite\anaconda3\envs\ner-noticias-mapa\lib\site-packages\sklearn\utils\validation.py:70: FutureWarning: Pass labels=['B-LOC', 'B-ORG', 'B-PESSOA', 'B-PUB', 'I-LOC', 'I-ORG', 'I-PESSOA', 'I-PUB', 'O'] as keyword args. From version 1.0 (renaming of 0.25) passing these as positional arguments will result in an error
+  warnings.warn(f"Pass {args_msg} as keyword args. From version "
+              precision    recall  f1-score   support
+
+         LOC       0.83      0.94      0.88       279
+         ORG       0.77      0.85      0.81       189
+      PESSOA       0.85      0.97      0.90       323
+         PUB       0.88      0.90      0.89       597
+
+   micro avg       0.85      0.92      0.88      1388
+   macro avg       0.83      0.91      0.87      1388
+weighted avg       0.85      0.92      0.88      1388
+
+              precision    recall  f1-score   support
+
+       B-LOC       0.85      0.94      0.89       277
+       B-ORG       0.84      0.91      0.88       187
+    B-PESSOA       0.86      0.99      0.92       322
+       B-PUB       0.93      0.93      0.93       595
+       I-LOC       0.85      0.94      0.90       154
+       I-ORG       0.88      0.88      0.88       296
+    I-PESSOA       0.89      0.98      0.94       434
+       I-PUB       0.92      0.93      0.92      1016
+           O       1.00      0.99      0.99     27012
+
+    accuracy                           0.98     30293
+   macro avg       0.89      0.94      0.92     30293
+weighted avg       0.98      0.98      0.98     30293
+
+f1 0.8803596127247579 f1_masked 0.890205646566748
+                                                   
+ 93%|█████████▎| 3752/4020 [13:29<00:46,  5.80it/s]
+100%|██████████| 34/34 [00:03<00:00, 28.94it/s]
+                                               Saving model checkpoint to ./results/pub/30_epochs_base_pt_BR\checkpoint-3752
+Configuration saved in ./results/pub/30_epochs_base_pt_BR\checkpoint-3752\config.json
+{'eval_loss': 0.11745585501194, 'eval_accuracy_score': 0.983824645957812, 'eval_precision': 0.8464095744680851, 'eval_recall': 0.9171469740634006, 'eval_f1': 0.8803596127247579, 'eval_f1_masked': 0.890205646566748, 'eval_runtime': 3.0437, 'eval_samples_per_second': 32.855, 'epoch': 28.0}
+Model weights saved in ./results/pub/30_epochs_base_pt_BR\checkpoint-3752\pytorch_model.bin
+ 94%|█████████▎| 3760/4020 [13:32<01:15,  3.46it/s]{'loss': 0.0002, 'learning_rate': 3.6931818181818186e-06, 'epoch': 28.06}
+ 94%|█████████▍| 3770/4020 [13:34<00:46,  5.40it/s]{'loss': 0.0001, 'learning_rate': 3.551136363636364e-06, 'epoch': 28.13}
+ 94%|█████████▍| 3780/4020 [13:36<00:43,  5.51it/s]{'loss': 0.0001, 'learning_rate': 3.409090909090909e-06, 'epoch': 28.21}
+ 94%|█████████▍| 3790/4020 [13:38<00:41,  5.50it/s]{'loss': 0.0001, 'learning_rate': 3.2670454545454546e-06, 'epoch': 28.28}
+ 95%|█████████▍| 3800/4020 [13:40<00:40,  5.49it/s]{'loss': 0.0004, 'learning_rate': 3.125e-06, 'epoch': 28.36}
+ 95%|█████████▍| 3810/4020 [13:41<00:38,  5.49it/s]{'loss': 0.0008, 'learning_rate': 2.9829545454545457e-06, 'epoch': 28.43}
+ 95%|█████████▌| 3820/4020 [13:43<00:36,  5.53it/s]{'loss': 0.0002, 'learning_rate': 2.840909090909091e-06, 'epoch': 28.51}
+ 95%|█████████▌| 3830/4020 [13:45<00:34,  5.51it/s]{'loss': 0.0001, 'learning_rate': 2.6988636363636367e-06, 'epoch': 28.58}
+ 96%|█████████▌| 3840/4020 [13:47<00:32,  5.50it/s]{'loss': 0.0009, 'learning_rate': 2.556818181818182e-06, 'epoch': 28.66}
+ 96%|█████████▌| 3850/4020 [13:49<00:30,  5.57it/s]{'loss': 0.0002, 'learning_rate': 2.4147727272727273e-06, 'epoch': 28.73}
+ 96%|█████████▌| 3860/4020 [13:50<00:28,  5.56it/s]{'loss': 0.0001, 'learning_rate': 2.2727272727272728e-06, 'epoch': 28.81}
+ 96%|█████████▋| 3870/4020 [13:52<00:27,  5.44it/s]{'loss': 0.0001, 'learning_rate': 2.1306818181818183e-06, 'epoch': 28.88}
+ 97%|█████████▋| 3880/4020 [13:54<00:25,  5.49it/s]{'loss': 0.0002, 'learning_rate': 1.9886363636363638e-06, 'epoch': 28.96}
+ 97%|█████████▋| 3886/4020 [13:55<00:23,  5.76it/s]***** Running Evaluation *****
+  Num examples = 100
+  Batch size = 3
+
+  0%|          | 0/34 [00:00<?, ?it/s]
+ 12%|█▏        | 4/34 [00:00<00:00, 36.61it/s]
+ 24%|██▎       | 8/34 [00:00<00:00, 31.05it/s]
+ 35%|███▌      | 12/34 [00:00<00:00, 29.88it/s]
+ 47%|████▋     | 16/34 [00:00<00:00, 29.29it/s]
+ 56%|█████▌    | 19/34 [00:00<00:00, 29.22it/s]
+ 68%|██████▊   | 23/34 [00:00<00:00, 29.01it/s]
+ 76%|███████▋  | 26/34 [00:00<00:00, 28.92it/s]
+ 85%|████████▌ | 29/34 [00:00<00:00, 28.82it/s]
+ 94%|█████████▍| 32/34 [00:01<00:00, 28.76it/s]{'TP': 3083, 'FP': 374, 'FN': 121, 'TN': 26715}
+C:\Users\aceite\anaconda3\envs\ner-noticias-mapa\lib\site-packages\sklearn\utils\validation.py:70: FutureWarning: Pass labels=['B-LOC', 'B-ORG', 'B-PESSOA', 'B-PUB', 'I-LOC', 'I-ORG', 'I-PESSOA', 'I-PUB', 'O'] as keyword args. From version 1.0 (renaming of 0.25) passing these as positional arguments will result in an error
+  warnings.warn(f"Pass {args_msg} as keyword args. From version "
+              precision    recall  f1-score   support
+
+         LOC       0.83      0.94      0.88       279
+         ORG       0.77      0.85      0.81       189
+      PESSOA       0.85      0.97      0.90       323
+         PUB       0.87      0.90      0.89       597
+
+   micro avg       0.84      0.92      0.88      1388
+   macro avg       0.83      0.91      0.87      1388
+weighted avg       0.84      0.92      0.88      1388
+
+              precision    recall  f1-score   support
+
+       B-LOC       0.85      0.94      0.89       277
+       B-ORG       0.83      0.91      0.87       187
+    B-PESSOA       0.86      0.99      0.92       322
+       B-PUB       0.93      0.94      0.93       595
+       I-LOC       0.86      0.94      0.90       154
+       I-ORG       0.88      0.88      0.88       296
+    I-PESSOA       0.89      0.98      0.94       434
+       I-PUB       0.91      0.93      0.92      1016
+           O       1.00      0.99      0.99     27012
+
+    accuracy                           0.98     30293
+   macro avg       0.89      0.94      0.92     30293
+weighted avg       0.98      0.98      0.98     30293
+
+f1 0.8789237668161436 f1_masked 0.8890434782608696
+                                                   
+ 97%|█████████▋| 3886/4020 [13:58<00:23,  5.76it/s]
+100%|██████████| 34/34 [00:03<00:00, 28.76it/s]
+                                               Saving model checkpoint to ./results/pub/30_epochs_base_pt_BR\checkpoint-3886
+Configuration saved in ./results/pub/30_epochs_base_pt_BR\checkpoint-3886\config.json
+{'eval_loss': 0.11859098076820374, 'eval_accuracy_score': 0.9836595913247285, 'eval_precision': 0.8431502316346791, 'eval_recall': 0.9178674351585014, 'eval_f1': 0.8789237668161436, 'eval_f1_masked': 0.8890434782608696, 'eval_runtime': 3.0291, 'eval_samples_per_second': 33.014, 'epoch': 29.0}
+Model weights saved in ./results/pub/30_epochs_base_pt_BR\checkpoint-3886\pytorch_model.bin
+ 97%|█████████▋| 3890/4020 [14:00<01:23,  1.55it/s]{'loss': 0.0003, 'learning_rate': 1.8465909090909093e-06, 'epoch': 29.03}
+ 97%|█████████▋| 3900/4020 [14:02<00:23,  5.10it/s]{'loss': 0.0004, 'learning_rate': 1.7045454545454546e-06, 'epoch': 29.1}
+ 97%|█████████▋| 3910/4020 [14:04<00:19,  5.52it/s]{'loss': 0.0002, 'learning_rate': 1.5625e-06, 'epoch': 29.18}
+ 98%|█████████▊| 3920/4020 [14:06<00:18,  5.52it/s]{'loss': 0.0001, 'learning_rate': 1.4204545454545456e-06, 'epoch': 29.25}
+ 98%|█████████▊| 3930/4020 [14:08<00:16,  5.56it/s]{'loss': 0.0001, 'learning_rate': 1.278409090909091e-06, 'epoch': 29.33}
+ 98%|█████████▊| 3940/4020 [14:09<00:14,  5.48it/s]{'loss': 0.0001, 'learning_rate': 1.1363636363636364e-06, 'epoch': 29.4}
+ 98%|█████████▊| 3950/4020 [14:11<00:12,  5.47it/s]{'loss': 0.0001, 'learning_rate': 9.943181818181819e-07, 'epoch': 29.48}
+ 99%|█████████▊| 3960/4020 [14:13<00:10,  5.57it/s]{'loss': 0.0001, 'learning_rate': 8.522727272727273e-07, 'epoch': 29.55}
+ 99%|█████████▉| 3970/4020 [14:15<00:09,  5.49it/s]{'loss': 0.0002, 'learning_rate': 7.102272727272728e-07, 'epoch': 29.63}
+ 99%|█████████▉| 3980/4020 [14:17<00:07,  5.51it/s]{'loss': 0.0002, 'learning_rate': 5.681818181818182e-07, 'epoch': 29.7}
+ 99%|█████████▉| 3990/4020 [14:19<00:05,  5.48it/s]{'loss': 0.0003, 'learning_rate': 4.2613636363636364e-07, 'epoch': 29.78}
+100%|█████████▉| 4000/4020 [14:20<00:03,  5.54it/s]{'loss': 0.0001, 'learning_rate': 2.840909090909091e-07, 'epoch': 29.85}
+100%|█████████▉| 4010/4020 [14:22<00:01,  5.49it/s]{'loss': 0.0002, 'learning_rate': 1.4204545454545455e-07, 'epoch': 29.93}
+100%|██████████| 4020/4020 [14:24<00:00,  5.76it/s]***** Running Evaluation *****
+{'loss': 0.0002, 'learning_rate': 0.0, 'epoch': 30.0}
+  Num examples = 100
+  Batch size = 3
+
+  0%|          | 0/34 [00:00<?, ?it/s]
+ 12%|█▏        | 4/34 [00:00<00:00, 38.60it/s]
+ 24%|██▎       | 8/34 [00:00<00:00, 31.82it/s]
+ 35%|███▌      | 12/34 [00:00<00:00, 30.50it/s]
+ 47%|████▋     | 16/34 [00:00<00:00, 29.58it/s]
+ 59%|█████▉    | 20/34 [00:00<00:00, 29.28it/s]
+ 68%|██████▊   | 23/34 [00:00<00:00, 29.07it/s]
+ 76%|███████▋  | 26/34 [00:00<00:00, 28.92it/s]
+ 85%|████████▌ | 29/34 [00:00<00:00, 28.79it/s]
+ 94%|█████████▍| 32/34 [00:01<00:00, 28.60it/s]{'TP': 3085, 'FP': 380, 'FN': 118, 'TN': 26710}
+              precision    recall  f1-score   support
+
+         LOC       0.83      0.93      0.88       279
+         ORG       0.77      0.86      0.81       189
+      PESSOA       0.85      0.97      0.90       323
+         PUB       0.87      0.91      0.89       597
+
+   micro avg       0.84      0.92      0.88      1388
+   macro avg       0.83      0.92      0.87      1388
+weighted avg       0.84      0.92      0.88      1388
+
+C:\Users\aceite\anaconda3\envs\ner-noticias-mapa\lib\site-packages\sklearn\utils\validation.py:70: FutureWarning: Pass labels=['B-LOC', 'B-ORG', 'B-PESSOA', 'B-PUB', 'I-LOC', 'I-ORG', 'I-PESSOA', 'I-PUB', 'O'] as keyword args. From version 1.0 (renaming of 0.25) passing these as positional arguments will result in an error
+  warnings.warn(f"Pass {args_msg} as keyword args. From version "
+              precision    recall  f1-score   support
+
+       B-LOC       0.85      0.94      0.89       277
+       B-ORG       0.83      0.91      0.87       187
+    B-PESSOA       0.86      0.99      0.92       322
+       B-PUB       0.92      0.94      0.93       595
+       I-LOC       0.85      0.94      0.90       154
+       I-ORG       0.88      0.89      0.88       296
+    I-PESSOA       0.89      0.98      0.94       434
+       I-PUB       0.91      0.93      0.92      1016
+           O       1.00      0.99      0.99     27012
+
+    accuracy                           0.98     30293
+   macro avg       0.89      0.95      0.92     30293
+weighted avg       0.98      0.98      0.98     30293
+
+f1 0.8796966563254051 f1_masked 0.8898157803267293
+                                                   
+100%|██████████| 4020/4020 [14:27<00:00,  5.76it/s]
+100%|██████████| 34/34 [00:03<00:00, 28.60it/s]
+                                               Saving model checkpoint to ./results/pub/30_epochs_base_pt_BR\checkpoint-4020
+Configuration saved in ./results/pub/30_epochs_base_pt_BR\checkpoint-4020\config.json
+{'eval_loss': 0.12020912766456604, 'eval_accuracy_score': 0.9835605585448783, 'eval_precision': 0.8433575677461996, 'eval_recall': 0.9193083573487032, 'eval_f1': 0.8796966563254051, 'eval_f1_masked': 0.8898157803267293, 'eval_runtime': 3.0588, 'eval_samples_per_second': 32.693, 'epoch': 30.0}
+Model weights saved in ./results/pub/30_epochs_base_pt_BR\checkpoint-4020\pytorch_model.bin
+
+
+Training completed. Do not forget to share your model on huggingface.co/models =)
+
+
+Loading best model from ./results/pub/30_epochs_base_pt_BR\checkpoint-2680 (score: 0.8937652385928249).
+loading configuration file ./results/pub/30_epochs_base_pt_BR\checkpoint-2680\config.json
+Model config BertConfig {
+  "_name_or_path": "neuralmind/bert-base-portuguese-cased",
+  "architectures": [
+    "BertNER"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "directionality": "bidi",
+  "gradient_checkpointing": false,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "id2label": {
+    "0": "B-LOC",
+    "1": "B-ORG",
+    "2": "B-PESSOA",
+    "3": "B-PUB",
+    "4": "I-LOC",
+    "5": "I-ORG",
+    "6": "I-PESSOA",
+    "7": "I-PUB",
+    "8": "O"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "label2id": {
+    "B-LOC": 0,
+    "B-ORG": 1,
+    "B-PESSOA": 2,
+    "B-PUB": 3,
+    "I-LOC": 4,
+    "I-ORG": 5,
+    "I-PESSOA": 6,
+    "I-PUB": 7,
+    "O": 8
+  },
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "output_past": true,
+  "pad_token_id": 0,
+  "pooler_fc_size": 768,
+  "pooler_num_attention_heads": 12,
+  "pooler_num_fc_layers": 3,
+  "pooler_size_per_head": 128,
+  "pooler_type": "first_token_transform",
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.5.1",
+  "type_vocab_size": 2,
+  "use_cache": true,
+  "vocab_size": 29794
+}
+
+loading weights file ./results/pub/30_epochs_base_pt_BR\checkpoint-2680\pytorch_model.bin
+All model checkpoint weights were used when initializing BertNER.
+
+All the weights of BertNER were initialized from the model checkpoint at ./results/pub/30_epochs_base_pt_BR\checkpoint-2680.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use BertNER for predictions without further training.
+100%|██████████| 4020/4020 [14:30<00:00,  4.62it/s]
+***** Running Evaluation *****
+  Num examples = 100
+  Batch size = 3
+{'train_runtime': 870.5282, 'train_samples_per_second': 4.618, 'epoch': 30.0}
+TrainOutput(global_step=4020, training_loss=0.038675100969200474, metrics={'train_runtime': 870.5282, 'train_samples_per_second': 4.618, 'epoch': 30.0})
+ 97%|█████████▋| 33/34 [00:01<00:00, 28.81it/s]{'TP': 3095, 'FP': 351, 'FN': 113, 'TN': 26734}
+C:\Users\aceite\anaconda3\envs\ner-noticias-mapa\lib\site-packages\sklearn\utils\validation.py:70: FutureWarning: Pass labels=['B-LOC', 'B-ORG', 'B-PESSOA', 'B-PUB', 'I-LOC', 'I-ORG', 'I-PESSOA', 'I-PUB', 'O'] as keyword args. From version 1.0 (renaming of 0.25) passing these as positional arguments will result in an error
+  warnings.warn(f"Pass {args_msg} as keyword args. From version "
+              precision    recall  f1-score   support
+
+         LOC       0.84      0.93      0.88       279
+         ORG       0.81      0.86      0.84       189
+      PESSOA       0.86      0.97      0.91       323
+         PUB       0.88      0.92      0.90       597
+
+   micro avg       0.85      0.93      0.89      1388
+   macro avg       0.85      0.92      0.88      1388
+weighted avg       0.86      0.93      0.89      1388
+
+              precision    recall  f1-score   support
+
+       B-LOC       0.85      0.94      0.89       277
+       B-ORG       0.86      0.90      0.88       187
+    B-PESSOA       0.87      0.98      0.92       322
+       B-PUB       0.92      0.95      0.93       595
+       I-LOC       0.86      0.94      0.90       154
+       I-ORG       0.90      0.90      0.90       296
+    I-PESSOA       0.90      0.99      0.94       434
+       I-PUB       0.92      0.93      0.93      1016
+           O       1.00      0.99      0.99     27012
+
+    accuracy                           0.98     30293
+   macro avg       0.90      0.95      0.92     30293
+weighted avg       0.99      0.98      0.98     30293
+
+f1 0.8885813148788927 f1_masked 0.8937652385928249
+{'eval_loss': 0.1037185862660408, 'eval_accuracy_score': 0.9846829300498465, 'eval_precision': 0.8548601864181092, 'eval_recall': 0.9250720461095101, 'eval_f1': 0.8885813148788927, 'eval_f1_masked': 0.8937652385928249, 'eval_runtime': 3.0553, 'eval_samples_per_second': 32.73, 'epoch': 30.0}
+100%|██████████| 34/34 [00:03<00:00, 11.22it/s]
+Saving model checkpoint to models/30_epochs_base_pt_BR
+Configuration saved in models/30_epochs_base_pt_BR\config.json
+Model weights saved in models/30_epochs_base_pt_BR\pytorch_model.bin
+
+
+Process finished with exit code 0
