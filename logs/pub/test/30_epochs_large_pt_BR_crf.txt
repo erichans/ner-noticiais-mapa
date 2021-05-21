@@ -70,7 +70,7 @@ The default value for the training argument `--report_to` will change in v5 (fro
 ***** Running Evaluation *****
   Num examples = 400
   Batch size = 3
- 99%|█████████▉| 133/134 [00:07<00:00, 16.54it/s]{'TP': 14480, 'FP': 42, 'FN': 2, 'TN': 124053}
+ 99%|█████████▊| 132/134 [00:09<00:00, 14.32it/s]{'TP': 14480, 'FP': 42, 'FN': 2, 'TN': 124053}
               precision    recall  f1-score   support
 
          LOC       1.00      1.00      1.00      1267
@@ -101,13 +101,13 @@ C:\Users\aceite\anaconda3\envs\ner-noticias-mapa\lib\site-packages\sklearn\utils
 weighted avg       1.00      1.00      1.00    138577
 
 f1 0.9982357388893556 f1_masked 0.999242870362581
-100%|██████████| 134/134 [00:16<00:00,  8.36it/s]
+100%|██████████| 134/134 [00:17<00:00,  7.60it/s]
 ***** Running Evaluation *****
   Num examples = 100
   Batch size = 3
-{'eval_loss': 0.001556580769829452, 'eval_accuracy_score': 0.999682486992791, 'eval_precision': 0.9969793589528444, 'eval_recall': 0.9994952893674294, 'eval_f1': 0.9982357388893556, 'eval_f1_masked': 0.999242870362581, 'eval_runtime': 16.7085, 'eval_samples_per_second': 23.94}
+{'eval_loss': 0.001556580769829452, 'eval_accuracy_score': 0.999682486992791, 'eval_precision': 0.9969793589528444, 'eval_recall': 0.9994952893674294, 'eval_f1': 0.9982357388893556, 'eval_f1_masked': 0.999242870362581, 'eval_runtime': 18.3751, 'eval_samples_per_second': 21.769}
 --------------------------------------------------------------------------------
- 97%|█████████▋| 33/34 [00:01<00:00, 17.02it/s]{'TP': 3107, 'FP': 315, 'FN': 96, 'TN': 26775}
+100%|██████████| 34/34 [00:02<00:00, 15.29it/s]{'TP': 3107, 'FP': 315, 'FN': 96, 'TN': 26775}
               precision    recall  f1-score   support
 
          LOC       0.84      0.94      0.89       279
@@ -138,44 +138,44 @@ C:\Users\aceite\anaconda3\envs\ner-noticias-mapa\lib\site-packages\sklearn\utils
 weighted avg       0.99      0.99      0.99     30293
 
 f1 0.8912061174834898 f1_masked 0.9041095890410958
-{'eval_loss': 0.1065918430685997, 'eval_accuracy_score': 0.9864325091605322, 'eval_precision': 0.8609805238415044, 'eval_recall': 0.9236311239193083, 'eval_f1': 0.8912061174834898, 'eval_f1_masked': 0.9041095890410958, 'eval_runtime': 3.844, 'eval_samples_per_second': 26.014}
+{'eval_loss': 0.1065918430685997, 'eval_accuracy_score': 0.9864325091605322, 'eval_precision': 0.8609805238415044, 'eval_recall': 0.9236311239193083, 'eval_f1': 0.8912061174834898, 'eval_f1_masked': 0.9041095890410958, 'eval_runtime': 4.25, 'eval_samples_per_second': 23.53}
 --------------------------------------------------------------------------------
-100%|██████████| 34/34 [00:03<00:00,  8.95it/s]
+100%|██████████| 34/34 [00:04<00:00,  8.12it/s]
 ***** Running Evaluation *****
   Num examples = 98
   Batch size = 3
-100%|██████████| 33/33 [00:01<00:00, 17.51it/s]{'TP': 1582, 'FP': 235, 'FN': 224, 'TN': 26519}
+100%|██████████| 33/33 [00:02<00:00, 15.38it/s]{'TP': 1583, 'FP': 234, 'FN': 189, 'TN': 26554}
 C:\Users\aceite\anaconda3\envs\ner-noticias-mapa\lib\site-packages\sklearn\utils\validation.py:70: FutureWarning: Pass labels=['B-LOC', 'B-ORG', 'B-PESSOA', 'B-PUB', 'I-LOC', 'I-ORG', 'I-PESSOA', 'I-PUB', 'O'] as keyword args. From version 1.0 (renaming of 0.25) passing these as positional arguments will result in an error
   warnings.warn(f"Pass {args_msg} as keyword args. From version "
               precision    recall  f1-score   support
 
-         LOC       0.87      0.86      0.86       224
-         ORG       0.74      0.70      0.72       188
+         LOC       0.87      0.92      0.89       209
+         ORG       0.74      0.70      0.72       187
       PESSOA       0.92      0.95      0.93       391
-         PUB       0.82      0.81      0.81       319
+         PUB       0.83      0.86      0.84       299
 
-   micro avg       0.85      0.85      0.85      1122
-   macro avg       0.84      0.83      0.83      1122
-weighted avg       0.85      0.85      0.85      1122
+   micro avg       0.85      0.88      0.87      1086
+   macro avg       0.84      0.86      0.85      1086
+weighted avg       0.85      0.88      0.86      1086
 
               precision    recall  f1-score   support
 
-       B-LOC       0.88      0.87      0.87       224
-       B-ORG       0.82      0.73      0.77       188
+       B-LOC       0.88      0.93      0.90       209
+       B-ORG       0.82      0.74      0.78       187
     B-PESSOA       0.92      0.95      0.94       391
-       B-PUB       0.88      0.85      0.86       318
+       B-PUB       0.88      0.91      0.89       298
        I-LOC       0.79      0.93      0.86        58
        I-ORG       0.80      0.45      0.57       213
     I-PESSOA       0.93      1.00      0.96       215
-       I-PUB       0.82      0.90      0.86       270
-           O       0.99      0.99      0.99     26683
+       I-PUB       0.82      0.90      0.86       271
+           O       0.99      0.99      0.99     26718
 
-    accuracy                           0.98     28560
-   macro avg       0.87      0.85      0.85     28560
-weighted avg       0.98      0.98      0.98     28560
+    accuracy                           0.99     28560
+   macro avg       0.87      0.87      0.86     28560
+weighted avg       0.98      0.99      0.98     28560
 
-f1 0.8512728896828942 f1_masked 0.8562443845462714
-{'eval_loss': 0.12355191260576248, 'eval_accuracy_score': 0.9839285714285714, 'eval_precision': 0.8531781557743957, 'eval_recall': 0.8493761140819964, 'eval_f1': 0.8512728896828942, 'eval_f1_masked': 0.8562443845462714, 'eval_runtime': 3.676, 'eval_samples_per_second': 26.659}
-100%|██████████| 33/33 [00:03<00:00,  9.13it/s]
+f1 0.8660916931457103 f1_masked 0.8712328767123287
+100%|██████████| 33/33 [00:04<00:00,  8.19it/s]
+{'eval_loss': 0.10947741568088531, 'eval_accuracy_score': 0.9851890756302522, 'eval_precision': 0.8540734109221128, 'eval_recall': 0.8784530386740331, 'eval_f1': 0.8660916931457103, 'eval_f1_masked': 0.8712328767123287, 'eval_runtime': 4.0937, 'eval_samples_per_second': 23.939}
 
 Process finished with exit code 0

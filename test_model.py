@@ -23,10 +23,10 @@ def run():
     logging.basicConfig(level=logging.INFO)
     transformers.logging.set_verbosity_info()
 
-    tokenizer = BertTokenizerFast.from_pretrained('neuralmind/bert-base-portuguese-cased', model_max_length=512,
+    tokenizer = BertTokenizerFast.from_pretrained('neuralmind/bert-large-portuguese-cased', model_max_length=512,
                                                   do_lower_case=False)
 
-    # tokenizer = BertTokenizerFast.from_pretrained('neuralmind/bert-base-portuguese-cased', model_max_length=512,
+    # tokenizer = BertTokenizerFast.from_pretrained('bert-base-multilingual-cased', model_max_length=512,
     #                                               do_lower_case=False)
 
     train_texts, val_texts, test_texts, train_tags, val_tags, test_tags = get_data(tokenizer)
@@ -56,7 +56,7 @@ def run():
     val_dataset = NewsDataset(val_encodings, eval_labels)
     test_dataset = NewsDataset(test_encodings, test_labels)
 
-    model = BertNER.from_pretrained('models/pub/30_epochs_base_pt_BR_crf',
+    model = BertNER.from_pretrained('models/30_epochs_base_pt_BR_crf_old',
                                     id2label=id2tag, label2id=tag2id)
 
     def mask_output_iobe(batch_predictions: np.ndarray, j: int, batch_predictions_tags: List):
