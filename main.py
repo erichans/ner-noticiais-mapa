@@ -58,18 +58,18 @@ def run():
 
     # model = BertNER.from_pretrained('neuralmind/bert-base-portuguese-cased', id2label=id2tag, label2id=tag2id)
     # model = BertNER.from_pretrained('neuralmind/bert-large-portuguese-cased', id2label=id2tag, label2id=tag2id)
-    # model = BertCRF.from_pretrained('neuralmind/bert-base-portuguese-cased', id2label=id2tag, label2id=tag2id)
+    model = BertCRF.from_pretrained('neuralmind/bert-base-portuguese-cased', id2label=id2tag, label2id=tag2id)
     # model = BertCRF.from_pretrained('neuralmind/bert-large-portuguese-cased', id2label=id2tag, label2id=tag2id)
 
     # model = BertNER.from_pretrained('bert-base-multilingual-cased', id2label=id2tag, label2id=tag2id)
-    model = BertCRF.from_pretrained('bert-base-multilingual-cased', id2label=id2tag, label2id=tag2id)
+    # model = BertCRF.from_pretrained('bert-base-multilingual-cased', id2label=id2tag, label2id=tag2id)
 
     # model = BertForTokenClassification.from_pretrained('neuralmind/bert-base-portuguese-cased', id2label=id2tag,
     #                                                    label2id=tag2id)
 
     BATCH_SIZE = 3
     train_epochs = 30
-    experiment_name = f'{train_epochs}_epochs_multilingual_pt_BR_crf'
+    experiment_name = f'{train_epochs}_epochs_base_pt_BR_crf'
 
     training_args = TrainingArguments(
         output_dir=f'./results/pub/{experiment_name}',  # output directory
@@ -204,10 +204,10 @@ def get_data(tokenizer):
 
         textos, tags = ProcessDataset.pre_processar_base(textos, tags, tokenizer)
         train_texts, val_texts, train_tags, val_tags = train_test_split(textos, tags, test_size=.2, random_state=42)
-        save_data(train_texts, 'train_texts_pub')
-        save_data(train_tags, 'train_tags_pub')
-        save_data(val_texts, 'val_texts_pub')
-        save_data(val_tags, 'val_tags_pub')
+        save_data(train_texts, 'train_texts_pub_multi')
+        save_data(train_tags, 'train_tags_pub_multi')
+        save_data(val_texts, 'val_texts_pub_multi')
+        save_data(val_tags, 'val_tags_pub_multi')
 
     return train_texts, val_texts, train_tags, val_tags
 

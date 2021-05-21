@@ -1,0 +1,181 @@
+C:\Users\aceite\anaconda3\envs\ner-noticias-mapa\python.exe C:/projetos/ner-noticiais-mapa/test_model.py
+loading file https://huggingface.co/neuralmind/bert-base-portuguese-cased/resolve/main/vocab.txt from cache at C:\Users\aceite/.cache\huggingface\transformers\aa6d50227b77416b26162efcf0cc9e9a702d13920840322060a2b41a44a8aff4.af25fb1e29ad0175300146695fd80069be69b211c52fa5486fa8aae2754cc814
+loading file https://huggingface.co/neuralmind/bert-base-portuguese-cased/resolve/main/tokenizer.json from cache at None
+loading file https://huggingface.co/neuralmind/bert-base-portuguese-cased/resolve/main/added_tokens.json from cache at C:\Users\aceite/.cache\huggingface\transformers\9188d297517828a862f4e0b0700968574ca7ad38fbc0832c409bf7a9e5576b74.5cc6e825eb228a7a5cfd27cb4d7151e97a79fb962b31aaf1813aa102e746584b
+loading file https://huggingface.co/neuralmind/bert-base-portuguese-cased/resolve/main/special_tokens_map.json from cache at C:\Users\aceite/.cache\huggingface\transformers\eecc45187d085a1169eed91017d358cc0e9cbdd5dc236bcd710059dbf0a2f816.dd8bd9bfd3664b530ea4e645105f557769387b3da9f79bdb55ed556bdd80611d
+loading file https://huggingface.co/neuralmind/bert-base-portuguese-cased/resolve/main/tokenizer_config.json from cache at C:\Users\aceite/.cache\huggingface\transformers\f1a9ba41d40e8c6f5ba4988aa2f7702c3b43768183e4b82483e04f2848841ecf.a6c00251b9344c189e2419373d6033016d0cd3d87ea59f6c86069046ac81956d
+loading configuration file models/pub/30_epochs_base_pt_BR_crf\config.json
+Model config BertConfig {
+  "_name_or_path": "./results/pub/30_epochs_base_pt_BR_crf\\checkpoint-3350",
+  "architectures": [
+    "BertCRF"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "directionality": "bidi",
+  "gradient_checkpointing": false,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "id2label": {
+    "0": "B-LOC",
+    "1": "B-ORG",
+    "2": "B-PESSOA",
+    "3": "B-PUB",
+    "4": "I-LOC",
+    "5": "I-ORG",
+    "6": "I-PESSOA",
+    "7": "I-PUB",
+    "8": "O"
+  },
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "label2id": {
+    "B-LOC": 0,
+    "B-ORG": 1,
+    "B-PESSOA": 2,
+    "B-PUB": 3,
+    "I-LOC": 4,
+    "I-ORG": 5,
+    "I-PESSOA": 6,
+    "I-PUB": 7,
+    "O": 8
+  },
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "output_past": true,
+  "pad_token_id": 0,
+  "pooler_fc_size": 768,
+  "pooler_num_attention_heads": 12,
+  "pooler_num_fc_layers": 3,
+  "pooler_size_per_head": 128,
+  "pooler_type": "first_token_transform",
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.5.1",
+  "type_vocab_size": 2,
+  "use_cache": true,
+  "vocab_size": 29794
+}
+
+loading weights file models/pub/30_epochs_base_pt_BR_crf\pytorch_model.bin
+Some weights of the model checkpoint at models/pub/30_epochs_base_pt_BR_crf were not used when initializing BertNER: ['crf.start_transitions', 'crf.end_transitions', 'crf.transitions']
+- This IS expected if you are initializing BertNER from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertNER from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of BertNER were not initialized from the model checkpoint at models/pub/30_epochs_base_pt_BR_crf and are newly initialized: ['loss_function.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+PyTorch: setting up devices
+The default value for the training argument `--report_to` will change in v5 (from all installed integrations to none). In v5, you will need to use `--report_to all` to get the same behavior as now. You should start updating your code and make this info disappear :-).
+***** Running Evaluation *****
+  Num examples = 400
+  Batch size = 3
+100%|██████████| 134/134 [00:02<00:00, 54.20it/s]{'TP': 14483, 'FP': 0, 'FN': 0, 'TN': 124094}
+C:\Users\aceite\anaconda3\envs\ner-noticias-mapa\lib\site-packages\sklearn\utils\validation.py:70: FutureWarning: Pass labels=['B-LOC', 'B-ORG', 'B-PESSOA', 'B-PUB', 'I-LOC', 'I-ORG', 'I-PESSOA', 'I-PUB', 'O'] as keyword args. From version 1.0 (renaming of 0.25) passing these as positional arguments will result in an error
+  warnings.warn(f"Pass {args_msg} as keyword args. From version "
+              precision    recall  f1-score   support
+
+         LOC       1.00      1.00      1.00      1267
+         ORG       1.00      1.00      1.00       780
+      PESSOA       1.00      1.00      1.00      1301
+         PUB       1.00      1.00      1.00      2596
+
+   micro avg       1.00      1.00      1.00      5944
+   macro avg       1.00      1.00      1.00      5944
+weighted avg       1.00      1.00      1.00      5944
+
+              precision    recall  f1-score   support
+
+       B-LOC       1.00      1.00      1.00      1266
+       B-ORG       1.00      1.00      1.00       777
+    B-PESSOA       1.00      1.00      1.00      1298
+       B-PUB       1.00      1.00      1.00      2589
+       I-LOC       1.00      1.00      1.00       713
+       I-ORG       1.00      1.00      1.00      1316
+    I-PESSOA       1.00      1.00      1.00      1570
+       I-PUB       1.00      1.00      1.00      4954
+           O       1.00      1.00      1.00    124094
+
+    accuracy                           1.00    138577
+   macro avg       1.00      1.00      1.00    138577
+weighted avg       1.00      1.00      1.00    138577
+
+f1 1.0 f1_masked 0.9990741520074068
+{'eval_loss': 0.00029528391314670444, 'eval_accuracy_score': 1.0, 'eval_precision': 1.0, 'eval_recall': 1.0, 'eval_f1': 1.0, 'eval_f1_masked': 0.9990741520074068, 'eval_runtime': 11.2188, 'eval_samples_per_second': 35.654}
+--------------------------------------------------------------------------------
+100%|██████████| 134/134 [00:10<00:00, 12.65it/s]
+***** Running Evaluation *****
+  Num examples = 100
+  Batch size = 3
+ 88%|████████▊ | 30/34 [00:00<00:00, 53.72it/s]{'TP': 3095, 'FP': 377, 'FN': 112, 'TN': 26709}
+C:\Users\aceite\anaconda3\envs\ner-noticias-mapa\lib\site-packages\sklearn\utils\validation.py:70: FutureWarning: Pass labels=['B-LOC', 'B-ORG', 'B-PESSOA', 'B-PUB', 'I-LOC', 'I-ORG', 'I-PESSOA', 'I-PUB', 'O'] as keyword args. From version 1.0 (renaming of 0.25) passing these as positional arguments will result in an error
+  warnings.warn(f"Pass {args_msg} as keyword args. From version "
+              precision    recall  f1-score   support
+
+         LOC       0.84      0.92      0.88       279
+         ORG       0.77      0.87      0.82       189
+      PESSOA       0.88      0.98      0.92       323
+         PUB       0.89      0.91      0.90       597
+
+   micro avg       0.86      0.92      0.89      1388
+   macro avg       0.84      0.92      0.88      1388
+weighted avg       0.86      0.92      0.89      1388
+
+              precision    recall  f1-score   support
+
+       B-LOC       0.85      0.93      0.89       277
+       B-ORG       0.84      0.92      0.88       187
+    B-PESSOA       0.88      0.98      0.93       322
+       B-PUB       0.93      0.94      0.93       595
+       I-LOC       0.87      0.96      0.91       154
+       I-ORG       0.89      0.91      0.90       296
+    I-PESSOA       0.90      0.99      0.94       434
+       I-PUB       0.89      0.93      0.91      1016
+           O       1.00      0.99      0.99     27012
+
+    accuracy                           0.98     30293
+   macro avg       0.90      0.95      0.92     30293
+weighted avg       0.98      0.98      0.98     30293
+
+f1 0.8885803540437348 f1_masked 0.8976157082748948
+{'eval_loss': 0.12136637419462204, 'eval_accuracy_score': 0.9838576568844287, 'eval_precision': 0.8573342263898192, 'eval_recall': 0.9221902017291066, 'eval_f1': 0.8885803540437348, 'eval_f1_masked': 0.8976157082748948, 'eval_runtime': 2.4843, 'eval_samples_per_second': 40.253}
+--------------------------------------------------------------------------------
+100%|██████████| 34/34 [00:02<00:00, 13.74it/s]
+***** Running Evaluation *****
+  Num examples = 98
+  Batch size = 3
+ 97%|█████████▋| 32/33 [00:00<00:00, 52.01it/s]{'TP': 1567, 'FP': 273, 'FN': 222, 'TN': 26498}
+              precision    recall  f1-score   support
+
+         LOC       0.86      0.83      0.85       224
+         ORG       0.72      0.66      0.69       188
+      PESSOA       0.91      0.96      0.94       391
+         PUB       0.80      0.81      0.81       319
+
+   micro avg       0.84      0.84      0.84      1122
+   macro avg       0.82      0.82      0.82      1122
+weighted avg       0.84      0.84      0.84      1122
+
+C:\Users\aceite\anaconda3\envs\ner-noticias-mapa\lib\site-packages\sklearn\utils\validation.py:70: FutureWarning: Pass labels=['B-LOC', 'B-ORG', 'B-PESSOA', 'B-PUB', 'I-LOC', 'I-ORG', 'I-PESSOA', 'I-PUB', 'O'] as keyword args. From version 1.0 (renaming of 0.25) passing these as positional arguments will result in an error
+  warnings.warn(f"Pass {args_msg} as keyword args. From version "
+              precision    recall  f1-score   support
+
+       B-LOC       0.87      0.83      0.85       224
+       B-ORG       0.81      0.72      0.76       188
+    B-PESSOA       0.91      0.96      0.94       391
+       B-PUB       0.89      0.85      0.87       318
+       I-LOC       0.84      0.90      0.87        58
+       I-ORG       0.68      0.43      0.52       213
+    I-PESSOA       0.93      1.00      0.97       215
+       I-PUB       0.76      0.89      0.82       270
+           O       0.99      0.99      0.99     26683
+
+    accuracy                           0.98     28560
+   macro avg       0.85      0.84      0.84     28560
+weighted avg       0.98      0.98      0.98     28560
+
+f1 0.8417298261257244 f1_masked 0.8518685276902296
+{'eval_loss': 0.11839967221021652, 'eval_accuracy_score': 0.9826680672268907, 'eval_precision': 0.8421052631578947, 'eval_recall': 0.8413547237076648, 'eval_f1': 0.8417298261257244, 'eval_f1_masked': 0.8518685276902296, 'eval_runtime': 2.365, 'eval_samples_per_second': 41.438}
+100%|██████████| 33/33 [00:02<00:00, 14.05it/s]
+
+Process finished with exit code 0
